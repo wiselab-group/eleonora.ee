@@ -14,9 +14,9 @@ export function Mission() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="bg-(--color-tag-bg) rounded-[28px] px-7 sm:px-[clamp(28px,6vw,96px)] py-10 sm:py-[clamp(40px,6vw,84px)] text-left"
+        className="bg-(--color-tag-bg) rounded-[28px] px-7 sm:px-[clamp(28px,6vw,96px)] py-12 sm:py-[clamp(48px,8vw,104px)] text-left"
       >
-        <p className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.14] max-w-[16ch] ml-0 mr-auto text-(--color-text) text-balance">
+        <p className="font-(family-name:--font-display) italic font-medium text-(length:--text-headline) leading-[1.08] max-w-[15ch] ml-0 mr-auto text-(--color-accent-text) text-balance">
           {t.mission}
         </p>
       </motion.div>

@@ -46,7 +46,7 @@ export function ServiceRow({ service, image, duration, choose }: ServiceRowProps
             {service.tag}
           </span>
         </div>
-        <p className="text-[clamp(13px,1.15vw,15px)] leading-relaxed text-(--color-text-faint) mb-2 max-w-[64ch]">
+        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-2 max-w-[58ch]">
           {service.desc}
         </p>
         <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
@@ -54,10 +54,10 @@ export function ServiceRow({ service, image, duration, choose }: ServiceRowProps
         </span>
       </div>
       <div className="text-right whitespace-nowrap pr-1 sm:pr-[clamp(6px,1vw,18px)] col-span-2 sm:col-span-1">
-        <div className="font-(family-name:--font-display) font-medium text-[clamp(24px,2.8vw,38px)] leading-none">
+        <div className="font-(family-name:--font-display) font-medium text-[clamp(26px,3.2vw,44px)] leading-none tracking-[-0.01em]">
           {service.price}
         </div>
-        <div className="inline-flex items-center gap-1.5 mt-3 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2">
+        <div className="inline-flex items-center gap-1.5 mt-3.5 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2">
           {choose} →
         </div>
       </div>

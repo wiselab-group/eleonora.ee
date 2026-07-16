@@ -22,15 +22,15 @@ export function Hero() {
         <div className="inline-flex items-center gap-2 bg-(--color-tag-bg) text-(--color-tag-text) rounded-full px-4 py-1.75 text-xs font-bold tracking-[0.08em] uppercase mb-6 sm:mb-[clamp(20px,3vw,30px)]">
           SMM · UGC · Tallinn
         </div>
-        <h1 className="font-(family-name:--font-display) font-medium text-[clamp(46px,8vw,104px)] leading-[0.98] tracking-[-0.01em] m-0">
+        <h1 className="font-(family-name:--font-display) font-medium text-[clamp(52px,9.5vw,104px)] leading-[0.94] tracking-[-0.02em] m-0">
           Eleonora
           <br />
           <span className="italic font-normal">Kupczyk</span>
         </h1>
-        <p className="text-[clamp(16px,1.5vw,20px)] leading-relaxed text-(--color-text-muted) max-w-[34ch] my-6 sm:my-[clamp(22px,3vw,32px)]">
+        <p className="text-[clamp(16px,1.5vw,20px)] leading-relaxed text-(--color-text-muted) max-w-[34ch] my-6 sm:my-[clamp(24px,3.5vw,40px)]">
           {t.tagline}
         </p>
-        <div className="flex flex-wrap gap-3.5 items-center">
+        <div className="flex flex-wrap gap-5 items-center">
           <Button href={generalTelegramLink(lang)} target="_blank" rel="noopener noreferrer">
             {t.heroCta} <span aria-hidden="true">→</span>
           </Button>
@@ -38,7 +38,7 @@ export function Hero() {
             href="https://www.instagram.com/eleonora.kupczyk/"
             target="_blank"
             rel="noopener noreferrer"
-            className="no-underline text-(--color-text) text-sm font-bold border-b-[1.5px] border-(--color-accent) pb-0.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
+            className="no-underline text-(--color-text-faint) text-sm font-semibold border-b border-transparent pb-0.5 transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent) active:opacity-55"
           >
             @eleonora.kupczyk
           </a>

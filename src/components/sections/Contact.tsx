@@ -32,7 +32,7 @@ export function Contact() {
             <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.02] mb-6 sm:mb-[clamp(22px,3vw,32px)]">
               {t.contactTitle}
             </h2>
-            <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-on-dark)/72 max-w-[42ch] mb-7 sm:mb-[clamp(26px,3vw,36px)]">
+            <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-on-dark)/72 max-w-[42ch] mb-8 sm:mb-[clamp(32px,4vw,44px)]">
               {t.contactBody}
             </p>
             <Button
@@ -40,6 +40,7 @@ export function Contact() {
               href={generalTelegramLink(lang)}
               target="_blank"
               rel="noopener noreferrer"
+              className="px-8 py-4.5 text-base"
             >
               {t.contactCta} <span aria-hidden="true">→</span>
             </Button>
