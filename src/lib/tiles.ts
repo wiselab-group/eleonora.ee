@@ -20,4 +20,4 @@ export const tiles = {
 
 export const serviceImages = [tiles.t0_2, tiles.t1_2, tiles.t0_4, tiles.t0_1, tiles.t1_0, tiles.t0_5];
 
-export const feedImages = [tiles.t0_0, tiles.t1_0, tiles.t0_2, tiles.t1_4, tiles.t0_5, tiles.t0_0];
+export const feedImages = [tiles.t0_0, tiles.t1_0, tiles.t0_2, tiles.t1_4, tiles.t0_5];

@@ -16,9 +16,9 @@ export function Services() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="text-center mb-9 sm:mb-[clamp(30px,4vw,52px)]"
+        className="text-left mb-4 sm:mb-[clamp(16px,2vw,24px)]"
       >
-        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none m-0">
+        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none max-w-[20ch] m-0">
           {t.servicesTitle}
         </h2>
       </motion.div>
@@ -27,7 +27,7 @@ export function Services() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={staggerContainer}
-        className="flex flex-col gap-3 sm:gap-[clamp(12px,1.6vw,18px)]"
+        className="flex flex-col gap-4 sm:gap-[clamp(18px,2.2vw,28px)]"
       >
         {t.services.map((service, index) => (
           <ServiceRow

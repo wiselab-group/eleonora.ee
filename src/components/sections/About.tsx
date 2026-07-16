@@ -17,18 +17,18 @@ export function About() {
       whileInView="visible"
       viewport={viewportOnce}
       variants={staggerContainer}
-      className="grid grid-cols-1 md:grid-cols-[.9fr_1.1fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-center px-5 sm:px-[clamp(20px,5vw,60px)] py-11 sm:py-[clamp(44px,6vw,96px)] max-w-[1320px] mx-auto"
+      className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-start px-5 sm:px-[clamp(20px,5vw,60px)] py-11 sm:py-[clamp(44px,6vw,96px)] max-w-[1320px] mx-auto"
     >
       <motion.div
         variants={fadeUp}
-        className="aspect-square overflow-hidden rounded-[28px] bg-(--color-surface-alt) shadow-[0_24px_50px_rgba(59,46,38,0.14)] relative"
+        className="aspect-square overflow-hidden rounded-[28px] bg-(--color-surface-alt) shadow-[0_24px_50px_rgba(59,46,38,0.14)] relative md:mt-8"
       >
         {/* TODO: swap for a second, distinct portrait — currently reuses the hero photo with a different crop */}
         <Image
           src={eleonoraPhoto}
           alt="Eleonora Kupczyk"
           fill
-          sizes="(max-width: 768px) 100vw, 45vw"
+          sizes="(max-width: 768px) 100vw, 35vw"
           className="object-cover object-top"
           placeholder="blur"
         />

@@ -165,11 +165,23 @@ Soft and inviting: every interactive surface is fully rounded or generously roun
 - **Use:** hero eyebrow ("SMM · UGC · Tallinn"), service tags ("online", "video", "Tallinn").
 
 ### Cards / Containers
-- **Corner style:** 24–28px radius on section-level cards (Mission band, service rows, Contact panel), 16–18px on smaller elements (feed tiles, image thumbnails).
+- **Corner style:** 24–28px radius on section-level cards (Mission band, service rows), 16–18px on smaller elements (feed tiles, image thumbnails). The Contact panel is the one exception — see Layout below.
 - **Background:** warm paper (`#f8f2e8`) for service rows; terracotta tint (`#e4cfc6`) for the Mission band; espresso ink (`#3b2e26`) for the Contact panel.
 - **Shadow strategy:** see Elevation — ambient at rest, soft lift on hover.
 - **Border:** none by default; the dark Contact panel uses a 1px `rgba(246, 239, 228, 0.2)` divider between stacked contact links only.
 - **Internal padding:** clamp(16px, 1.6vw, 22px) for service rows; clamp(28px, 5vw, 80px) for section-level panels.
+
+### Layout
+Every content section shares the same `max-w-[1320px] mx-auto` container and roughly the same vertical rhythm (`py-clamp(40px, …, 96px)`), but each resolves that shared structure into a genuinely different composition rather than repeating one recipe:
+- **Hero**: 2-column split, ~53/47, `items-center`.
+- **Mission**: left-weighted asymmetric block (`text-left`, `max-w-[16ch]`) inside the tinted band — not centered, deliberately different energy from Hero.
+- **About**: 2-column split, ~42/58 (`grid-cols-[1fr_1.4fr]`), `items-start` with the image nudged down (`md:mt-8`) — a more lopsided ratio and a different vertical anchor than Hero, so it reads as its own composition rather than Hero's mirror.
+- **Services**: left-aligned heading sitting tight against the first row (`mb-4`), then more generous gaps between subsequent rows (`gap-4`+) — a real tight-then-loose rhythm, not uniform spacing.
+- **Feed**: asymmetric grid with one dominant tile (`col-span-2 row-span-2` on desktop) among four regular tiles — a focal point instead of a uniform tile wall.
+- **Contact**: the dark panel breaks the container entirely and runs full-bleed edge-to-edge on `md:` and up (`md:px-0 md:rounded-none`), with only the inner content constrained to the standard 1320px width — the one moment on the page where the register visibly shifts, reserved for the highest-intent CTA.
+
+### Named Rules
+**The No-Repeat-Recipe Rule.** No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing *scale* is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright.
 
 ### Navigation
 - **Style:** sticky header, `background: rgba(237, 227, 213, 0.85)` with `backdrop-filter: blur(10px)`, no border or shadow.
@@ -193,6 +205,7 @@ A small uppercase tracked label (`--text-label`, `SectionKicker.tsx`) used only 
 - **Do** pace reveals slowly (0.8–1.0s, `cubic-bezier(0.25, 0.1, 0.25, 1)`) — this is an editorial, unhurried brand, not a SaaS product.
 - **Do** use `--color-accent-text` (#9a5548), never the raw `--color-accent`, wherever white text sits on the accent fill — the raw accent fails WCAG AA at 2.73:1.
 - **Do** resolve every section headline to the single shared `--text-headline` value — a bigger-feeling section earns it through layout, not a private font-size.
+- **Do** give every section a distinct grid shape, alignment anchor, or spacing rhythm from its neighbors (see Layout) — the No-Repeat-Recipe Rule.
 
 ### Don't:
 - **Don't** introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.
@@ -201,3 +214,4 @@ A small uppercase tracked label (`--text-label`, `SectionKicker.tsx`) used only 
 - **Don't** add a second saturated hue. If more color is needed, tint further along the existing ink-to-parchment ramp.
 - **Don't** use `top`/`left`/`width`/`height` in any animation — transform and opacity only, per the site's hardware-acceleration rule.
 - **Don't** add a `SectionKicker` to a new section by reflex because "landing pages do this" — it earns its place only when it carries real information (About's location/specialty fact, Contact's navigational label), not as decorative section grammar repeated on every heading.
+- **Don't** reuse the same grid ratio, alignment, and container width for a new section just because it's the pattern already established elsewhere — check the Layout section first and pick a structure that reads as distinct from its immediate neighbors.

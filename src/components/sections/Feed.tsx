@@ -27,19 +27,23 @@ export function Feed() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={staggerContainer}
-        className="grid grid-cols-3 md:grid-cols-6 gap-2 sm:gap-[clamp(8px,1.2vw,16px)]"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:grid-rows-2 gap-2 sm:gap-[clamp(8px,1.2vw,16px)]"
       >
         {feedImages.map((tile, index) => (
           <motion.div
             key={index}
             variants={fadeUp}
-            className="relative aspect-[4/5] rounded-2xl overflow-hidden"
+            className={`relative rounded-2xl overflow-hidden ${
+              index === 0
+                ? "col-span-2 aspect-square md:aspect-auto md:row-span-2"
+                : "aspect-[4/5]"
+            }`}
           >
             <Image
               src={tile}
               alt=""
               fill
-              sizes="(max-width: 768px) 33vw, 16vw"
+              sizes={index === 0 ? "(max-width: 768px) 100vw, 45vw" : "(max-width: 768px) 33vw, 16vw"}
               className="object-cover"
               placeholder="blur"
             />

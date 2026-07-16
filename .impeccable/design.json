@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-16T13:05:00Z",
+  "generatedAt": "2026-07-16T13:45:00Z",
   "title": "Design System: Eleonora Kupczyk",
   "extensions": {
     "colorMeta": {
@@ -93,7 +93,7 @@
   ],
   "narrative": {
     "northStar": "The Warm Studio",
-    "overview": "The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no gradients, no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality but only in isolated accent moments — one word in the hero H1 and logo, pull-quotes, badges — never a whole heading or wordmark; Nunito Sans stays quiet and does the informational work. Every section title resolves to one shared headline size rather than five ad hoc values, and the small uppercase kicker label appears only where it carries real information (About, Contact), not as decorative scaffolding repeated on every section. This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.",
+    "overview": "The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no gradients, no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality but only in isolated accent moments — one word in the hero H1 and logo, pull-quotes, badges — never a whole heading or wordmark; Nunito Sans stays quiet and does the informational work. Every section title resolves to one shared headline size rather than five ad hoc values, and the small uppercase kicker label appears only where it carries real information (About, Contact), not as decorative scaffolding repeated on every section. Each section also resolves a shared container and spacing scale into its own distinct composition — asymmetric left-weighted blocks, a lopsided image/text ratio, tight-then-loose row spacing, an asymmetric grid with a dominant tile, a full-bleed panel that breaks the container entirely — rather than repeating one grid recipe six times. This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.",
     "keyCharacteristics": [
       "One accent color (#c98e84, dusty terracotta, with a darkened #9a5548 text-safe variant) used sparingly — tags, CTAs, italic pull-quotes, selection color",
       "Fully rounded pill buttons and generously rounded cards (24–28px), never sharp corners",
@@ -107,7 +107,8 @@
       { "name": "The One Accent Rule", "body": "Only #c98e84 / #9a5548 (dusty terracotta and its text-safe darkened variant) carry color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.", "section": "colors" },
       { "name": "The Italic Warmth Rule", "body": "Playfair Display italic is reserved for moments of personality: the accent word in the H1 and header logo, pull-quotes, the floating hero badge, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.", "section": "typography" },
       { "name": "The One Headline Rule", "body": "Every section title (h2) resolves to the same --text-headline value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size.", "section": "typography" },
-      { "name": "The Diffuse-Only Rule", "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.", "section": "elevation" }
+      { "name": "The Diffuse-Only Rule", "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.", "section": "elevation" },
+      { "name": "The No-Repeat-Recipe Rule", "body": "No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing scale is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright (as Contact does with its full-bleed panel).", "section": "layout" }
     ],
     "dos": [
       "Do keep the accent color (#c98e84 / #9a5548) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.",
@@ -116,7 +117,8 @@
       "Do keep shadows diffuse and ink-tinted (4–16% opacity, large blur) — never a hard, dark drop shadow.",
       "Do pace reveals slowly (0.8–1.0s, cubic-bezier(0.25, 0.1, 0.25, 1)) — this is an editorial, unhurried brand, not a SaaS product.",
       "Do use --color-accent-text (#9a5548), never the raw --color-accent, wherever white text sits on the accent fill — the raw accent fails WCAG AA at 2.73:1.",
-      "Do resolve every section headline to the single shared --text-headline value — a bigger-feeling section earns it through layout, not a private font-size."
+      "Do resolve every section headline to the single shared --text-headline value — a bigger-feeling section earns it through layout, not a private font-size.",
+      "Do give every section a distinct grid shape, alignment anchor, or spacing rhythm from its neighbors — the No-Repeat-Recipe Rule."
     ],
     "donts": [
       "Don't introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.",
@@ -124,7 +126,8 @@
       "Don't use sharp corners or hard shadows anywhere; every corner is rounded, every shadow is soft.",
       "Don't add a second saturated hue. If more color is needed, tint further along the existing ink-to-parchment ramp.",
       "Don't use top/left/width/height in any animation — transform and opacity only, per the site's hardware-acceleration rule.",
-      "Don't add a SectionKicker to a new section by reflex because \"landing pages do this\" — it earns its place only when it carries real information, not as decorative section grammar repeated on every heading."
+      "Don't add a SectionKicker to a new section by reflex because \"landing pages do this\" — it earns its place only when it carries real information, not as decorative section grammar repeated on every heading.",
+      "Don't reuse the same grid ratio, alignment, and container width for a new section just because it's the pattern already established elsewhere — check for a structure that reads as distinct from its immediate neighbors."
     ]
   }
 }
