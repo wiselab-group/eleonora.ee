@@ -8,10 +8,10 @@ import { fadeUp, viewportOnce } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 
 const links = [
-  { label: "Instagram", href: "https://www.instagram.com/eleonora.kupczyk/", value: "@eleonora.kupczyk" },
-  { label: "Telegram", href: "https://t.me/eleonora_kupczyk", value: "@eleonora_kupczyk" },
-  { label: "tel", href: "tel:+37256950304", value: "+372 569 50 304" },
-  { label: "E-mail", href: "mailto:eleonora.kupczyk@gmail.com", value: "eleonora.kupczyk@gmail.com" },
+  { label: "Instagram", href: "https://www.instagram.com/eleonora.kupczyk/", value: "@eleonora.kupczyk", external: true },
+  { label: "Telegram", href: "https://t.me/eleonora_kupczyk", value: "@eleonora_kupczyk", external: true },
+  { label: "tel", href: "tel:+37256950304", value: "+372 569 50 304", external: false },
+  { label: "E-mail", href: "mailto:eleonora.kupczyk@gmail.com", value: "eleonora.kupczyk@gmail.com", external: false },
 ];
 
 export function Contact() {
@@ -35,7 +35,12 @@ export function Contact() {
             <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-on-dark)/72 max-w-[42ch] mb-7 sm:mb-[clamp(26px,3vw,36px)]">
               {t.contactBody}
             </p>
-            <Button variant="solid-accent" href={generalTelegramLink(lang)}>
+            <Button
+              variant="solid-accent"
+              href={generalTelegramLink(lang)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t.contactCta} <span aria-hidden="true">→</span>
             </Button>
           </div>
@@ -44,7 +49,9 @@ export function Contact() {
               <a
                 key={link.label}
                 href={link.href}
-                className="flex justify-between gap-3 no-underline text-(--color-on-dark) border-t border-(--color-on-dark)/20 pt-3.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70"
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="flex justify-between gap-3 no-underline text-(--color-on-dark) border-t border-(--color-on-dark)/20 pt-3.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
               >
                 <span className="text-(--color-on-dark)/55">
                   {link.label === "tel" ? t.phone : link.label}

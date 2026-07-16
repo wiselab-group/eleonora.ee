@@ -31,12 +31,14 @@ export function Hero() {
           {t.tagline}
         </p>
         <div className="flex flex-wrap gap-3.5 items-center">
-          <Button href={generalTelegramLink(lang)}>
+          <Button href={generalTelegramLink(lang)} target="_blank" rel="noopener noreferrer">
             {t.heroCta} <span aria-hidden="true">→</span>
           </Button>
           <a
             href="https://www.instagram.com/eleonora.kupczyk/"
-            className="no-underline text-(--color-text) text-sm font-bold border-b-[1.5px] border-(--color-accent) pb-0.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="no-underline text-(--color-text) text-sm font-bold border-b-[1.5px] border-(--color-accent) pb-0.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
           >
             @eleonora.kupczyk
           </a>

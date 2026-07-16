@@ -34,6 +34,7 @@ export interface Translation {
   feedKicker: string;
   feedTitle: string;
   feedCta: string;
+  feedAlt: string;
   contactKicker: string;
   contactTitle: string;
   contactBody: string;
@@ -67,6 +68,7 @@ const dictionaries: Record<Locale, Translation> = {
     feedKicker: "Лента",
     feedTitle: "Как это выглядит",
     feedCta: "Instagram",
+    feedAlt: "Кадр из Instagram-ленты Eleonora Kupczyk",
     contactKicker: "Контакты",
     contactTitle: "Давайте создадим ваш блог",
     contactBody:
@@ -149,6 +151,7 @@ const dictionaries: Record<Locale, Translation> = {
     feedKicker: "Feed",
     feedTitle: "How it looks",
     feedCta: "Instagram",
+    feedAlt: "A frame from Eleonora Kupczyk's Instagram feed",
     contactKicker: "Contact",
     contactTitle: "Let's build your blog",
     contactBody:

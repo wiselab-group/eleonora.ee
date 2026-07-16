@@ -25,7 +25,7 @@ export function Header() {
           <a
             key={item.href}
             href={item.href}
-            className="no-underline border-b border-transparent transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent)"
+            className="no-underline border-b border-transparent transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent) active:opacity-70"
           >
             {item.label}
           </a>
@@ -36,6 +36,8 @@ export function Header() {
         <Button
           variant="solid-accent"
           href={generalTelegramLink(lang)}
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Telegram"
           className="px-3 py-2.25 sm:px-4.5 text-xs"
         >

@@ -17,7 +17,9 @@ export function Feed() {
         </h2>
         <a
           href="https://www.instagram.com/eleonora.kupczyk/"
-          className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75"
         >
           {t.feedCta} →
         </a>
@@ -41,7 +43,7 @@ export function Feed() {
           >
             <Image
               src={tile}
-              alt=""
+              alt={`${t.feedAlt} ${index + 1}`}
               fill
               sizes={index === 0 ? "(max-width: 768px) 100vw, 45vw" : "(max-width: 768px) 33vw, 16vw"}
               className="object-cover"

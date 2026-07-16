@@ -20,12 +20,14 @@ export function ServiceRow({ service, image, duration, choose }: ServiceRowProps
     <motion.a
       variants={fadeUp}
       href={serviceTelegramLink(service, lang)}
-      className="grid grid-cols-[88px_1fr] sm:grid-cols-[128px_1fr_auto] gap-4.5 sm:gap-[clamp(18px,2.6vw,40px)] items-center bg-(--color-surface) rounded-3xl p-4 sm:p-[clamp(16px,1.6vw,22px)] no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-[transform,box-shadow] duration-250 ease-(--ease-transition) hover:-translate-y-[3px] hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="grid grid-cols-[88px_1fr] sm:grid-cols-[128px_1fr_auto] gap-4.5 sm:gap-[clamp(18px,2.6vw,40px)] items-center bg-(--color-surface) rounded-3xl p-4 sm:p-[clamp(16px,1.6vw,22px)] no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-[transform,box-shadow] duration-250 ease-(--ease-transition) hover:-translate-y-[3px] hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)] active:translate-y-0 active:shadow-[0_2px_0_rgba(59,46,38,0.04)]"
     >
       <div className="aspect-square overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative">
         <Image
           src={image}
-          alt=""
+          alt={service.title}
           fill
           sizes="128px"
           className="object-cover"
