@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, viewportOnce } from "@/lib/motion";
+import { generalTelegramLink } from "@/lib/telegram";
 
 const links = [
   { label: "Instagram", href: "https://www.instagram.com/eleonora.kupczyk/", value: "@eleonora.kupczyk" },
@@ -13,7 +14,7 @@ const links = [
 ];
 
 export function Contact() {
-  const { t } = useLocale();
+  const { t, lang } = useLocale();
 
   return (
     <section
@@ -37,7 +38,7 @@ export function Contact() {
           <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-on-dark)/72 max-w-[42ch] mb-7 sm:mb-[clamp(26px,3vw,36px)]">
             {t.contactBody}
           </p>
-          <Button variant="solid-accent" href="https://t.me/eleonora_kupczyk">
+          <Button variant="solid-accent" href={generalTelegramLink(lang)}>
             {t.contactCta} <span aria-hidden="true">→</span>
           </Button>
         </div>

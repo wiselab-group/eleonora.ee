@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { SectionKicker } from "@/components/ui/SectionKicker";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
+import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
 export function About() {
   const { t } = useLocale();
@@ -19,8 +21,18 @@ export function About() {
     >
       <motion.div
         variants={fadeUp}
-        className="aspect-square overflow-hidden rounded-[28px] bg-(--color-surface-alt) shadow-[0_24px_50px_rgba(59,46,38,0.14)]"
-      />
+        className="aspect-square overflow-hidden rounded-[28px] bg-(--color-surface-alt) shadow-[0_24px_50px_rgba(59,46,38,0.14)] relative"
+      >
+        {/* TODO: swap for a second, distinct portrait — currently reuses the hero photo with a different crop */}
+        <Image
+          src={eleonoraPhoto}
+          alt="Eleonora Kupczyk"
+          fill
+          sizes="(max-width: 768px) 100vw, 45vw"
+          className="object-cover object-top"
+          placeholder="blur"
+        />
+      </motion.div>
       <motion.div variants={fadeUp}>
         <SectionKicker>{t.aboutKicker}</SectionKicker>
         <h2 className="font-(family-name:--font-display) font-medium text-[clamp(30px,4.4vw,58px)] leading-[1.05] mb-5 sm:mb-[clamp(20px,3vw,28px)]">
@@ -29,7 +41,7 @@ export function About() {
         <p className="text-[clamp(15px,1.35vw,18px)] leading-[1.75] text-(--color-text-muted) max-w-[52ch] mb-6">
           {t.aboutBody}
         </p>
-        <p className="font-(family-name:--font-display) italic text-[clamp(20px,2.2vw,28px)] leading-[1.3] text-[#9a6a5e] max-w-[36ch] m-0">
+        <p className="font-(family-name:--font-display) italic text-[clamp(20px,2.2vw,28px)] leading-[1.3] text-(--color-accent-text) max-w-[36ch] m-0">
           &ldquo;{t.aboutQuote}&rdquo;
         </p>
       </motion.div>

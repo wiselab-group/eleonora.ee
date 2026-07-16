@@ -10,7 +10,7 @@ export function SectionKicker({
   align = "left",
 }: SectionKickerProps) {
   const toneClass =
-    tone === "on-dark" ? "text-(--color-accent)" : "text-[#b08a7e]";
+    tone === "on-dark" ? "text-(--color-accent)" : "text-(--color-text-faint)";
   const alignClass = align === "center" ? "text-center" : "";
 
   return (

@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, staggerContainer } from "@/lib/motion";
+import { generalTelegramLink } from "@/lib/telegram";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
 export function Hero() {
-  const { t } = useLocale();
+  const { t, lang } = useLocale();
 
   return (
     <motion.section
@@ -30,7 +31,7 @@ export function Hero() {
           {t.tagline}
         </p>
         <div className="flex flex-wrap gap-3.5 items-center">
-          <Button href="https://t.me/eleonora_kupczyk">
+          <Button href={generalTelegramLink(lang)}>
             {t.heroCta} <span aria-hidden="true">→</span>
           </Button>
           <a
