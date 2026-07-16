@@ -14,19 +14,12 @@ export interface Service {
 }
 
 export interface Translation {
-  nav_about: string;
   nav_services: string;
   nav_feed: string;
   nav_contact: string;
   tagline: string;
   heroCta: string;
   heroBadge: string;
-  missionLabel: string;
-  mission: string;
-  aboutKicker: string;
-  aboutTitle: string;
-  aboutBody: string;
-  aboutQuote: string;
   servicesKicker: string;
   servicesTitle: string;
   duration: string;
@@ -45,7 +38,6 @@ export interface Translation {
 
 const dictionaries: Record<Locale, Translation> = {
   ru: {
-    nav_about: "Обо мне",
     nav_services: "Услуги",
     nav_feed: "Лента",
     nav_contact: "Контакты",
@@ -53,14 +45,6 @@ const dictionaries: Record<Locale, Translation> = {
       "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
     heroCta: "Написать в Telegram",
     heroBadge: "контент, который хочется смотреть",
-    missionLabel: "моя цель",
-    mission:
-      "Показать, что блог может вести каждый — и дать все инструменты для этого.",
-    aboutKicker: "Таллинн · SMM и UGC",
-    aboutTitle: "Привет, меня зовут Элеонора",
-    aboutBody:
-      "Я верю, что у каждого есть уникальная история, достойная того, чтобы быть услышанной. Моя задача — не только вдохновить вас на создание блога, но и дать все инструменты, чтобы сделать этот процесс простым и увлекательным. Персональная консультация или съёмка контента — я здесь, чтобы помочь вам раскрыть потенциал и уверенно заявить о себе.",
-    aboutQuote: "Блог — это не просто хобби, а возможность показать себя миру.",
     servicesKicker: "Услуги",
     servicesTitle: "Чем я могу помочь?",
     duration: "Длительность",
@@ -127,7 +111,6 @@ const dictionaries: Record<Locale, Translation> = {
     ],
   },
   en: {
-    nav_about: "About",
     nav_services: "Services",
     nav_feed: "Feed",
     nav_contact: "Contact",
@@ -135,15 +118,6 @@ const dictionaries: Record<Locale, Translation> = {
       "A marketer based in Tallinn. I create content, teach and consult — helping you unfold yourself and speak about it on social media.",
     heroCta: "Message on Telegram",
     heroBadge: "content you want to watch",
-    missionLabel: "my mission",
-    mission:
-      "To show that anyone can run a blog — and give every tool you need to do it.",
-    aboutKicker: "Tallinn · SMM & UGC",
-    aboutTitle: "Hi, my name is Eleonora",
-    aboutBody:
-      "I believe everyone has a unique story worth being heard. My job is not only to inspire you to start a blog, but to give you every tool to make the process simple and enjoyable. A personal consultation or a content shoot — I am here to help you unlock your potential and speak about yourself with confidence.",
-    aboutQuote:
-      "A blog isn't just a hobby — it's a chance to show yourself to the world.",
     servicesKicker: "Services",
     servicesTitle: "How can I help?",
     duration: "Duration",

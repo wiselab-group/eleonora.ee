@@ -9,7 +9,6 @@ export function Header() {
   const { t, lang } = useLocale();
 
   const navItems = [
-    { href: "#about", label: t.nav_about },
     { href: "#services", label: t.nav_services },
     { href: "#feed", label: t.nav_feed },
     { href: "#contact", label: t.nav_contact },
