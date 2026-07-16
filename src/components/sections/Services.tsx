@@ -10,15 +10,15 @@ export function Services() {
   const { t } = useLocale();
 
   return (
-    <section id="services" className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto">
+    <section id="services" className="px-5 sm:px-[clamp(20px,5vw,60px)] pt-12 sm:pt-[clamp(48px,7vw,100px)] pb-10 sm:pb-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="text-left mb-4 sm:mb-[clamp(16px,2vw,24px)]"
+        className="text-left mb-6 sm:mb-[clamp(24px,3vw,36px)]"
       >
-        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none max-w-[20ch] m-0">
+        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none max-w-[16ch] m-0">
           {t.servicesTitle}
         </h2>
       </motion.div>

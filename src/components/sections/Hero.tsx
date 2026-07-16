@@ -16,7 +16,7 @@ export function Hero() {
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      className="grid grid-cols-1 md:grid-cols-[1.05fr_.95fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-center px-5 sm:px-[clamp(20px,5vw,60px)] pt-[clamp(30px,5vw,72px)] pb-[clamp(24px,4vw,48px)] max-w-[1320px] mx-auto"
+      className="grid grid-cols-1 md:grid-cols-[1.05fr_.95fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-center px-5 sm:px-[clamp(20px,5vw,60px)] pt-[clamp(30px,5vw,72px)] pb-[clamp(48px,8vw,96px)] max-w-[1320px] mx-auto"
     >
       <motion.div variants={fadeUp}>
         <div className="inline-flex items-center gap-2 bg-(--color-tag-bg) text-(--color-tag-text) rounded-full px-4 py-1.75 text-xs font-bold tracking-[0.08em] uppercase mb-6 sm:mb-[clamp(20px,3vw,30px)]">
