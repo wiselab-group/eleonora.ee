@@ -35,7 +35,7 @@ export function About() {
       </motion.div>
       <motion.div variants={fadeUp}>
         <SectionKicker>{t.aboutKicker}</SectionKicker>
-        <h2 className="font-(family-name:--font-display) font-medium text-[clamp(30px,4.4vw,58px)] leading-[1.05] mb-5 sm:mb-[clamp(20px,3vw,28px)]">
+        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.05] mb-5 sm:mb-[clamp(20px,3vw,28px)]">
           {t.aboutTitle}
         </h2>
         <p className="text-[clamp(15px,1.35vw,18px)] leading-[1.75] text-(--color-text-muted) max-w-[52ch] mb-6">

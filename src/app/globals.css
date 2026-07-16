@@ -30,6 +30,13 @@
 
   --ease-reveal: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Modular type scale — one value per tier, shared across all sections */
+  --text-display: clamp(46px, 8vw, 104px);
+  --text-headline: clamp(30px, 4.4vw, 58px);
+  --text-title: clamp(20px, 2.3vw, 30px);
+  --text-body: clamp(15px, 1.35vw, 18px);
+  --text-label: 12px;
 }
 
 @theme inline {

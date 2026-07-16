@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
-import { SectionKicker } from "@/components/ui/SectionKicker";
 import { ServiceRow } from "./ServiceRow";
 import { serviceImages } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
@@ -19,8 +18,7 @@ export function Services() {
         variants={fadeUp}
         className="text-center mb-9 sm:mb-[clamp(30px,4vw,52px)]"
       >
-        <SectionKicker align="center">{t.servicesKicker}</SectionKicker>
-        <h2 className="font-(family-name:--font-display) font-medium text-[clamp(34px,5.5vw,72px)] leading-none m-0">
+        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none m-0">
           {t.servicesTitle}
         </h2>
       </motion.div>

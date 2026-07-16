@@ -17,10 +17,10 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between gap-2 sm:gap-6 px-4 sm:px-[clamp(20px,5vw,60px)] py-4.5 sticky top-0 bg-(--color-bg)/85 backdrop-blur-md z-40">
-      <div className="font-(family-name:--font-display) italic text-base sm:text-xl whitespace-nowrap shrink-0">
-        Eleonora Kupczyk
+      <div className="font-(family-name:--font-display) text-base sm:text-xl whitespace-nowrap shrink-0">
+        Eleonora <span className="italic font-normal">Kupczyk</span>
       </div>
-      <nav className="hidden md:flex gap-7.5 text-[13px] font-semibold text-(--color-text-faint)">
+      <nav className="hidden md:flex gap-7.5 text-(length:--text-label) font-semibold text-(--color-text-faint)">
         {navItems.map((item) => (
           <a
             key={item.href}

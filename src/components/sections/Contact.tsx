@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
+import { SectionKicker } from "@/components/ui/SectionKicker";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 
@@ -29,10 +30,8 @@ export function Contact() {
         className="bg-(--color-dark) text-(--color-on-dark) rounded-[32px] px-7 sm:px-[clamp(28px,5vw,80px)] py-10 sm:py-[clamp(40px,6vw,96px)] grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end"
       >
         <div>
-          <div className="text-xs font-bold tracking-[0.22em] uppercase text-(--color-accent) mb-5">
-            {t.contactKicker}
-          </div>
-          <h2 className="font-(family-name:--font-display) font-medium text-[clamp(34px,5.5vw,76px)] leading-[1.02] mb-6 sm:mb-[clamp(22px,3vw,32px)]">
+          <SectionKicker tone="on-dark">{t.contactKicker}</SectionKicker>
+          <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.02] mb-6 sm:mb-[clamp(22px,3vw,32px)]">
             {t.contactTitle}
           </h2>
           <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-on-dark)/72 max-w-[42ch] mb-7 sm:mb-[clamp(26px,3vw,36px)]">
@@ -57,7 +56,7 @@ export function Contact() {
           ))}
         </div>
       </motion.div>
-      <div className="flex justify-between text-[11px] font-semibold tracking-[0.1em] uppercase text-[#9a8576] mt-5.5">
+      <div className="flex justify-between text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint) mt-5.5">
         <span>© 2026 Eleonora Kupczyk</span>
         <span>Tallinn, Estonia</span>
       </div>

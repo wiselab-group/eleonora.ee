@@ -37,22 +37,22 @@ export function ServiceRow({ service, image, duration, choose }: ServiceRowProps
           <span className="font-(family-name:--font-display) italic text-base text-(--color-accent-text)">
             {service.num}
           </span>
-          <h3 className="font-(family-name:--font-display) font-medium text-[clamp(20px,2.3vw,30px)] leading-[1.05] m-0">
+          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0">
             {service.title}
           </h3>
-          <span className="text-[11px] font-bold tracking-[0.06em] uppercase text-(--color-tag-text) bg-(--color-tag-bg) rounded-full px-2.75 py-0.75">
+          <span className="text-(length:--text-label) font-bold tracking-[0.06em] uppercase text-(--color-tag-text) bg-(--color-tag-bg) rounded-full px-2.75 py-0.75">
             {service.tag}
           </span>
         </div>
         <p className="text-[clamp(13px,1.15vw,15px)] leading-relaxed text-(--color-text-faint) mb-2 max-w-[64ch]">
           {service.desc}
         </p>
-        <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
+        <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
           {duration} · {service.dur}
         </span>
       </div>
       <div className="text-right whitespace-nowrap pr-1 sm:pr-[clamp(6px,1vw,18px)] col-span-2 sm:col-span-1">
-        <div className="font-(family-name:--font-display) text-[clamp(24px,2.8vw,38px)] leading-none">
+        <div className="font-(family-name:--font-display) font-medium text-[clamp(24px,2.8vw,38px)] leading-none">
           {service.price}
         </div>
         <div className="inline-flex items-center gap-1.5 mt-3 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2">

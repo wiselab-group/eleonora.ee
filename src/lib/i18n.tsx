@@ -55,7 +55,7 @@ const dictionaries: Record<Locale, Translation> = {
     missionLabel: "моя цель",
     mission:
       "Показать, что блог может вести каждый — и дать все инструменты для этого.",
-    aboutKicker: "Обо мне",
+    aboutKicker: "Таллинн · SMM и UGC",
     aboutTitle: "Привет, меня зовут Элеонора",
     aboutBody:
       "Я верю, что у каждого есть уникальная история, достойная того, чтобы быть услышанной. Моя задача — не только вдохновить вас на создание блога, но и дать все инструменты, чтобы сделать этот процесс простым и увлекательным. Персональная консультация или съёмка контента — я здесь, чтобы помочь вам раскрыть потенциал и уверенно заявить о себе.",
@@ -136,7 +136,7 @@ const dictionaries: Record<Locale, Translation> = {
     missionLabel: "my mission",
     mission:
       "To show that anyone can run a blog — and give every tool you need to do it.",
-    aboutKicker: "About me",
+    aboutKicker: "Tallinn · SMM & UGC",
     aboutTitle: "Hi, my name is Eleonora",
     aboutBody:
       "I believe everyone has a unique story worth being heard. My job is not only to inspire you to start a blog, but to give you every tool to make the process simple and enjoyable. A personal consultation or a content shoot — I am here to help you unlock your potential and speak about yourself with confidence.",
