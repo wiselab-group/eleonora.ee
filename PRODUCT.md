@@ -1,4 +1,57 @@
-# Product Requirements
+# Product
+
+## Register
+
+brand
+
+## Platform
+
+web
+
+## Users
+
+Primary: aspiring content creators and bloggers, mostly in Tallinn and the wider Baltic region, who want to start or grow a personal blog or social presence. They land here unsure how to begin or stuck at a plateau, and are looking for direct, personal coaching rather than a generic course — an account review, a content shoot, or ongoing mentorship. They need to feel this is a real person who will pay attention to their specific situation, not a templated funnel.
+
+## Product Purpose
+
+A personal-brand landing page for Eleonora Kupczyk, a Tallinn-based SMM/UGC marketer and content coach. It exists to convert visitors into direct Telegram conversations about her services: blog reviews, account audits, UGC coaching, mentorship, and content shoots. Success is a visitor messaging her on Telegram with enough context (which service, what they need) that the conversation starts warm.
+
+## Positioning
+
+Personal, hands-on guidance — unlike a generic course or agency, Eleonora personally reviews your account, shoots your content, and mentors you one-on-one. Every section reinforces that a real person is behind the offer, not a productized funnel.
+
+## Conversion & proof
+
+- Primary and secondary CTA: Message on Telegram (primary, repeated in Header/Hero/Contact); browse the Instagram feed (secondary, for visitors not ready to message yet — the Feed section surfaces real content as proof before asking for contact).
+- The line a visitor remembers after 10 seconds: "This is a real, warm person who will personally help me figure out my blog — not a course."
+- Belief ladder: (1) She's a real, warm, credible person — carried by the hero portrait and About section. (2) One of her six services fits my exact need — carried by the Services section's specific, differentiated offers. (3) The price is fair for the value — carried by transparent per-service pricing, no "contact for pricing." (4) Reaching out is easy and low-risk — carried by a direct Telegram link everywhere, no form, no funnel.
+- Proof on hand: Instagram feed preview (6 tiles, linked to @eleonora.kupczyk) serves as the primary social proof; no testimonials or case studies collected yet.
+
+## Brand Personality
+
+Warm, confident, approachable. The voice is direct and personal (first-person "I" copy, "Привет, меня зовут Элеонора"), never corporate or hype-driven. Confidence comes from specificity — named services, real prices, real duration — not from superlatives.
+
+## Anti-references
+
+Generic SaaS/agency consultant templates: corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines. Also avoid loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand should read as one real person's warm, editorial space, not a mass-produced funnel.
+
+## Design Principles
+
+- One real person, always visible — portraits, first-person voice, and direct contact links over abstracted forms or funnels.
+- Specificity over superlatives — exact prices, durations, and deliverables build more trust than generic claims of expertise.
+- Slow, editorial pacing — motion and layout should feel considered and unhurried, matching a coach's attentiveness rather than a SaaS product's urgency.
+- Practice what's taught — a marketer teaching content creation should visibly demonstrate good content/design taste on her own site.
+- Low-friction contact — every path leads to a direct Telegram message, never a form or gated funnel.
+
+## Accessibility & Inclusion
+
+WCAG 2.1 AA: minimum 4.5:1 contrast for body text, 3:1 for large text; visible focus rings on all interactive elements; full `prefers-reduced-motion` fallback (already implemented in globals.css).
+
+---
+
+# Implementation Reference
+
+The strategic context above guides design decisions. The technical detail below documents the current implementation.
 
 ## Core Scope
 Type: Personal brand landing page (single page, anchor-linked sections)
@@ -10,7 +63,7 @@ Content: ready (RU/EN copy and pricing sourced from approved Soft.dc.html design
 ## Sections Map
 
 ### Header
-- Component: src/components/sections/Header.tsx
+- Component: src/components/layout/Header.tsx
 - Layout: sticky top bar, logo left, nav center (desktop only), language toggle + Telegram CTA right
 - Animation: backdrop-blur on scroll (already applied), no scroll-triggered reveal (persistent chrome)
 - Data: nav labels (i18n), Telegram link
@@ -47,7 +100,7 @@ Content: ready (RU/EN copy and pricing sourced from approved Soft.dc.html design
 
 ### Contact
 - Component: src/components/sections/Contact.tsx
-- Layout: dark rounded panel, 2-column (60/40) — heading + body + CTA left, stacked contact links (Instagram, Telegram, phone, email) right; footer line below panel
+- Layout: dark rounded panel, 2-column (60/40) — heading + body + CTA left, stacked contact links (Instagram, Telegram, VK, phone, email) right; footer line below panel
 - Animation: fade+translateY reveal on scroll entry
 - Data: contact copy, contact links (i18n)
 

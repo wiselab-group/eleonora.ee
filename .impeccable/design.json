@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-16T12:15:48Z",
+  "title": "Design System: Eleonora Kupczyk",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Dusty Terracotta", "canonical": "oklch(66% 0.08 25)", "tonalRamp": ["oklch(20% 0.03 25)", "oklch(32% 0.05 25)", "oklch(44% 0.06 25)", "oklch(56% 0.08 25)", "oklch(66% 0.08 25)", "oklch(76% 0.07 25)", "oklch(86% 0.05 25)", "oklch(95% 0.02 25)"] },
+      "ink": { "role": "neutral", "displayName": "Espresso Ink", "canonical": "oklch(30% 0.03 45)", "tonalRamp": ["oklch(15% 0.02 45)", "oklch(22% 0.025 45)", "oklch(30% 0.03 45)", "oklch(40% 0.035 45)", "oklch(52% 0.04 45)", "oklch(65% 0.03 45)", "oklch(80% 0.02 45)", "oklch(93% 0.01 45)"] },
+      "ink-muted": { "role": "neutral", "displayName": "Warm Ink Muted", "canonical": "oklch(40% 0.035 45)" },
+      "ink-faint": { "role": "neutral", "displayName": "Faint Ink", "canonical": "oklch(45% 0.03 45)" },
+      "bg": { "role": "neutral", "displayName": "Parchment", "canonical": "oklch(90% 0.02 70)" },
+      "surface": { "role": "neutral", "displayName": "Warm Paper", "canonical": "oklch(94% 0.015 70)" },
+      "surface-alt": { "role": "neutral", "displayName": "Cream Highlight", "canonical": "oklch(95% 0.015 75)" },
+      "tag-bg": { "role": "neutral", "displayName": "Terracotta Tint", "canonical": "oklch(85% 0.04 30)" },
+      "tag-text": { "role": "neutral", "displayName": "Deep Terracotta Text", "canonical": "oklch(45% 0.07 30)" },
+      "border": { "role": "neutral", "displayName": "Ink Border Wash", "canonical": "rgba(59, 46, 38, 0.2)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name headline only, italic variant marks the accent word." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles: Mission quote, About, Services, Contact." },
+      "body": { "displayName": "Body", "purpose": "Taglines, bio copy, service descriptions. Max ~64ch line length." },
+      "label": { "displayName": "Label", "purpose": "Kickers, tag pills, duration/price micro-labels. Always uppercase, bold, tracked." }
+    },
+    "shadows": [
+      { "name": "ambient-card", "value": "0 2px 0 rgba(59, 46, 38, 0.04)", "purpose": "Resting state for service rows." },
+      { "name": "hover-lift", "value": "0 22px 44px rgba(59, 46, 38, 0.12)", "purpose": "Service rows and interactive cards on hover, paired with translateY(-3px)." },
+      { "name": "floating-badge", "value": "0 16px 36px rgba(59, 46, 38, 0.14)", "purpose": "Hero floating quote badge and overlapping elements." },
+      { "name": "hero-portrait", "value": "0 30px 60px rgba(59, 46, 38, 0.16)", "purpose": "Largest, softest shadow — reserved for the single most prominent image." }
+    ],
+    "motion": [
+      { "name": "ease-reveal", "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "purpose": "Slow, calm ease-out for all scroll-triggered reveals (0.8-1.0s)." },
+      { "name": "ease-transition", "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "purpose": "Same curve for hover/UI transitions (250ms), consistent editorial feel." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (dark)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Highest-emphasis CTA on light backgrounds, e.g. hero Telegram CTA.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Message on Telegram <span aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #3b2e26; color: #f6efe4; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-primary:hover { opacity: 0.88; } .ds-btn-primary:active { opacity: 0.75; } .ds-btn-primary:focus-visible { outline: 2px solid #c98e84; outline-offset: 2px; }"
+    },
+    {
+      "name": "Accent Button",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "Terracotta CTA used inside the dark Contact panel and header.",
+      "html": "<a class=\"ds-btn-accent\" href=\"#\">Telegram</a>",
+      "css": ".ds-btn-accent { display: inline-flex; align-items: center; gap: 10px; background: #c98e84; color: #ffffff; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-accent:hover { opacity: 0.88; } .ds-btn-accent:active { opacity: 0.75; } .ds-btn-accent:focus-visible { outline: 2px solid #3b2e26; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tag / Chip",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Small uppercase pill for eyebrows and service tags.",
+      "html": "<span class=\"ds-tag\">SMM · UGC · Tallinn</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; gap: 8px; background: #e4cfc6; color: #7a4e45; border-radius: 999px; padding: 7px 16px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Service Row Card",
+      "kind": "card",
+      "refersTo": "service-row",
+      "description": "Interactive link row: thumbnail, title/tag/description, price/CTA. The site's signature component.",
+      "html": "<a class=\"ds-service-row\" href=\"#\"><div class=\"ds-service-row__thumb\"></div><div class=\"ds-service-row__body\"><h3 class=\"ds-service-row__title\">Account Review</h3><p class=\"ds-service-row__desc\">Profile audit, personality unpacking and positioning.</p></div><div class=\"ds-service-row__price\">150&nbsp;&euro;</div></a>",
+      "css": ".ds-service-row { display: grid; grid-template-columns: 128px 1fr auto; gap: 32px; align-items: center; background: #f8f2e8; border-radius: 24px; padding: 22px; text-decoration: none; color: inherit; box-shadow: 0 2px 0 rgba(59, 46, 38, 0.04); transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-service-row:hover { transform: translateY(-3px); box-shadow: 0 22px 44px rgba(59, 46, 38, 0.12); } .ds-service-row__thumb { aspect-ratio: 1 / 1; border-radius: 18px; background: #e2d4c5; } .ds-service-row__title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 24px; margin: 0 0 8px; color: #3b2e26; } .ds-service-row__desc { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; color: #6b5a4e; margin: 0; } .ds-service-row__price { font-family: 'Playfair Display', serif; font-size: 30px; color: #3b2e26; white-space: nowrap; }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "custom",
+      "refersTo": "language-toggle",
+      "description": "Low-emphasis pill control showing the other language's code; never competes with the primary CTA beside it.",
+      "html": "<button class=\"ds-lang-toggle\" type=\"button\">EN</button>",
+      "css": ".ds-lang-toggle { cursor: pointer; background: transparent; border: 1px solid rgba(59, 46, 38, 0.2); border-radius: 999px; padding: 6px 14px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; color: #3b2e26; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-lang-toggle:hover { opacity: 0.7; } .ds-lang-toggle:active { opacity: 0.55; } .ds-lang-toggle:focus-visible { outline: 2px solid #c98e84; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Studio",
+    "overview": "The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no gradients, no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality (large, confident, occasionally italic for warmth); Nunito Sans stays quiet and does the informational work. This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.",
+    "keyCharacteristics": [
+      "One accent color (#c98e84, dusty terracotta) used sparingly — tags, CTAs, italic pull-quotes, selection color",
+      "Fully rounded pill buttons and generously rounded cards (24–28px), never sharp corners",
+      "Playfair Display italic as the signature warmth device (accent words in headlines, pull-quotes, badges)",
+      "Flat, matte surfaces layered by warmth (cream → tan → terracotta → near-black), no shadows for depth except soft ambient lift on hover",
+      "Slow reveals (0.8–1.0s) — nothing snaps or bounces"
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Only #c98e84 (dusty terracotta) carries color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.", "section": "colors" },
+      { "name": "The Italic Warmth Rule", "body": "Playfair Display italic is reserved for moments of personality: the accent word in the H1, pull-quotes, the floating hero badge, service numerals. Never used for body copy or functional UI text — it marks emotional beats only.", "section": "typography" },
+      { "name": "The Diffuse-Only Rule", "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the accent color (#c98e84) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.",
+      "Do use full pill radius (999px) on every button, no exceptions.",
+      "Do reserve Playfair Display italic for personality beats (accent words, quotes, badges), never for body copy or UI labels.",
+      "Do keep shadows diffuse and ink-tinted (4–16% opacity, large blur) — never a hard, dark drop shadow.",
+      "Do pace reveals slowly (0.8–1.0s, cubic-bezier(0.25, 0.1, 0.25, 1)) — this is an editorial, unhurried brand, not a SaaS product."
+    ],
+    "donts": [
+      "Don't introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.",
+      "Don't use neon accents, countdown urgency, or aggressive upsell language — the loud influencer/hustle-culture aesthetic this brand explicitly rejects.",
+      "Don't use sharp corners or hard shadows anywhere; every corner is rounded, every shadow is soft.",
+      "Don't add a second saturated hue. If more color is needed, tint further along the existing ink-to-parchment ramp.",
+      "Don't use top/left/width/height in any animation — transform and opacity only, per the site's hardware-acceleration rule."
+    ]
+  }
+}

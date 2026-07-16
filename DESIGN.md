@@ -1,114 +1,184 @@
-# Design & Motion System
+---
+name: Eleonora Kupczyk
+description: Warm editorial landing page for a Tallinn-based SMM/UGC marketer and content coach
+colors:
+  primary: "#c98e84"
+  ink: "#3b2e26"
+  ink-muted: "#5a4a40"
+  ink-faint: "#6b5a4e"
+  bg: "#ede3d5"
+  surface: "#f8f2e8"
+  surface-alt: "#f6efe4"
+  tag-bg: "#e4cfc6"
+  tag-text: "#7a4e45"
+  border: "rgba(59, 46, 38, 0.2)"
+typography:
+  display:
+    fontFamily: "Playfair Display, Georgia, serif"
+    fontSize: "clamp(2.875rem, 8vw, 6.5rem)"
+    fontWeight: 500
+    lineHeight: 0.98
+    letterSpacing: "-0.01em"
+  headline:
+    fontFamily: "Playfair Display, Georgia, serif"
+    fontSize: "clamp(1.625rem, 4.4vw, 3.625rem)"
+    fontWeight: 500
+    lineHeight: 1.05
+    letterSpacing: "normal"
+  body:
+    fontFamily: "Nunito Sans, system-ui, sans-serif"
+    fontSize: "clamp(0.9375rem, 1.35vw, 1.125rem)"
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "normal"
+  label:
+    fontFamily: "Nunito Sans, system-ui, sans-serif"
+    fontSize: "0.6875rem"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "0.2em"
+rounded:
+  sm: "16px"
+  md: "24px"
+  lg: "28px"
+  full: "999px"
+spacing:
+  sm: "16px"
+  md: "32px"
+  lg: "64px"
+  section-y: "clamp(64px, 10vw, 120px)"
+components:
+  button-primary:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.surface-alt}"
+    rounded: "{rounded.full}"
+    padding: "16px 26px"
+  button-primary-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.surface-alt}"
+  button-accent:
+    backgroundColor: "{colors.primary}"
+    textColor: "#ffffff"
+    rounded: "{rounded.full}"
+    padding: "16px 26px"
+  service-row:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+    padding: "22px"
+---
 
-## Typography
-Display: Playfair Display, weight 500 (italic 400 for accent words), clamp(46px, 8vw, 104px), tracking -0.01em
-Heading: Playfair Display, weight 500, clamp(26px, 4.4vw, 76px), tracking normal
-Body: Nunito Sans, weight 400, clamp(15px, 1.4vw, 20px), line-height 1.6–1.75
-Label/Kicker: Nunito Sans, weight 700, 11–12px, tracking 0.18–0.22em, uppercase
+# Design System: Eleonora Kupczyk
 
-Font import: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600;700&display=swap
+## 1. Overview
 
-## Color Tokens
-:root {
-  --color-primary: #3B2E26;
-  --color-secondary: #C98E84;
-  --color-accent: #C98E84;
-  --color-bg: #EDE3D5;
-  --color-text: #3B2E26;
-  --color-text-muted: #5A4A40;
-  --color-text-faint: #6B5A4E;
-  --color-surface: #F8F2E8;
-  --color-surface-alt: #F6EFE4;
-  --color-border: rgba(59, 46, 38, 0.2);
-  --color-tag-bg: #E4CFC6;
-  --color-tag-text: #7A4E45;
-  --color-dark: #3B2E26;
-  --color-on-dark: #F6EFE4;
-}
+**Creative North Star: "The Warm Studio"**
 
-## Spacing System (8px base grid)
---space-1:   8px
---space-2:   16px
---space-3:   24px
---space-4:   32px
---space-6:   48px
---space-8:   64px
---space-12:  96px
---space-16:  128px
---space-20:  160px
---spacing-section-y: clamp(64px, 10vw, 120px)
+The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no gradients, no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality (large, confident, occasionally italic for warmth); Nunito Sans stays quiet and does the informational work.
 
-## Motion Principles
-Easing Reveal: cubic-bezier(0.25, 0.1, 0.25, 1.0) — slow, calm ease-out
-Easing Transition: cubic-bezier(0.25, 0.1, 0.25, 1.0) — same curve for all UI motion, consistent editorial feel
+This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.
 
-Timing:
-- Micro (hover): 250ms
-- Reveal (scroll entry): 800ms–1000ms
-- Page transition: 600ms–800ms
-- Stagger delay between children: 0.08s
+**Key Characteristics:**
+- One accent color (`#c98e84`, dusty terracotta) used sparingly — tags, CTAs, italic pull-quotes, selection color
+- Fully rounded pill buttons and generously rounded cards (24–28px), never sharp corners
+- Playfair Display italic as the signature warmth device (accent words in headlines, pull-quotes, badges)
+- Flat, matte surfaces layered by warmth (cream → tan → terracotta → near-black), no shadows for depth except soft ambient lift on hover
+- Slow reveals (0.8–1.0s) — nothing snaps or bounces
 
-### Universal motion rules (apply to ALL styles)
-- Page transitions: complete within 600ms–800ms maximum
-- Named easing aliases (use these names in code comments):
-  - `--ease-reveal`: cubic-bezier(0.25, 0.1, 0.25, 1.0)
-  - `--ease-transition`: cubic-bezier(0.25, 0.1, 0.25, 1.0)
-  - `--ease-premium-out`: cubic-bezier(0.16, 1, 0.3, 1)   /* fallback default */
-  - `--ease-expressive`: cubic-bezier(0.76, 0, 0.24, 1)   /* fallback default */
-- GPU acceleration: will-change: transform, opacity — only on actively animating nodes
-- NEVER use default CSS `ease` or `linear` easing
-- NEVER animate: top, left, width, height — causes layout shift and jank
+## 2. Colors
 
-Reveal pattern (Framer Motion, pseudocode):
-```
-initial: { opacity: 0, y: 16 }
-whileInView: { opacity: 1, y: 0 }
-transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1.0] }
-viewport: { once: true, margin: "-80px" }
-staggerChildren: 0.08
-```
+A warm, low-saturation cream-and-terracotta palette — every neutral is tinted toward the brand's own hue, never cool gray.
 
-## Component States
-Buttons (pill CTAs):
-- Default: solid fill (--color-dark or --color-accent), full radius (999px)
-- Hover: opacity 0.88, no scale
-- Active: opacity 0.75
-- Focus: outline 2px solid var(--color-accent), outline-offset 2px
-- Disabled: opacity 0.4, cursor not-allowed
+### Primary
+- **Dusty Terracotta** (#c98e84): the single accent — CTA buttons, tag text/backgrounds tinted from it, italic pull-quote color, text selection, focus rings, hover-state fills. Used deliberately and sparingly; it never dominates a section.
 
-Text links (nav, inline links):
-- Default: no underline, or thin bottom border for emphasized links
-- Hover: underline reveals via border-bottom transition, or opacity 0.7
-- Focus: outline 2px solid var(--color-accent), outline-offset 2px
+### Neutral
+- **Espresso Ink** (#3b2e26): primary text color and the dark panel background (Contact section, header logo, buttons). Doubles as both "ink" and "deep surface" — the darkest value in the system.
+- **Warm Ink Muted** (#5a4a40): body copy on light surfaces — taglines, descriptions, bio text.
+- **Faint Ink** (#6b5a4e): secondary/tertiary text — nav links, service descriptions, durations.
+- **Parchment** (#ede3d5): the page background. Warm, matte, never pure white.
+- **Warm Paper** (#f8f2e8): elevated surfaces — service row cards.
+- **Cream Highlight** (#f6efe4): the lightest surface — floating badges, dark-panel text color, hero image placeholder fill.
+- **Terracotta Tint** (#e4cfc6): tag backgrounds, the mission-band surface — a pale wash of the primary accent, not a separate hue.
 
-Cards / Interactive surfaces (service rows, feed tiles):
-- Default: --color-surface background, radius 24px, subtle shadow
-- Hover: translateY(-3px) + shadow expansion (box-shadow only, transform+opacity safe)
-- Focus: outline 2px solid var(--color-accent), outline-offset 2px
+### Named Rules
+**The One Accent Rule.** Only `#c98e84` (dusty terracotta) carries color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.
 
-### Universal component rules (apply to ALL styles)
-- All images inside animated or parallax containers: wrap in a container with `overflow: hidden` class (never inline style)
-- Every interactive element must have: default / hover / active / focus / disabled state
-- Disabled: `opacity: 0.4; cursor: not-allowed; pointer-events: none`
+## 3. Typography
 
-## Responsive Breakpoints
-- sm:  640px
-- md:  768px
-- lg:  1024px
-- xl:  1280px
-- 2xl: 1536px
+**Display Font:** Playfair Display (with Georgia, serif fallback)
+**Body Font:** Nunito Sans (with system-ui, sans-serif fallback)
 
-Container: max-width 1440px, padding clamp(16px, 5vw, 80px)
+**Character:** A classic editorial serif/sans pairing — Playfair Display's high-contrast strokes and italic swashes carry all the personality and warmth, while Nunito Sans stays neutral and legible for anything functional (body copy, labels, prices).
 
-## Accessibility (mandatory — never remove)
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
-- Focus rings: visible on all interactive elements (outline: 2px solid var(--color-accent))
-- Color contrast: min 4.5:1 body text, 3:1 large text (WCAG 2.1 AA)
+### Hierarchy
+- **Display** (500 weight, clamp(46px, 8vw, 104px), line-height 0.98): the hero name headline only. The italic variant (400 weight) marks the accent word ("Kupczyk").
+- **Headline** (500 weight, clamp(26px, 4.4vw, 76px), line-height 1.05–1.14): section titles (Mission quote, About title, Services title, Contact title).
+- **Title** (500 weight, clamp(20px, 2.3vw, 30px), line-height 1.05): service row titles, paired inline with an italic numeral and a tag pill.
+- **Body** (400 weight, clamp(15px, 1.4vw, 20px), line-height 1.6–1.75, max ~64ch): taglines, bio copy, service descriptions.
+- **Label** (700 weight, 11–12px, letter-spacing 0.18–0.22em, uppercase): section kickers, tag pills, duration/price micro-labels.
+
+### Named Rules
+**The Italic Warmth Rule.** Playfair Display italic is reserved for moments of personality: the accent word in the H1, pull-quotes, the floating hero badge, service numerals. Never used for body copy or functional UI text — it marks emotional beats only.
+
+## 4. Elevation
+
+The system is flat by default and warm shadows appear only as a soft, diffuse lift — never a hard drop shadow. Depth is conveyed primarily through surface layering (parchment → paper → cream → ink) rather than shadow intensity.
+
+### Shadow Vocabulary
+- **Ambient card** (`box-shadow: 0 2px 0 rgba(59, 46, 38, 0.04)`): resting state for service rows — barely visible, just enough to separate from the page background.
+- **Hover lift** (`box-shadow: 0 22px 44px rgba(59, 46, 38, 0.12)`): service rows and interactive cards on hover, paired with `translateY(-3px)`.
+- **Floating badge** (`box-shadow: 0 16px 36px rgba(59, 46, 38, 0.14)`): the hero's floating quote badge and other overlapping elements.
+- **Hero portrait** (`box-shadow: 0 30px 60px rgba(59, 46, 38, 0.16)`): the largest, softest shadow in the system — reserved for the single most prominent image.
+
+### Named Rules
+**The Diffuse-Only Rule.** Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.
+
+## 5. Components
+
+Soft and inviting: every interactive surface is fully rounded or generously rounded, hover states lift gently rather than snapping, and nothing reads as sharp, corporate, or clinical.
+
+### Buttons
+- **Shape:** full pill radius (999px), no exceptions.
+- **Primary (dark):** `background: var(--color-dark)` (#3b2e26), `color: var(--color-on-dark)` (#f6efe4), padding 16px 26px, bold 14px label.
+- **Accent:** `background: var(--color-accent)` (#c98e84), white text — used for the highest-intent CTAs (Telegram links).
+- **Hover:** opacity 0.88, no scale, no shadow change — a quiet acknowledgment, not a performance.
+- **Active:** opacity 0.75.
+- **Focus:** `outline: 2px solid var(--color-accent); outline-offset: 2px`.
+- **Disabled:** `opacity: 0.4; cursor: not-allowed; pointer-events: none`.
+
+### Chips / Tags
+- **Style:** `background: var(--color-tag-bg)` (#e4cfc6), `color: var(--color-tag-text)` (#7a4e45), full pill radius, 11–12px bold uppercase label with 0.06–0.08em tracking.
+- **Use:** hero eyebrow ("SMM · UGC · Tallinn"), service tags ("online", "video", "Tallinn").
+
+### Cards / Containers
+- **Corner style:** 24–28px radius on section-level cards (Mission band, service rows, Contact panel), 16–18px on smaller elements (feed tiles, image thumbnails).
+- **Background:** warm paper (`#f8f2e8`) for service rows; terracotta tint (`#e4cfc6`) for the Mission band; espresso ink (`#3b2e26`) for the Contact panel.
+- **Shadow strategy:** see Elevation — ambient at rest, soft lift on hover.
+- **Border:** none by default; the dark Contact panel uses a 1px `rgba(246, 239, 228, 0.2)` divider between stacked contact links only.
+- **Internal padding:** clamp(16px, 1.6vw, 22px) for service rows; clamp(28px, 5vw, 80px) for section-level panels.
+
+### Navigation
+- **Style:** sticky header, `background: rgba(237, 227, 213, 0.85)` with `backdrop-filter: blur(10px)`, no border or shadow.
+- **Typography:** 13px bold, faint-ink color (#6b5a4e).
+- **Default/hover:** no underline at rest; hover reveals a terracotta bottom border via transition.
+- **Mobile:** nav links hidden below `md` (768px); only logo, language toggle, and Telegram CTA remain visible.
+
+### Language Toggle (signature component)
+A small pill button (border only, no fill) showing the *other* language's code (EN when viewing RU, RU when viewing EN) — a quiet, low-emphasis control that never competes with the primary Telegram CTA beside it.
+
+## 6. Do's and Don'ts
+
+### Do:
+- **Do** keep the accent color (#c98e84) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.
+- **Do** use full pill radius (999px) on every button, no exceptions.
+- **Do** reserve Playfair Display italic for personality beats (accent words, quotes, badges), never for body copy or UI labels.
+- **Do** keep shadows diffuse and ink-tinted (4–16% opacity, large blur) — never a hard, dark drop shadow.
+- **Do** pace reveals slowly (0.8–1.0s, `cubic-bezier(0.25, 0.1, 0.25, 1)`) — this is an editorial, unhurried brand, not a SaaS product.
+
+### Don't:
+- **Don't** introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.
+- **Don't** use neon accents, countdown urgency, or aggressive upsell language — the loud influencer/hustle-culture aesthetic this brand explicitly rejects.
+- **Don't** use sharp corners or hard shadows anywhere; every corner is rounded, every shadow is soft.
+- **Don't** add a second saturated hue. If more color is needed, tint further along the existing ink-to-parchment ramp.
+- **Don't** use `top`/`left`/`width`/`height` in any animation — transform and opacity only, per the site's hardware-acceleration rule.

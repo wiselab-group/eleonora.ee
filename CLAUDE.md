@@ -50,3 +50,11 @@ Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - Layout-shifting properties in animations (top, left, height, width)
 - setTimeout for animation delays — use animation library delays
 - Raw hardcoded color or spacing values
+
+## Design Context
+Full strategic context: PRODUCT.md. Full visual spec: DESIGN.md.
+- Register: brand · Platform: web
+- North Star: "The Warm Studio" — a real person's warm creative workspace, not a productized SaaS funnel
+- Positioning: personal, hands-on guidance — every section proves a real person is behind the offer
+- The One Accent Rule: only `--color-accent` (#C98E84 dusty terracotta) carries color intent; every other value is a neutral tinted from the ink-to-parchment ramp
+- Anti-references: generic SaaS/agency consultant templates (blue gradients, stock photos, hero-metric stats) and loud influencer/hustle-culture aesthetics (neon, countdown urgency)
