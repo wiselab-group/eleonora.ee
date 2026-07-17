@@ -51,7 +51,7 @@ export function Hero() {
       <div className="relative h-full flex flex-col justify-end gap-5 sm:gap-[clamp(20px,2.6vw,30px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-[clamp(40px,7vh,72px)] max-w-[1320px] mx-auto">
         <motion.h1
           variants={fadeUp}
-          className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] m-0"
+          className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] mb-2"
         >
           Eleonora
           <br />

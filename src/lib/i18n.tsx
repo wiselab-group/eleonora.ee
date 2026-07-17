@@ -193,7 +193,6 @@ const dictionaries: Record<Locale, Translation> = {
 
 interface LocaleContextValue {
   lang: Locale;
-  langLabel: string;
   t: Translation;
   toggleLang: () => void;
 }
@@ -210,7 +209,6 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<LocaleContextValue>(
     () => ({
       lang,
-      langLabel: lang === "ru" ? "EN" : "RU",
       t: dictionaries[lang],
       toggleLang,
     }),
