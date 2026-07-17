@@ -1,23 +1,27 @@
 # CLAUDE.md — System Core Guidance
 
 ## WHAT
+
 Eleonora Kupczyk — personal brand landing page for a Tallinn-based SMM/UGC marketer, consultant, and content coach.
 Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 
 ## WHY
+
 - Awwwards/FWA visual quality — Editorial aesthetic (warm, soft, magazine-like), originality over benchmark scores
 - Core Web Vitals targets: Performance 85+ desktop / 75+ mobile, Accessibility 100, SEO 100, CLS 0.00
 - Every interactive element has explicit hover, active, focus, and loading states
 - Zero generic or Bootstrap-style components
 
 ## COMMANDS
-- Dev:        `npm run dev`
-- Build:      `npm run build`
-- Lint:       `npm run lint`
+
+- Dev: `npm run dev`
+- Build: `npm run build`
+- Lint: `npm run lint`
 - Type-check: `npm run typecheck`
 - Rule: run `npm run lint` before marking ANY task as complete. Zero warnings = done.
 
 ## DESIGN TOKENS
+
 --color-primary: #3B2E26;
 --color-secondary: #C98E84;
 --color-accent: #C98E84;
@@ -28,6 +32,7 @@ Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 --transition-hover: cubic-bezier(0.25, 0.1, 0.25, 1.0) 250ms;
 
 ## ANIMATION RULES
+
 - Hardware acceleration ONLY: transform and opacity. Never animate top/left/width/height.
 - will-change: transform, opacity — only on nodes that actively animate
 - Hover: underline reveals, opacity shifts — no scale, no shadow pop on text links
@@ -35,6 +40,7 @@ Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - Always implement prefers-reduced-motion fallback
 
 ## CODE RULES
+
 - TypeScript strict — zero `any` types allowed
 - Components: max 150 lines — split into sub-components if larger
 - No raw hex colors — always var(--color-name)
@@ -44,6 +50,7 @@ Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - No console.log in any committed file
 
 ## FORBIDDEN
+
 - Fast/snappy animations (this is a slow, editorial-paced site)
 - Decorative effects unrelated to content (particles, glitch, chrome gradients)
 - Multiple accent colors beyond --color-accent
@@ -52,7 +59,9 @@ Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - Raw hardcoded color or spacing values
 
 ## Design Context
+
 Full strategic context: PRODUCT.md. Full visual spec: DESIGN.md.
+
 - Register: brand · Platform: web
 - North Star: "The Warm Studio" — a real person's warm creative workspace, not a productized SaaS funnel
 - Positioning: personal, hands-on guidance — every section proves a real person is behind the offer

@@ -86,6 +86,7 @@ The site reads as a real person's creative workspace, not a productized funnel: 
 This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.
 
 **Key Characteristics:**
+
 - One accent color (`#c98e84`, dusty terracotta, with a darkened `#9a5548` text-safe variant) used sparingly — tags, CTAs, italic pull-quotes, selection color
 - Fully rounded pill buttons and generously rounded cards (24–28px), never sharp corners
 - Playfair Display italic reserved for isolated accent moments (one word in the H1 and logo, pull-quotes, badges) — never a whole heading or wordmark
@@ -99,10 +100,12 @@ This system explicitly rejects generic SaaS/agency consultant templates — corp
 A warm, low-saturation cream-and-terracotta palette — every neutral is tinted toward the brand's own hue, never cool gray.
 
 ### Primary
+
 - **Dusty Terracotta** (#c98e84): the single accent — tag backgrounds, text selection, focus rings, kicker labels on light surfaces. Used deliberately and sparingly; it never dominates a section.
 - **Deep Terracotta / Accent Text** (#9a5548): a darkened variant of the primary accent, reserved for text-bearing surfaces (accent buttons, service numerals, pull-quotes) where the primary accent's own contrast against white or light backgrounds fails WCAG AA. Same hue family, not a second color.
 
 ### Neutral
+
 - **Espresso Ink** (#3b2e26): primary text color and the dark panel background (Contact section, header logo, buttons). Doubles as both "ink" and "deep surface" — the darkest value in the system.
 - **Warm Ink Muted** (#5a4a40): body copy on light surfaces — taglines, descriptions, bio text.
 - **Faint Ink** (#6b5a4e): secondary/tertiary text — nav links, service descriptions, durations.
@@ -112,6 +115,7 @@ A warm, low-saturation cream-and-terracotta palette — every neutral is tinted 
 - **Terracotta Tint** (#e4cfc6): tag backgrounds, the mission-band surface — a pale wash of the primary accent, not a separate hue.
 
 ### Named Rules
+
 **The One Accent Rule.** Only `#c98e84` (dusty terracotta) carries color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.
 
 ## 3. Typography
@@ -122,7 +126,9 @@ A warm, low-saturation cream-and-terracotta palette — every neutral is tinted 
 **Character:** A classic editorial serif/sans pairing — Playfair Display's high-contrast strokes and italic swashes carry all the personality and warmth, while Nunito Sans stays neutral and legible for anything functional (body copy, labels, prices).
 
 ### Hierarchy
+
 One value per tier, shared across every section — no section picks its own size for a tier it shares with others.
+
 - **Display** (500 weight, `clamp(46px, 8vw, 104px)`, line-height 0.98): the hero name headline only. The italic variant (400 weight) marks the accent word ("Kupczyk").
 - **Headline** (500 weight, `clamp(30px, 4.4vw, 58px)`, line-height 1.05–1.14): section titles — Mission quote, About title, Services title, Feed title, Contact title all resolve to this single value.
 - **Title** (500 weight, `clamp(20px, 2.3vw, 30px)`, line-height 1.05): service row titles, paired inline with an italic numeral and a tag pill.
@@ -130,6 +136,7 @@ One value per tier, shared across every section — no section picks its own siz
 - **Label** (700 weight, 12px fixed, letter-spacing 0.06–0.22em, uppercase): section kickers, tag pills, duration/price micro-labels.
 
 ### Named Rules
+
 **The Italic Warmth Rule.** Playfair Display italic is reserved for moments of personality: the accent word in the H1 and header logo, pull-quotes, the floating hero badge, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.
 
 **The One Headline Rule.** Every section title (`<h2>`) resolves to the same `--text-headline` value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size.
@@ -139,12 +146,14 @@ One value per tier, shared across every section — no section picks its own siz
 The system is flat by default and warm shadows appear only as a soft, diffuse lift — never a hard drop shadow. Depth is conveyed primarily through surface layering (parchment → paper → cream → ink) rather than shadow intensity.
 
 ### Shadow Vocabulary
+
 - **Ambient card** (`box-shadow: 0 2px 0 rgba(59, 46, 38, 0.04)`): resting state for service rows — barely visible, just enough to separate from the page background.
 - **Hover lift** (`box-shadow: 0 22px 44px rgba(59, 46, 38, 0.12)`): service rows and interactive cards on hover, paired with `translateY(-3px)`.
 - **Floating badge** (`box-shadow: 0 16px 36px rgba(59, 46, 38, 0.14)`): the hero's floating quote badge and other overlapping elements.
 - **Hero portrait** (`box-shadow: 0 30px 60px rgba(59, 46, 38, 0.16)`): the largest, softest shadow in the system — reserved for the single most prominent image.
 
 ### Named Rules
+
 **The Diffuse-Only Rule.** Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.
 
 ## 5. Components
@@ -152,6 +161,7 @@ The system is flat by default and warm shadows appear only as a soft, diffuse li
 Soft and inviting: every interactive surface is fully rounded or generously rounded, hover states lift gently rather than snapping, and nothing reads as sharp, corporate, or clinical.
 
 ### Buttons
+
 - **Shape:** full pill radius (999px), no exceptions.
 - **Primary (dark):** `background: var(--color-dark)` (#3b2e26), `color: var(--color-on-dark)` (#f6efe4), padding 16px 26px, bold 14px label.
 - **Accent:** `background: var(--color-accent-text)` (#9a5548, the WCAG-safe darkened accent), white text — used for the highest-intent CTAs (Telegram links). Never the raw `--color-accent` (#c98e84) with white text — that pairing measures 2.73:1 and fails AA.
@@ -161,10 +171,12 @@ Soft and inviting: every interactive surface is fully rounded or generously roun
 - **Disabled:** `opacity: 0.4; cursor: not-allowed; pointer-events: none`.
 
 ### Chips / Tags
+
 - **Style:** `background: var(--color-tag-bg)` (#e4cfc6), `color: var(--color-tag-text)` (#7a4e45), full pill radius, 11–12px bold uppercase label with 0.06–0.08em tracking.
 - **Use:** hero eyebrow ("SMM · UGC · Tallinn"), service tags ("online", "video", "Tallinn").
 
 ### Cards / Containers
+
 - **Corner style:** 24–28px radius on section-level cards (Mission band, service rows), 16–18px on smaller elements (feed tiles, image thumbnails). The Contact panel is the one exception — see Layout below.
 - **Background:** warm paper (`#f8f2e8`) for service rows; terracotta tint (`#e4cfc6`) for the Mission band; espresso ink (`#3b2e26`) for the Contact panel.
 - **Shadow strategy:** see Elevation — ambient at rest, soft lift on hover.
@@ -172,7 +184,9 @@ Soft and inviting: every interactive surface is fully rounded or generously roun
 - **Internal padding:** clamp(16px, 1.6vw, 22px) for service rows; clamp(28px, 5vw, 80px) for section-level panels.
 
 ### Layout
+
 Every content section shares the same `max-w-[1320px] mx-auto` container and roughly the same vertical rhythm (`py-clamp(40px, …, 96px)`), but each resolves that shared structure into a genuinely different composition rather than repeating one recipe:
+
 - **Hero**: 2-column split, ~53/47, `items-center`.
 - **Mission**: left-weighted asymmetric block (`text-left`, `max-w-[16ch]`) inside the tinted band — not centered, deliberately different energy from Hero.
 - **About**: 2-column split, ~42/58 (`grid-cols-[1fr_1.4fr]`), `items-start` with the image nudged down (`md:mt-8`) — a more lopsided ratio and a different vertical anchor than Hero, so it reads as its own composition rather than Hero's mirror.
@@ -181,23 +195,28 @@ Every content section shares the same `max-w-[1320px] mx-auto` container and rou
 - **Contact**: the dark panel breaks the container entirely and runs full-bleed edge-to-edge on `md:` and up (`md:px-0 md:rounded-none`), with only the inner content constrained to the standard 1320px width — the one moment on the page where the register visibly shifts, reserved for the highest-intent CTA.
 
 ### Named Rules
-**The No-Repeat-Recipe Rule.** No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing *scale* is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright.
+
+**The No-Repeat-Recipe Rule.** No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing _scale_ is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright.
 
 ### Navigation
+
 - **Style:** sticky header, `background: rgba(237, 227, 213, 0.85)` with `backdrop-filter: blur(10px)`, no border or shadow.
 - **Typography:** `--text-label` (12px) bold, faint-ink color (#6b5a4e).
 - **Default/hover:** no underline at rest; hover reveals a terracotta bottom border via transition.
 - **Mobile:** nav links and full CTA label hidden below `md`/`sm`; the header shrinks to logo + language toggle + an icon-only Telegram button so the primary CTA never clips off-screen.
 
 ### Language Toggle (signature component)
-A small pill button (border only, no fill) showing the *other* language's code (EN when viewing RU, RU when viewing EN) — a quiet, low-emphasis control that never competes with the primary Telegram CTA beside it.
+
+A small pill button (border only, no fill) showing the _other_ language's code (EN when viewing RU, RU when viewing EN) — a quiet, low-emphasis control that never competes with the primary Telegram CTA beside it.
 
 ### Section Kicker (used sparingly)
+
 A small uppercase tracked label (`--text-label`, `SectionKicker.tsx`) used only where it carries real information, not as decorative section grammar. Currently used in exactly two places: **About** (a concrete fact — "Tallinn · SMM & UGC" — not a generic "About me" category word) and **Contact** (a literal navigational label before a list of contact links). Mission, Services, and Feed lead straight into their headline with no kicker — their content is self-explanatory without a category label above it.
 
 ## 6. Do's and Don'ts
 
 ### Do:
+
 - **Do** keep the accent color (#c98e84 / #9a5548) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.
 - **Do** use full pill radius (999px) on every button, no exceptions.
 - **Do** reserve Playfair Display italic for personality beats (accent words, quotes, badges), never for body copy, UI labels, or an entire wordmark.
@@ -208,6 +227,7 @@ A small uppercase tracked label (`--text-label`, `SectionKicker.tsx`) used only 
 - **Do** give every section a distinct grid shape, alignment anchor, or spacing rhythm from its neighbors (see Layout) — the No-Repeat-Recipe Rule.
 
 ### Don't:
+
 - **Don't** introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.
 - **Don't** use neon accents, countdown urgency, or aggressive upsell language — the loud influencer/hustle-culture aesthetic this brand explicitly rejects.
 - **Don't** use sharp corners or hard shadows anywhere; every corner is rounded, every shadow is soft.

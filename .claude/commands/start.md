@@ -12,6 +12,7 @@ Check if exactly one Visual Style is marked with `[x]` in BRIEF.md.
 
 **If NO style is selected:**
 Use AskUserQuestion to ask the user to choose a Visual Style. Present all 8 options:
+
 - Liquid Glass
 - Oversized Typography
 - Neobrutalism
@@ -30,48 +31,56 @@ A color is considered missing if its line is blank or contains no valid hex valu
 **If ANY color is missing**, use AskUserQuestion with style-specific palette options:
 
 #### Liquid Glass palette options:
+
 - Frosted Light — white surfaces, subtle blue tint, dark text
 - Midnight Glass — deep navy bg, white/translucent surfaces, bright accent
 - Warm Frost — warm cream base, sand tones, glass overlays
 - Custom — I'll provide hex values
 
 #### Oversized Typography palette options:
+
 - High Contrast Dark — black bg, white type, single vivid accent
 - High Contrast Light — white bg, black type, single vivid accent
 - Monochrome — pure black & white, no accent
 - Custom — I'll provide hex values
 
 #### Neobrutalism palette options:
+
 - Classic Brut — white bg, black borders, bold yellow accent
 - Pastel Brut — soft pastel bg, black borders, contrasting accent
 - Dark Brut — dark bg, white borders, neon accent
 - Custom — I'll provide hex values
 
 #### Editorial palette options:
+
 - Cream & Ink — warm off-white bg, near-black text, single muted accent
 - Cold Editorial — cool light gray bg, dark gray text, minimal accent
 - Dark Editorial — dark charcoal bg, off-white text, gold or rust accent
 - Custom — I'll provide hex values
 
 #### Y2K Futurism palette options:
+
 - Cyber Dark — black bg, electric blue + purple accents, chrome white
 - Neon Surge — very dark bg, hot pink + cyan accents
 - Chrome — silver/gray tones, black bg, white text
 - Custom — I'll provide hex values
 
 #### Bento Box palette options:
+
 - Clean Light — white bg, light gray cards, single brand accent
 - Soft Dark — dark bg, elevated dark cards, muted accent
 - Colorful — light bg, cards with individual accent colors
 - Custom — I'll provide hex values
 
 #### Lightweight 3D palette options:
+
 - Deep Space — near-black bg, white text, single glow accent
 - Soft Canvas — warm off-white bg, neutral cards, subtle accent
 - Cool Studio — dark blue-gray bg, light text, electric accent
 - Custom — I'll provide hex values
 
 #### Minimalism palette options:
+
 - Pure — white bg, black text, no accent
 - Warm Minimal — warm off-white bg, dark brown text, single warm accent
 - Cool Minimal — cool light gray bg, near-black text, single cool accent
@@ -89,6 +98,7 @@ If they pick Custom, ask them to provide hex values via the Other text input.
 From BRIEF.md, find the selected Visual Style. Apply the following design rules for that style when filling the config files:
 
 ### Liquid Glass
+
 - Fonts: System UI / SF Pro Display, medium weight, normal tracking
 - Stack: Next.js 15, Tailwind CSS v4, Framer Motion, Lenis Smooth Scroll
 - GSAP: NO — not needed
@@ -100,6 +110,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: opaque solid backgrounds on cards, hard borders without transparency
 
 ### Oversized Typography
+
 - Fonts: editorial grotesque (Neue Montreal / Monument Extended), tight tracking (-0.04em to -0.06em)
 - Stack: Next.js 15, Tailwind CSS v4, GSAP (ScrollTrigger + SplitText), Lenis Smooth Scroll
 - GSAP: YES — SplitText for char-by-char reveals, ScrollTrigger for scroll-driven text
@@ -111,6 +122,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: small typography, decorative elements competing with text
 
 ### Neobrutalism
+
 - Fonts: Space Grotesk / DM Mono Bold, uppercase where appropriate
 - Stack: Next.js 15, Tailwind CSS v4, CSS transitions only
 - GSAP: NO — CSS transitions at 150ms max
@@ -123,6 +135,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: gradients, blur effects, rounded corners > 4px, smooth easing curves
 
 ### Editorial
+
 - Fonts: DM Serif Display / Playfair Display (headings) + Inter (body), strict baseline grid
 - Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - GSAP: NO — Framer Motion handles all reveals
@@ -135,6 +148,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: fast animations, decorative effects, multiple accent colors
 
 ### Y2K Futurism
+
 - Fonts: Space Grotesk / Share Tech Mono, tracking 0.1-0.15em, uppercase
 - Stack: Next.js 15, Tailwind CSS v4, GSAP (for glitch), Framer Motion (for UI transitions)
 - GSAP: YES — glitch keyframes, scan line animations, timeline sequences
@@ -147,6 +161,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: organic curves, natural photography, soft palettes
 
 ### Bento Box
+
 - Fonts: Geist Sans / Inter, medium weight, clean
 - Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - GSAP: NO — Framer Motion handles card animations
@@ -159,6 +174,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: list layouts, horizontal scroll, full-width single elements everywhere
 
 ### Lightweight 3D
+
 - Fonts: Geist Sans / Neue Montreal, clean and neutral to let 3D lead
 - Stack: Next.js 15, Tailwind CSS v4, React Three Fiber + @react-three/drei, Framer Motion (UI), Lenis Smooth Scroll
 - GSAP: NO — R3F handles 3D, Framer Motion handles UI
@@ -171,6 +187,7 @@ From BRIEF.md, find the selected Visual Style. Apply the following design rules 
 - Forbidden: heavy particle systems, full WebGL scenes, 3D on mobile without fallback, raw Three.js (use R3F)
 
 ### Minimalism
+
 - Fonts: Inter or system font, Light/Regular weight (300-400), generous letter-spacing 0.01em
 - Stack: Next.js 15, Tailwind CSS v4, Framer Motion
 - GSAP: NO
@@ -392,6 +409,7 @@ Content: [ready / placeholder / to generate]
 After filling all three files, enter PLAN MODE.
 
 Propose the exact Next.js 15 component tree:
+
 - Every file path under src/
 - Which animation library handles each component
 - Order of implementation (which component first)

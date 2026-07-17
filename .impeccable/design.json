@@ -4,34 +4,137 @@
   "title": "Design System: Eleonora Kupczyk",
   "extensions": {
     "colorMeta": {
-      "primary": { "role": "primary", "displayName": "Dusty Terracotta", "canonical": "oklch(66% 0.08 25)", "tonalRamp": ["oklch(20% 0.03 25)", "oklch(32% 0.05 25)", "oklch(44% 0.06 25)", "oklch(56% 0.08 25)", "oklch(66% 0.08 25)", "oklch(76% 0.07 25)", "oklch(86% 0.05 25)", "oklch(95% 0.02 25)"] },
-      "accent-text": { "role": "primary", "displayName": "Deep Terracotta / Accent Text", "canonical": "oklch(45% 0.1 25)" },
-      "ink": { "role": "neutral", "displayName": "Espresso Ink", "canonical": "oklch(30% 0.03 45)", "tonalRamp": ["oklch(15% 0.02 45)", "oklch(22% 0.025 45)", "oklch(30% 0.03 45)", "oklch(40% 0.035 45)", "oklch(52% 0.04 45)", "oklch(65% 0.03 45)", "oklch(80% 0.02 45)", "oklch(93% 0.01 45)"] },
-      "ink-muted": { "role": "neutral", "displayName": "Warm Ink Muted", "canonical": "oklch(40% 0.035 45)" },
-      "ink-faint": { "role": "neutral", "displayName": "Faint Ink", "canonical": "oklch(45% 0.03 45)" },
-      "bg": { "role": "neutral", "displayName": "Parchment", "canonical": "oklch(90% 0.02 70)" },
-      "surface": { "role": "neutral", "displayName": "Warm Paper", "canonical": "oklch(94% 0.015 70)" },
-      "surface-alt": { "role": "neutral", "displayName": "Cream Highlight", "canonical": "oklch(95% 0.015 75)" },
-      "tag-bg": { "role": "neutral", "displayName": "Terracotta Tint", "canonical": "oklch(85% 0.04 30)" },
-      "tag-text": { "role": "neutral", "displayName": "Deep Terracotta Text", "canonical": "oklch(45% 0.07 30)" },
-      "border": { "role": "neutral", "displayName": "Ink Border Wash", "canonical": "rgba(59, 46, 38, 0.2)" }
+      "primary": {
+        "role": "primary",
+        "displayName": "Dusty Terracotta",
+        "canonical": "oklch(66% 0.08 25)",
+        "tonalRamp": [
+          "oklch(20% 0.03 25)",
+          "oklch(32% 0.05 25)",
+          "oklch(44% 0.06 25)",
+          "oklch(56% 0.08 25)",
+          "oklch(66% 0.08 25)",
+          "oklch(76% 0.07 25)",
+          "oklch(86% 0.05 25)",
+          "oklch(95% 0.02 25)"
+        ]
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Deep Terracotta / Accent Text",
+        "canonical": "oklch(45% 0.1 25)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Espresso Ink",
+        "canonical": "oklch(30% 0.03 45)",
+        "tonalRamp": [
+          "oklch(15% 0.02 45)",
+          "oklch(22% 0.025 45)",
+          "oklch(30% 0.03 45)",
+          "oklch(40% 0.035 45)",
+          "oklch(52% 0.04 45)",
+          "oklch(65% 0.03 45)",
+          "oklch(80% 0.02 45)",
+          "oklch(93% 0.01 45)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Warm Ink Muted",
+        "canonical": "oklch(40% 0.035 45)"
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Faint Ink",
+        "canonical": "oklch(45% 0.03 45)"
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "oklch(90% 0.02 70)"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(94% 0.015 70)"
+      },
+      "surface-alt": {
+        "role": "neutral",
+        "displayName": "Cream Highlight",
+        "canonical": "oklch(95% 0.015 75)"
+      },
+      "tag-bg": {
+        "role": "neutral",
+        "displayName": "Terracotta Tint",
+        "canonical": "oklch(85% 0.04 30)"
+      },
+      "tag-text": {
+        "role": "neutral",
+        "displayName": "Deep Terracotta Text",
+        "canonical": "oklch(45% 0.07 30)"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Ink Border Wash",
+        "canonical": "rgba(59, 46, 38, 0.2)"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero name headline only, italic variant marks the accent word." },
-      "headline": { "displayName": "Headline", "purpose": "Section titles — Mission, About, Services, Feed, Contact all resolve to this one shared value." },
-      "title": { "displayName": "Title", "purpose": "Service row titles, paired with an italic numeral and a tag pill." },
-      "body": { "displayName": "Body", "purpose": "Taglines, bio copy, service descriptions. Max ~64ch line length." },
-      "label": { "displayName": "Label", "purpose": "Kickers, tag pills, duration/price micro-labels. Always uppercase, bold, tracked." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name headline only, italic variant marks the accent word."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles — Mission, About, Services, Feed, Contact all resolve to this one shared value."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service row titles, paired with an italic numeral and a tag pill."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Taglines, bio copy, service descriptions. Max ~64ch line length."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Kickers, tag pills, duration/price micro-labels. Always uppercase, bold, tracked."
+      }
     },
     "shadows": [
-      { "name": "ambient-card", "value": "0 2px 0 rgba(59, 46, 38, 0.04)", "purpose": "Resting state for service rows." },
-      { "name": "hover-lift", "value": "0 22px 44px rgba(59, 46, 38, 0.12)", "purpose": "Service rows and interactive cards on hover, paired with translateY(-3px)." },
-      { "name": "floating-badge", "value": "0 16px 36px rgba(59, 46, 38, 0.14)", "purpose": "Hero floating quote badge and overlapping elements." },
-      { "name": "hero-portrait", "value": "0 30px 60px rgba(59, 46, 38, 0.16)", "purpose": "Largest, softest shadow — reserved for the single most prominent image." }
+      {
+        "name": "ambient-card",
+        "value": "0 2px 0 rgba(59, 46, 38, 0.04)",
+        "purpose": "Resting state for service rows."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 22px 44px rgba(59, 46, 38, 0.12)",
+        "purpose": "Service rows and interactive cards on hover, paired with translateY(-3px)."
+      },
+      {
+        "name": "floating-badge",
+        "value": "0 16px 36px rgba(59, 46, 38, 0.14)",
+        "purpose": "Hero floating quote badge and overlapping elements."
+      },
+      {
+        "name": "hero-portrait",
+        "value": "0 30px 60px rgba(59, 46, 38, 0.16)",
+        "purpose": "Largest, softest shadow — reserved for the single most prominent image."
+      }
     ],
     "motion": [
-      { "name": "ease-reveal", "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "purpose": "Slow, calm ease-out for all scroll-triggered reveals (0.8-1.0s)." },
-      { "name": "ease-transition", "value": "cubic-bezier(0.25, 0.1, 0.25, 1)", "purpose": "Same curve for hover/UI transitions (250ms), consistent editorial feel." }
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "purpose": "Slow, calm ease-out for all scroll-triggered reveals (0.8-1.0s)."
+      },
+      {
+        "name": "ease-transition",
+        "value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "purpose": "Same curve for hover/UI transitions (250ms), consistent editorial feel."
+      }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -104,11 +207,31 @@
       "Slow reveals (0.8–1.0s) — nothing snaps or bounces"
     ],
     "rules": [
-      { "name": "The One Accent Rule", "body": "Only #c98e84 / #9a5548 (dusty terracotta and its text-safe darkened variant) carry color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.", "section": "colors" },
-      { "name": "The Italic Warmth Rule", "body": "Playfair Display italic is reserved for moments of personality: the accent word in the H1 and header logo, pull-quotes, the floating hero badge, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.", "section": "typography" },
-      { "name": "The One Headline Rule", "body": "Every section title (h2) resolves to the same --text-headline value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size.", "section": "typography" },
-      { "name": "The Diffuse-Only Rule", "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.", "section": "elevation" },
-      { "name": "The No-Repeat-Recipe Rule", "body": "No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing scale is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright (as Contact does with its full-bleed panel).", "section": "layout" }
+      {
+        "name": "The One Accent Rule",
+        "body": "Only #c98e84 / #9a5548 (dusty terracotta and its text-safe darkened variant) carry color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic Warmth Rule",
+        "body": "Playfair Display italic is reserved for moments of personality: the accent word in the H1 and header logo, pull-quotes, the floating hero badge, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Headline Rule",
+        "body": "Every section title (h2) resolves to the same --text-headline value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Diffuse-Only Rule",
+        "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Repeat-Recipe Rule",
+        "body": "No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing scale is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright (as Contact does with its full-bleed panel).",
+        "section": "layout"
+      }
     ],
     "dos": [
       "Do keep the accent color (#c98e84 / #9a5548) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.",
