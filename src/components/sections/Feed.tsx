@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { feedImages } from "@/lib/tiles";
-import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
+import { developIn, developWash, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Feed() {
   const { t } = useLocale();
@@ -34,7 +34,7 @@ export function Feed() {
         {feedImages.map((tile, index) => (
           <motion.div
             key={index}
-            variants={fadeUp}
+            variants={developIn}
             className={`relative rounded-2xl overflow-hidden ${
               index === 0
                 ? "col-span-2 aspect-square md:aspect-auto md:row-span-2"
@@ -48,6 +48,11 @@ export function Feed() {
               sizes={index === 0 ? "(max-width: 768px) 100vw, 45vw" : "(max-width: 768px) 33vw, 16vw"}
               className="object-cover"
               placeholder="blur"
+            />
+            <motion.div
+              aria-hidden="true"
+              variants={developWash}
+              className="absolute inset-0 bg-(--color-tag-bg)"
             />
           </motion.div>
         ))}

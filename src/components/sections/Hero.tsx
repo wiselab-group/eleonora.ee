@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, staggerContainer } from "@/lib/motion";
@@ -10,6 +10,24 @@ import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
 export function Hero() {
   const { t, lang } = useLocale();
+
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const springConfig = { stiffness: 120, damping: 20, mass: 0.5 };
+  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [3, -3]), springConfig);
+  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-3, 3]), springConfig);
+
+  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== "mouse") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    pointerX.set((event.clientX - bounds.left) / bounds.width - 0.5);
+    pointerY.set((event.clientY - bounds.top) / bounds.height - 0.5);
+  }
+
+  function handlePointerLeave() {
+    pointerX.set(0);
+    pointerY.set(0);
+  }
 
   return (
     <motion.section
@@ -45,21 +63,31 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <motion.div variants={fadeUp} className="relative">
-        <div className="aspect-[4/5] overflow-hidden rounded-t-[200px] rounded-b-3xl bg-(--color-surface-alt) shadow-[0_30px_60px_rgba(59,46,38,0.16)] relative">
-          <Image
-            src={eleonoraPhoto}
-            alt="Eleonora Kupczyk"
-            fill
-            sizes="(max-width: 768px) 100vw, 45vw"
-            className="object-cover"
-            placeholder="blur"
-            priority
-          />
-        </div>
-        <div className="absolute -bottom-4.5 -left-4.5 bg-(--color-surface-alt) rounded-2xl px-5 py-3.5 shadow-[0_16px_36px_rgba(59,46,38,0.14)] font-(family-name:--font-display) italic text-[clamp(15px,1.4vw,18px)] text-(--color-text)">
-          {t.heroBadge}
-        </div>
+      <motion.div
+        variants={fadeUp}
+        className="relative perspective-distant"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+      >
+        <motion.div
+          style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+          className="motion-reduce:transform-none!"
+        >
+          <div className="aspect-[4/5] overflow-hidden rounded-t-[200px] rounded-b-3xl bg-(--color-surface-alt) shadow-[0_30px_60px_rgba(59,46,38,0.16)] relative">
+            <Image
+              src={eleonoraPhoto}
+              alt="Eleonora Kupczyk"
+              fill
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="object-cover"
+              placeholder="blur"
+              priority
+            />
+          </div>
+          <div className="absolute -bottom-4.5 -left-4.5 bg-(--color-surface-alt) rounded-2xl px-5 py-3.5 shadow-[0_16px_36px_rgba(59,46,38,0.14)] font-(family-name:--font-display) italic text-[clamp(15px,1.4vw,18px)] text-(--color-text) transform-[translateZ(40px)]">
+            {t.heroBadge}
+          </div>
+        </motion.div>
       </motion.div>
     </motion.section>
   );

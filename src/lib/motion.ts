@@ -19,3 +19,19 @@ export const staggerContainer: Variants = {
 };
 
 export const viewportOnce = { once: true, margin: "-80px" } as const;
+
+export const developIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1.1, ease: EASE_REVEAL },
+  },
+};
+
+export const developWash: Variants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 0,
+    transition: { duration: 1.1, ease: EASE_REVEAL },
+  },
+};
