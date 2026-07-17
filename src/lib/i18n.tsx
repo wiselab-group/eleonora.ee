@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 export type Locale = "ru" | "en";
 
@@ -208,10 +214,12 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       t: dictionaries[lang],
       toggleLang,
     }),
-    [lang, toggleLang]
+    [lang, toggleLang],
   );
 
-  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
+  return (
+    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
+  );
 }
 
 export function useLocale(): LocaleContextValue {

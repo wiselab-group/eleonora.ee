@@ -8,6 +8,18 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
+const imageReveal = {
+  hidden: { opacity: 0, scale: 1.06 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.4,
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+    },
+  },
+};
+
 export function Hero() {
   const { t, lang } = useLocale();
 
@@ -19,62 +31,69 @@ export function Hero() {
       className="relative h-dvh min-h-[560px] overflow-hidden"
     >
       <div className="absolute inset-0">
-        <Image
-          src={eleonoraPhoto}
-          alt="Eleonora Kupczyk"
-          fill
-          sizes="100vw"
-          className="object-cover object-[68%_22%] saturate-[0.85] sepia-[0.12]"
-          placeholder="blur"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/75 via-(--color-primary)/15 to-(--color-primary)/35" />
+        <motion.div
+          variants={imageReveal}
+          className="absolute inset-0 motion-reduce:opacity-100 motion-reduce:scale-100"
+        >
+          <Image
+            src={eleonoraPhoto}
+            alt="Eleonora Kupczyk"
+            fill
+            sizes="100vw"
+            className="object-cover object-[68%_22%] saturate-[0.85] sepia-[0.12]"
+            placeholder="blur"
+            priority
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/92 via-(--color-primary)/25 to-(--color-primary)/10" />
       </div>
 
-      <div className="relative h-full flex flex-col justify-center gap-6 sm:gap-[clamp(24px,3vw,36px)] px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mx-auto">
+      <div className="relative h-full flex flex-col justify-end gap-5 sm:gap-[clamp(20px,2.6vw,30px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-[clamp(40px,7vh,72px)] max-w-[1320px] mx-auto">
         <motion.h1
           variants={fadeUp}
-          className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.86] tracking-[-0.02em] m-0"
+          className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] m-0"
         >
           Eleonora
           <br />
           <span className="italic font-normal">Kupczyk</span>
         </motion.h1>
 
-        <motion.p
+        <motion.div
           variants={fadeUp}
-          className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-bg) max-w-[32ch]"
+          className="flex flex-wrap items-end justify-between gap-x-8 gap-y-5"
         >
-          {t.tagline}
-        </motion.p>
+          <p className="text-[clamp(14px,1.2vw,17px)] leading-relaxed text-(--color-bg)/85 max-w-[30ch] m-0">
+            {t.tagline}
+          </p>
 
-        <motion.div variants={fadeUp} className="flex flex-wrap gap-5 items-center">
-          <Button
-            variant="solid-accent"
-            href={generalTelegramLink(lang)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="currentColor"
-              className="shrink-0"
+          <div className="flex flex-wrap gap-5 items-center">
+            <Button
+              variant="solid-accent"
+              href={generalTelegramLink(lang)}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <path d="M21.05 3.76 2.83 10.8c-1.24.5-1.24 1.2-.23 1.5l4.68 1.46 1.8 5.6c.22.6.35.85.72.85.34 0 .5-.15.7-.36l1.95-1.9 4.05 2.99c.75.42 1.28.2 1.47-.7l2.66-12.53c.28-1.13-.42-1.64-1.53-1.15Zm-11.6 9.6-1.13-3.7L18.4 6.1c.4-.24.77-.11.47.15Z" />
-            </svg>
-            {t.heroCta}
-          </Button>
-          <a
-            href="https://www.instagram.com/eleonora.kupczyk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="no-underline text-(--color-bg) text-sm font-semibold border-b border-transparent pb-0.5 transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent) active:opacity-70"
-          >
-            @eleonora.kupczyk
-          </a>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+                className="shrink-0"
+              >
+                <path d="M21.05 3.76 2.83 10.8c-1.24.5-1.24 1.2-.23 1.5l4.68 1.46 1.8 5.6c.22.6.35.85.72.85.34 0 .5-.15.7-.36l1.95-1.9 4.05 2.99c.75.42 1.28.2 1.47-.7l2.66-12.53c.28-1.13-.42-1.64-1.53-1.15Zm-11.6 9.6-1.13-3.7L18.4 6.1c.4-.24.77-.11.47.15Z" />
+              </svg>
+              {t.heroCta}
+            </Button>
+            <a
+              href="https://www.instagram.com/eleonora.kupczyk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline text-(--color-bg)/70 text-xs font-semibold border-b border-transparent pb-0.5 transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent) hover:text-(--color-bg) active:opacity-70"
+            >
+              @eleonora.kupczyk
+            </a>
+          </div>
         </motion.div>
       </div>
     </motion.section>

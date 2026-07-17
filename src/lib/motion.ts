@@ -1,6 +1,8 @@
 import type { Variants } from "framer-motion";
 
-export const EASE_REVEAL: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+export const EASE_REVEAL: [number, number, number, number] = [
+  0.25, 0.1, 0.25, 1,
+];
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16 },

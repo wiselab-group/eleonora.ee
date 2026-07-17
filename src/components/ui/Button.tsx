@@ -3,11 +3,10 @@ import { motion, type Variants } from "framer-motion";
 
 type ButtonVariant = "solid-dark" | "solid-accent" | "outline";
 
-interface ButtonProps
-  extends Omit<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
-  > {
+interface ButtonProps extends Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "onAnimationEnd"
+> {
   variant?: ButtonVariant;
   children: ReactNode;
 }

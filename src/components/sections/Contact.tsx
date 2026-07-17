@@ -8,10 +8,30 @@ import { fadeUp, viewportOnce } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 
 const links = [
-  { label: "Instagram", href: "https://www.instagram.com/eleonora.kupczyk/", value: "@eleonora.kupczyk", external: true },
-  { label: "Telegram", href: "https://t.me/eleonora_kupczyk", value: "@eleonora_kupczyk", external: true },
-  { label: "tel", href: "tel:+37256950304", value: "+372 569 50 304", external: false },
-  { label: "E-mail", href: "mailto:eleonora.kupczyk@gmail.com", value: "eleonora.kupczyk@gmail.com", external: false },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/eleonora.kupczyk/",
+    value: "@eleonora.kupczyk",
+    external: true,
+  },
+  {
+    label: "Telegram",
+    href: "https://t.me/eleonora_kupczyk",
+    value: "@eleonora_kupczyk",
+    external: true,
+  },
+  {
+    label: "tel",
+    href: "tel:+37256950304",
+    value: "+372 569 50 304",
+    external: false,
+  },
+  {
+    label: "E-mail",
+    href: "mailto:eleonora.kupczyk@gmail.com",
+    value: "eleonora.kupczyk@gmail.com",
+    external: false,
+  },
 ];
 
 export function Contact() {

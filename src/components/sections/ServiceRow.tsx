@@ -13,7 +13,12 @@ interface ServiceRowProps {
   choose: string;
 }
 
-export function ServiceRow({ service, image, duration, choose }: ServiceRowProps) {
+export function ServiceRow({
+  service,
+  image,
+  duration,
+  choose,
+}: ServiceRowProps) {
   const { lang } = useLocale();
 
   return (

@@ -4,13 +4,21 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { feedImages } from "@/lib/tiles";
-import { developIn, developWash, staggerContainer, viewportOnce } from "@/lib/motion";
+import {
+  developIn,
+  developWash,
+  staggerContainer,
+  viewportOnce,
+} from "@/lib/motion";
 
 export function Feed() {
   const { t } = useLocale();
 
   return (
-    <section id="feed" className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto">
+    <section
+      id="feed"
+      className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto"
+    >
       <div className="flex items-end justify-between gap-6 flex-wrap mb-7 sm:mb-[clamp(22px,3vw,38px)]">
         <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none m-0">
           {t.feedTitle}
@@ -45,7 +53,11 @@ export function Feed() {
               src={tile}
               alt={`${t.feedAlt} ${index + 1}`}
               fill
-              sizes={index === 0 ? "(max-width: 768px) 100vw, 45vw" : "(max-width: 768px) 33vw, 16vw"}
+              sizes={
+                index === 0
+                  ? "(max-width: 768px) 100vw, 45vw"
+                  : "(max-width: 768px) 33vw, 16vw"
+              }
               className="object-cover"
               placeholder="blur"
             />
