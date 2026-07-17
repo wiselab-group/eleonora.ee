@@ -48,7 +48,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/92 via-(--color-primary)/25 to-(--color-primary)/10" />
       </div>
 
-      <div className="relative h-full flex flex-col justify-start gap-6 sm:gap-[clamp(24px,3.2vw,40px)] px-5 sm:px-[clamp(20px,5vw,60px)] pt-[clamp(96px,14vh,140px)] max-w-[1320px] mx-auto">
+      <div className="relative h-full flex flex-col justify-end gap-6 sm:gap-[clamp(24px,3.2vw,40px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-10 sm:pb-[clamp(96px,14vh,140px)] max-w-[1320px] mx-auto">
         <motion.h1
           variants={fadeUp}
           className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] m-0"
@@ -60,7 +60,7 @@ export function Hero() {
 
         <motion.p
           variants={fadeUp}
-          className="text-[clamp(14px,1.2vw,17px)] leading-relaxed text-(--color-bg)/85 max-w-[30ch] m-0"
+          className="text-[clamp(14px,1.2vw,17px)] leading-relaxed text-(--color-bg)/85 max-w-[40ch] m-0"
         >
           {t.tagline}
         </motion.p>
@@ -91,9 +91,32 @@ export function Hero() {
             href="https://www.instagram.com/eleonora.kupczyk/"
             target="_blank"
             rel="noopener noreferrer"
-            className="no-underline text-(--color-bg)/70 text-xs font-semibold border-b border-transparent pb-0.5 transition-[border-color,opacity] duration-250 ease-(--ease-transition) hover:border-(--color-accent) hover:text-(--color-bg) active:opacity-70"
+            aria-label="Instagram @eleonora.kupczyk"
+            className="inline-flex items-center gap-2.5 justify-center size-13 sm:size-auto text-(--color-bg) no-underline transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-50"
           >
-            @eleonora.kupczyk
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              className="shrink-0"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.2"
+                cy="6.8"
+                r="0.6"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+            <span className="hidden sm:inline text-sm font-bold">
+              eleonora.kupczyk
+            </span>
           </a>
         </motion.div>
       </div>

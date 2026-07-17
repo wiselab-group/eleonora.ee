@@ -63,7 +63,7 @@ const dictionaries: Record<Locale, Translation> = {
     contactTitle: "Давайте создадим ваш блог",
     contactBody:
       "По всем вопросам пишите в Telegram — отвечаю лично и помогаю подобрать формат под вашу задачу.",
-    contactCta: "Написать @eleonora_kupczyk",
+    contactCta: "Написать в Telegram",
     phone: "Телефон",
     services: [
       {
