@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { SectionKicker } from "@/components/ui/SectionKicker";
+import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 
@@ -60,9 +61,9 @@ export function Contact() {
               href={generalTelegramLink(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4.5 text-base"
             >
-              {t.contactCta} <span aria-hidden="true">→</span>
+              <TelegramIcon />
+              {t.contactCta}
             </Button>
           </div>
           <div className="flex flex-col gap-3.5 text-sm">
