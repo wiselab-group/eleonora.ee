@@ -39,13 +39,16 @@ export function Contact() {
   const { t, lang } = useLocale();
 
   return (
-    <section id="contact" className="pt-5 sm:pt-[clamp(20px,3vw,40px)]">
+    <section
+      id="contact"
+      className="pt-5 sm:pt-[clamp(20px,3vw,40px)] bg-(--color-dark) text-(--color-on-dark)"
+    >
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="bg-(--color-dark) text-(--color-on-dark) px-5 sm:px-[clamp(20px,5vw,60px)] md:px-0 py-10 sm:py-[clamp(40px,6vw,96px)]"
+        className="px-5 sm:px-[clamp(20px,5vw,60px)] md:px-0 py-10 sm:py-[clamp(40px,6vw,96px)]"
       >
         <div className="max-w-[1320px] mx-auto md:px-[clamp(28px,5vw,80px)] grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end">
           <div>
@@ -84,9 +87,24 @@ export function Contact() {
           </div>
         </div>
       </motion.div>
-      <div className="flex justify-between text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint) px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
+      <div className="flex justify-between text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/72 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
         <span>© 2026 Eleonora Kupczyk</span>
-        <span>Tallinn, Estonia</span>
+        <a
+          href="https://wiselab.ee/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative no-underline text-(--color-on-dark) transition-opacity duration-250 ease-(--ease-transition) hover:opacity-100"
+        >
+          <span className="block transition-opacity duration-[550ms] ease-(--ease-transition) group-hover:opacity-0">
+            Tallinn, Estonia
+          </span>
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-end opacity-0 transition-opacity duration-[550ms] ease-(--ease-transition) group-hover:opacity-100"
+          >
+            Site by <span className="text-(--color-accent) ml-1">Wiselab</span>
+          </span>
+        </a>
       </div>
     </section>
   );
