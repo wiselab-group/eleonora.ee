@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
+import { GradientText } from "@/components/ui/GradientText";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
 const imageReveal = {
@@ -56,7 +57,9 @@ export function Hero() {
         >
           Eleonora
           <br />
-          <span className="italic font-normal">Kupczyk</span>
+          <GradientText as="span" className="italic font-normal">
+            Kupczyk
+          </GradientText>
         </motion.h1>
 
         <motion.p

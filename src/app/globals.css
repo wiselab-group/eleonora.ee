@@ -87,3 +87,40 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+@keyframes gradient-text-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-surface) 0%,
+    var(--color-bg) 25%,
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-surface)) 50%,
+    var(--color-bg) 75%,
+    var(--color-surface) 100%
+  );
+  background-size: 600% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  animation: gradient-text-pan 22s linear infinite;
+  will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
