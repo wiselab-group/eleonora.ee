@@ -217,7 +217,7 @@ interface LocaleContextValue {
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Locale>("ru");
+  const [lang, setLang] = useState<Locale>("en");
 
   const toggleLang = useCallback(() => {
     setLang((current) => (current === "ru" ? "en" : "ru"));

@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale, type Locale } from "@/lib/i18n";
 
-const LOCALES: Locale[] = ["ru", "en"];
+const LOCALES: Locale[] = ["en", "ru"];
 
 export function LanguageToggle() {
   const { lang, toggleLang } = useLocale();

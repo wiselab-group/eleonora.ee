@@ -80,7 +80,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="ru"
+      lang="en"
       className={`${playfair.variable} ${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

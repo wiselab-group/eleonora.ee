@@ -45,7 +45,7 @@ export function Shorts() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={staggerContainer}
-        className="flex gap-3 sm:gap-[clamp(12px,1.4vw,20px)] overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:mx-0 sm:px-0"
+        className="grid grid-cols-4 gap-3 sm:gap-[clamp(12px,1.4vw,20px)]"
       >
         {shorts.map((short, index) => (
           <ShortCard

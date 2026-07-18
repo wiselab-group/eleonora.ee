@@ -19,13 +19,13 @@ export function ShortCard({ thumbnail, href, alt, playLabel }: ShortCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={playLabel}
-      className="group relative shrink-0 w-[clamp(148px,32vw,220px)] aspect-9/16 overflow-hidden rounded-[18px] bg-(--color-tag-bg) snap-start"
+      className="group relative w-full aspect-9/16 overflow-hidden rounded-[18px] bg-(--color-tag-bg)"
     >
       <Image
         src={thumbnail}
         alt={alt}
         fill
-        sizes="(max-width: 768px) 32vw, 220px"
+        sizes="25vw"
         className="object-cover"
       />
       <div
