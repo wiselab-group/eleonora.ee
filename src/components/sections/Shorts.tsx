@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
-import { shortsPlaceholders } from "@/lib/tiles";
+import { shorts } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { ShortCard } from "./ShortCard";
 
-const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@eleonora_kupczyk";
+const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@eleonora.kupczyk";
 
 export function Shorts() {
   const { t } = useLocale();
@@ -47,7 +47,7 @@ export function Shorts() {
         variants={staggerContainer}
         className="flex gap-3 sm:gap-[clamp(12px,1.4vw,20px)] overflow-x-auto snap-x snap-mandatory pb-2 -mx-5 px-5 sm:mx-0 sm:px-0"
       >
-        {shortsPlaceholders.map((short, index) => (
+        {shorts.map((short, index) => (
           <ShortCard
             key={index}
             thumbnail={short.thumbnail}

@@ -1,11 +1,11 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
 interface ShortCardProps {
-  thumbnail: StaticImageData;
+  thumbnail: string;
   href: string;
   alt: string;
   playLabel: string;
@@ -27,7 +27,6 @@ export function ShortCard({ thumbnail, href, alt, playLabel }: ShortCardProps) {
         fill
         sizes="(max-width: 768px) 32vw, 220px"
         className="object-cover"
-        placeholder="blur"
       />
       <div
         aria-hidden="true"

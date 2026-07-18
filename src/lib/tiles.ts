@@ -45,11 +45,14 @@ export const feedPosts = [
   { image: tiles.t5, href: "https://www.instagram.com/p/DFAUU7Yt17o/" },
 ];
 
-// TODO: swap `href` for the real YouTube Shorts URL once videos are published.
-export const shortsPlaceholders = [
-  { thumbnail: tiles.t1_2, href: "#" },
-  { thumbnail: tiles.t0_1, href: "#" },
-  { thumbnail: tiles.t0_4, href: "#" },
-  { thumbnail: tiles.t0_5, href: "#" },
-  { thumbnail: tiles.t0_0, href: "#" },
+const youtubeShort = (id: string) => ({
+  thumbnail: `https://i.ytimg.com/vi/${id}/oar2.jpg`,
+  href: `https://youtube.com/shorts/${id}`,
+});
+
+export const shorts = [
+  youtubeShort("AY2uPhvOnNE"),
+  youtubeShort("C7OTW5h9Avk"),
+  youtubeShort("GXtn6NLEiYM"),
+  youtubeShort("RD6y9a7GZTk"),
 ];
