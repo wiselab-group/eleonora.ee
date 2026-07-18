@@ -52,7 +52,7 @@ export function ServiceCard({
         href={serviceTelegramLink(service, lang)}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col h-full max-h-[520px] w-[min(78vw,340px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
+        className="group flex flex-col h-full max-h-[min(520px,calc(100dvh-var(--services-title-space)))] w-[min(78vw,340px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
       >
         <div className="aspect-4/3 overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-4">
           <Image

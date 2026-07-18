@@ -128,7 +128,7 @@ export function Services() {
         style={{ height: `${viewportHeight + scrollDistance}px` }}
         className="relative"
       >
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden [--services-title-space:180px] sm:[--services-title-space:220px]">
           <div className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mb-6 sm:mb-[clamp(24px,3vw,36px)] shrink-0">
             {title}
           </div>
