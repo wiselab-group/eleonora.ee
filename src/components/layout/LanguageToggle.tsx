@@ -14,12 +14,12 @@ export function LanguageToggle() {
       type="button"
       onClick={toggleLang}
       aria-label="Switch language"
-      className="group relative isolate inline-flex items-center gap-0.5 font-body cursor-pointer select-none rounded-full bg-(--color-tag-bg) p-1 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-70"
+      className="group relative isolate inline-flex items-center gap-0.5 font-body cursor-pointer select-none rounded-full bg-(--color-tag-bg) p-1 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-70 before:absolute before:-inset-2.5 before:content-['']"
     >
       {LOCALES.map((locale) => (
         <span
           key={locale}
-          className={`relative isolate rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] transition-colors duration-250 ease-(--ease-transition) ${
+          className={`relative isolate flex items-center justify-center rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] transition-colors duration-250 ease-(--ease-transition) ${
             locale === lang
               ? "text-white"
               : "text-(--color-tag-text) opacity-55 group-hover:opacity-80"
