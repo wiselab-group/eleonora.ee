@@ -24,11 +24,7 @@ export function ServiceCard({
   const { lang } = useLocale();
 
   const numBadge = (
-    <span className="relative font-(family-name:--font-display) italic text-base text-(--color-accent-text) isolate">
-      <span
-        aria-hidden="true"
-        className="absolute -inset-2.5 -z-10 rounded-full bg-(--color-tag-bg) opacity-0 scale-50 blur-md transition-[opacity,transform] duration-500 ease-(--ease-transition) group-hover:opacity-100 group-hover:scale-100"
-      />
+    <span className="font-(family-name:--font-display) italic text-base text-(--color-accent-text)">
       {service.num}
     </span>
   );
@@ -56,7 +52,7 @@ export function ServiceCard({
         href={serviceTelegramLink(service, lang)}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col h-full max-h-[520px] w-[min(78vw,340px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-[transform,box-shadow] duration-250 ease-(--ease-transition) hover:-translate-y-[3px] hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)] active:translate-y-0 active:shadow-[0_2px_0_rgba(59,46,38,0.04)]"
+        className="group flex flex-col h-full max-h-[520px] w-[min(78vw,340px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
       >
         <div className="aspect-4/3 overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-4">
           <Image
@@ -92,7 +88,7 @@ export function ServiceCard({
       href={serviceTelegramLink(service, lang)}
       target="_blank"
       rel="noopener noreferrer"
-      className="group grid grid-cols-[88px_1fr] sm:grid-cols-[128px_1fr_auto] gap-4.5 sm:gap-[clamp(18px,2.6vw,40px)] items-center bg-(--color-surface) rounded-3xl p-4 sm:p-[clamp(16px,1.6vw,22px)] no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-[transform,box-shadow] duration-250 ease-(--ease-transition) hover:-translate-y-[3px] hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)] active:translate-y-0 active:shadow-[0_2px_0_rgba(59,46,38,0.04)]"
+      className="group grid grid-cols-[88px_1fr] sm:grid-cols-[128px_1fr_auto] gap-4.5 sm:gap-[clamp(18px,2.6vw,40px)] items-center bg-(--color-surface) rounded-3xl p-4 sm:p-[clamp(16px,1.6vw,22px)] no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
     >
       <div className="aspect-square overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative">
         <Image
