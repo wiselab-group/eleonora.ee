@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Nunito_Sans } from "next/font/google";
 import { LocaleProvider } from "@/lib/i18n";
 import "./globals.css";
@@ -19,6 +19,10 @@ const nunito = Nunito_Sans({
 });
 
 const siteUrl = "https://eleonorakupczyk.com";
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
