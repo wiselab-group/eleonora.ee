@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { SectionKicker } from "@/components/ui/SectionKicker";
@@ -43,7 +43,7 @@ export function Contact() {
       id="contact"
       className="pt-5 sm:pt-[clamp(20px,3vw,40px)] bg-(--color-dark) text-(--color-on-dark)"
     >
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
@@ -86,7 +86,7 @@ export function Contact() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
       <div className="flex justify-between items-center text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/45 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
         <span>© 2026 Eleonora Kupczyk</span>
         <a

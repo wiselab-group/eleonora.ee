@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 
 type ButtonVariant = "solid-dark" | "solid-accent" | "outline";
 
@@ -36,18 +36,18 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <motion.a
+    <m.a
       {...props}
       initial="rest"
       whileTap="tap"
       className={`relative inline-flex items-center gap-2.5 rounded-full px-6.5 py-4 text-sm font-bold no-underline transition-opacity duration-250 ease-(--ease-transition) ${variantClasses[variant]} ${className}`}
     >
-      <motion.span
+      <m.span
         aria-hidden="true"
         variants={pulseRing}
         className="absolute inset-0 rounded-full bg-accent motion-reduce:hidden"
       />
       {children}
-    </motion.a>
+    </m.a>
   );
 }

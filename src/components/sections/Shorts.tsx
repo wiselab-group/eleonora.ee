@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { shorts } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
@@ -16,7 +16,7 @@ export function Shorts() {
       id="shorts"
       className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto"
     >
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
@@ -39,8 +39,8 @@ export function Shorts() {
         >
           {t.shortsCta} →
         </a>
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
@@ -56,7 +56,7 @@ export function Shorts() {
             playLabel={t.shortsPlay}
           />
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

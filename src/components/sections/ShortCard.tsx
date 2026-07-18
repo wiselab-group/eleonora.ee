@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
 interface ShortCardProps {
@@ -13,7 +13,7 @@ interface ShortCardProps {
 
 export function ShortCard({ thumbnail, href, alt, playLabel }: ShortCardProps) {
   return (
-    <motion.a
+    <m.a
       variants={fadeUp}
       href={href}
       target="_blank"
@@ -47,6 +47,6 @@ export function ShortCard({ thumbnail, href, alt, playLabel }: ShortCardProps) {
           </svg>
         </span>
       </span>
-    </motion.a>
+    </m.a>
   );
 }

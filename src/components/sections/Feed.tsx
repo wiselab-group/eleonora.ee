@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { feedPosts } from "@/lib/tiles";
 import {
@@ -32,7 +32,7 @@ export function Feed() {
           {t.feedCta} →
         </a>
       </div>
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
@@ -40,7 +40,7 @@ export function Feed() {
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:grid-rows-2 gap-2 sm:gap-[clamp(8px,1.2vw,16px)]"
       >
         {feedPosts.map((post, index) => (
-          <motion.a
+          <m.a
             key={index}
             href={post.href}
             target="_blank"
@@ -64,14 +64,14 @@ export function Feed() {
               className="object-cover transition-opacity duration-250 ease-(--ease-transition) group-hover:opacity-88"
               placeholder="blur"
             />
-            <motion.div
+            <m.div
               aria-hidden="true"
               variants={developWash}
               className="absolute inset-0 bg-(--color-tag-bg)"
             />
-          </motion.a>
+          </m.a>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

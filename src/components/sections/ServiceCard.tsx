@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLocale, type Service } from "@/lib/i18n";
 import { fadeUp } from "@/lib/motion";
 import { serviceTelegramLink } from "@/lib/telegram";
@@ -85,7 +85,7 @@ export function ServiceCard({
   }
 
   return (
-    <motion.a
+    <m.a
       variants={fadeUp}
       href={serviceTelegramLink(service, lang)}
       target="_blank"
@@ -120,6 +120,6 @@ export function ServiceCard({
       <div className="text-right whitespace-nowrap pr-1 sm:pr-[clamp(6px,1vw,18px)] col-span-2 sm:col-span-1">
         {priceAndCta}
       </div>
-    </motion.a>
+    </m.a>
   );
 }

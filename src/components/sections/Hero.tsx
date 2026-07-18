@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
@@ -26,14 +26,14 @@ export function Hero() {
   const { t, lang } = useLocale();
 
   return (
-    <motion.section
+    <m.section
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
       className="relative h-dvh min-h-[560px] overflow-hidden"
     >
       <div className="absolute inset-0">
-        <motion.div
+        <m.div
           variants={imageReveal}
           className="absolute inset-0 motion-reduce:opacity-100 motion-reduce:scale-100"
         >
@@ -46,12 +46,12 @@ export function Hero() {
             placeholder="blur"
             priority
           />
-        </motion.div>
+        </m.div>
         <div className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/92 via-(--color-primary)/25 to-(--color-primary)/10" />
       </div>
 
       <div className="relative h-full flex flex-col justify-end gap-6 sm:gap-[clamp(24px,3.2vw,40px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-10 sm:pb-[clamp(96px,14vh,140px)] max-w-[1320px] mx-auto">
-        <motion.h1
+        <m.h1
           variants={fadeUp}
           className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] m-0"
         >
@@ -60,16 +60,16 @@ export function Hero() {
           <GradientText as="span" className="italic font-normal">
             Kupczyk
           </GradientText>
-        </motion.h1>
+        </m.h1>
 
-        <motion.p
+        <m.p
           variants={fadeUp}
           className="text-[clamp(14px,1.2vw,17px)] leading-relaxed text-(--color-bg)/85 max-w-[40ch] m-0"
         >
           {t.tagline}
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           variants={fadeUp}
           className="flex flex-wrap gap-5 items-center"
         >
@@ -113,8 +113,8 @@ export function Hero() {
               eleonora.kupczyk
             </span>
           </a>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

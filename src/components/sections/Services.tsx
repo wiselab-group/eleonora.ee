@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { ServiceCard } from "./ServiceCard";
 import { serviceImages } from "@/lib/tiles";
@@ -94,7 +94,7 @@ export function Services() {
   if (!isPinned) {
     return (
       <section id="services" className="relative">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -102,7 +102,7 @@ export function Services() {
           className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mx-auto pt-12 sm:pt-[clamp(48px,7vw,100px)] mb-6 sm:mb-[clamp(24px,3vw,36px)]"
         >
           {title}
-        </motion.div>
+        </m.div>
         <div className="px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mx-auto pb-10 sm:pb-[clamp(40px,6vw,90px)]">
           <div className="flex flex-col gap-4 sm:gap-[clamp(18px,2.2vw,28px)]">
             {t.services.map((service, index) => (
@@ -133,7 +133,7 @@ export function Services() {
           <div className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mb-6 sm:mb-[clamp(24px,3vw,36px)] shrink-0">
             {title}
           </div>
-          <motion.div
+          <m.div
             ref={trackRef}
             style={{ x }}
             className="flex will-change-transform pl-5 sm:pl-[clamp(20px,5vw,60px)]"
@@ -157,7 +157,7 @@ export function Services() {
               aria-hidden="true"
               className="shrink-0 w-5 sm:w-[clamp(20px,5vw,60px)]"
             />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>
