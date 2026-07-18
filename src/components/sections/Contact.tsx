@@ -87,23 +87,15 @@ export function Contact() {
           </div>
         </div>
       </motion.div>
-      <div className="flex justify-between text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/72 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
-        <span>© 2026 Eleonora Kupczyk</span>
+      <div className="flex justify-between items-center text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/45 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
+        <span>© 2026 Eleonora Kupczyk · Tallinn, Estonia</span>
         <a
           href="https://wiselab.ee/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative no-underline text-(--color-on-dark) transition-opacity duration-250 ease-(--ease-transition) hover:opacity-100"
+          className="no-underline text-(--color-on-dark)/45 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-80 active:opacity-55"
         >
-          <span className="block transition-opacity duration-[550ms] ease-(--ease-transition) group-hover:opacity-0">
-            Tallinn, Estonia
-          </span>
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-end opacity-0 transition-opacity duration-[550ms] ease-(--ease-transition) group-hover:opacity-100"
-          >
-            Site by <span className="text-(--color-accent) ml-1">Wiselab</span>
-          </span>
+          Site by <span className="text-(--color-accent)/80">Wiselab</span>
         </a>
       </div>
     </section>
