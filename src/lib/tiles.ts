@@ -34,3 +34,12 @@ export const feedImages = [
   tiles.t1_4,
   tiles.t0_5,
 ];
+
+// TODO: swap `href` for the real YouTube Shorts URL once videos are published.
+export const shortsPlaceholders = [
+  { thumbnail: tiles.t1_2, href: "#" },
+  { thumbnail: tiles.t0_1, href: "#" },
+  { thumbnail: tiles.t0_4, href: "#" },
+  { thumbnail: tiles.t0_5, href: "#" },
+  { thumbnail: tiles.t0_0, href: "#" },
+];
