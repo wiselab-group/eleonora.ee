@@ -37,15 +37,16 @@ export function ServiceCard({
     </span>
   );
 
-  const priceAndCta = (
-    <>
-      <div className="font-(family-name:--font-display) font-medium text-[clamp(26px,3.2vw,44px)] leading-none tracking-[-0.01em]">
-        {service.price}
-      </div>
-      <div className="inline-flex items-center gap-1.5 mt-3.5 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2">
-        {choose} →
-      </div>
-    </>
+  const price = (
+    <div className="font-(family-name:--font-display) font-medium text-[clamp(26px,3.2vw,44px)] leading-none tracking-[-0.01em]">
+      {service.price}
+    </div>
+  );
+
+  const ctaPill = (
+    <div className="inline-flex items-center gap-1.5 shrink-0 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2">
+      {choose} →
+    </div>
   );
 
   if (variant === "panel") {
@@ -66,12 +67,10 @@ export function ServiceCard({
             placeholder="blur"
           />
         </div>
-        <div className="flex items-baseline gap-3 flex-wrap mb-2">
-          {numBadge}
-          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0">
-            {service.title}
-          </h3>
-        </div>
+        <div className="mb-1">{numBadge}</div>
+        <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-2">
+          {service.title}
+        </h3>
         <div className="mb-2">{tag}</div>
         <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-2">
           {service.desc}
@@ -79,7 +78,10 @@ export function ServiceCard({
         <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
           {duration} · {service.dur}
         </span>
-        <div className="mt-auto pt-4">{priceAndCta}</div>
+        <div className="mt-auto pt-4 flex items-center justify-between gap-3">
+          {price}
+          {ctaPill}
+        </div>
       </a>
     );
   }
@@ -118,7 +120,8 @@ export function ServiceCard({
         </span>
       </div>
       <div className="text-right whitespace-nowrap pr-1 sm:pr-[clamp(6px,1vw,18px)] col-span-2 sm:col-span-1">
-        {priceAndCta}
+        {price}
+        <div className="mt-3.5 flex justify-end">{ctaPill}</div>
       </div>
     </m.a>
   );
