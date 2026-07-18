@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-16T13:45:00Z",
+  "generatedAt": "2026-07-18T20:00:00Z",
   "title": "Design System: Eleonora Kupczyk",
   "extensions": {
     "colorMeta": {
@@ -83,52 +83,42 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero name headline only, italic variant marks the accent word."
+        "purpose": "Hero name headline only (rendered larger than the base token, clamp(72px, 13vw, 208px), for the full-bleed hero); italic gradient-fill variant marks the accent word."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section titles — Mission, About, Services, Feed, Contact all resolve to this one shared value."
+        "purpose": "Section titles — Services, Shorts, Feed, Contact all resolve to this one shared value."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Service row titles, paired with an italic numeral and a tag pill."
+        "purpose": "Service card titles, paired with an italic numeral and a tag pill."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Taglines, bio copy, service descriptions. Max ~64ch line length."
+        "purpose": "Hero tagline, Shorts body, Contact body, service descriptions. Max ~58ch line length."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Kickers, tag pills, duration/price micro-labels. Always uppercase, bold, tracked."
+        "purpose": "Language toggle, tag pills, duration/price micro-labels, footer credit line. Always uppercase, bold, tracked."
       }
     },
     "shadows": [
       {
         "name": "ambient-card",
         "value": "0 2px 0 rgba(59, 46, 38, 0.04)",
-        "purpose": "Resting state for service rows."
+        "purpose": "Resting state for service cards."
       },
       {
         "name": "hover-lift",
         "value": "0 22px 44px rgba(59, 46, 38, 0.12)",
-        "purpose": "Service rows and interactive cards on hover, paired with translateY(-3px)."
-      },
-      {
-        "name": "floating-badge",
-        "value": "0 16px 36px rgba(59, 46, 38, 0.14)",
-        "purpose": "Hero floating quote badge and overlapping elements."
-      },
-      {
-        "name": "hero-portrait",
-        "value": "0 30px 60px rgba(59, 46, 38, 0.16)",
-        "purpose": "Largest, softest shadow — reserved for the single most prominent image."
+        "purpose": "Service cards on hover (shadow-only transition; no translateY on the card in the current implementation)."
       }
     ],
     "motion": [
       {
         "name": "ease-reveal",
         "value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
-        "purpose": "Slow, calm ease-out for all scroll-triggered reveals (0.8-1.0s)."
+        "purpose": "Slow, calm ease-out for all scroll-triggered reveals (0.8-1.4s)."
       },
       {
         "name": "ease-transition",
@@ -146,111 +136,109 @@
   },
   "components": [
     {
-      "name": "Primary Button (dark)",
+      "name": "Button (solid-dark)",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Highest-emphasis CTA on light backgrounds, e.g. hero Telegram CTA.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Message on Telegram <span aria-hidden=\"true\">&rarr;</span></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #3b2e26; color: #f6efe4; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-primary:hover { opacity: 0.88; } .ds-btn-primary:active { opacity: 0.75; } .ds-btn-primary:focus-visible { outline: 2px solid #c98e84; outline-offset: 2px; }"
+      "refersTo": "button-solid-dark",
+      "description": "Dark pill CTA on light backgrounds, e.g. the Feed \"Follow on Instagram\" link.",
+      "html": "<a class=\"ds-btn-solid-dark\" href=\"#\">Explore Feed <span aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ".ds-btn-solid-dark { display: inline-flex; align-items: center; gap: 10px; background: #3b2e26; color: #f6efe4; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-solid-dark:hover { opacity: 0.88; } .ds-btn-solid-dark:active { opacity: 0.75; } .ds-btn-solid-dark:focus-visible { outline: 2px solid #c98e84; outline-offset: 2px; }"
     },
     {
-      "name": "Accent Button",
+      "name": "Button (solid-accent)",
       "kind": "button",
-      "refersTo": "button-accent",
-      "description": "Terracotta CTA used inside the dark Contact panel and header. Uses the darkened accent-text token, not the raw accent, so white text stays WCAG AA (5.57:1 vs 2.73:1).",
-      "html": "<a class=\"ds-btn-accent\" href=\"#\">Telegram</a>",
-      "css": ".ds-btn-accent { display: inline-flex; align-items: center; gap: 10px; background: #9a5548; color: #ffffff; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-accent:hover { opacity: 0.88; } .ds-btn-accent:active { opacity: 0.75; } .ds-btn-accent:focus-visible { outline: 2px solid #3b2e26; outline-offset: 2px; }"
+      "refersTo": "button-solid-accent",
+      "description": "Terracotta pill CTA, the highest-intent action on the page (Hero and Contact Telegram buttons). Uses the darkened accent-text token, not the raw accent, so white text stays WCAG AA (5.57:1 vs 2.73:1). Includes a subtle tap pulse-ring, hidden under prefers-reduced-motion.",
+      "html": "<a class=\"ds-btn-solid-accent\" href=\"#\">Message on Telegram</a>",
+      "css": ".ds-btn-solid-accent { display: inline-flex; align-items: center; gap: 10px; background: #9a5548; color: #ffffff; padding: 16px 26px; border-radius: 999px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-btn-solid-accent:hover { opacity: 0.88; } .ds-btn-solid-accent:active { opacity: 0.75; } .ds-btn-solid-accent:focus-visible { outline: 2px solid #3b2e26; outline-offset: 2px; }"
     },
     {
       "name": "Tag / Chip",
       "kind": "chip",
       "refersTo": "tag",
-      "description": "Small uppercase pill for eyebrows and service tags.",
-      "html": "<span class=\"ds-tag\">SMM · UGC · Tallinn</span>",
+      "description": "Small uppercase pill for service tags on ServiceCard (\"online\", \"video\", \"Tallinn\").",
+      "html": "<span class=\"ds-tag\">Tallinn</span>",
       "css": ".ds-tag { display: inline-flex; align-items: center; gap: 8px; background: #e4cfc6; color: #7a4e45; border-radius: 999px; padding: 7px 16px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }"
     },
     {
-      "name": "Service Row Card",
+      "name": "Service Card",
       "kind": "card",
       "refersTo": "service-row",
-      "description": "Interactive link row: thumbnail, title/tag/description, price/CTA. The site's signature component. CTA links carry a pre-filled, service-specific Telegram message.",
-      "html": "<a class=\"ds-service-row\" href=\"#\"><div class=\"ds-service-row__thumb\"></div><div class=\"ds-service-row__body\"><h3 class=\"ds-service-row__title\">Account Review</h3><p class=\"ds-service-row__desc\">Profile audit, personality unpacking and positioning.</p></div><div class=\"ds-service-row__price\">150&nbsp;&euro;</div></a>",
-      "css": ".ds-service-row { display: grid; grid-template-columns: 128px 1fr auto; gap: 32px; align-items: center; background: #f8f2e8; border-radius: 24px; padding: 22px; text-decoration: none; color: inherit; box-shadow: 0 2px 0 rgba(59, 46, 38, 0.04); transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-service-row:hover { transform: translateY(-3px); box-shadow: 0 22px 44px rgba(59, 46, 38, 0.12); } .ds-service-row__thumb { aspect-ratio: 1 / 1; border-radius: 18px; background: #e2d4c5; } .ds-service-row__title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; margin: 0 0 8px; color: #3b2e26; } .ds-service-row__desc { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; color: #6b5a4e; margin: 0; } .ds-service-row__price { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; color: #3b2e26; white-space: nowrap; }"
+      "description": "Interactive link card: thumbnail, title/tag/description, price/CTA. The site's signature component, rendered in two variants — a horizontally pinned-scroll 'panel' (default) and a vertically stacked row (reduced-motion fallback). CTA links carry a pre-filled, service-specific Telegram message.",
+      "html": "<a class=\"ds-service-card\" href=\"#\"><div class=\"ds-service-card__thumb\"></div><div class=\"ds-service-card__body\"><h3 class=\"ds-service-card__title\">Account Review</h3><p class=\"ds-service-card__desc\">Profile audit, personality unpacking and positioning.</p></div><div class=\"ds-service-card__price\">150&nbsp;&euro;</div></a>",
+      "css": ".ds-service-card { display: grid; grid-template-columns: 128px 1fr auto; gap: 32px; align-items: center; background: #f8f2e8; border-radius: 24px; padding: 22px; text-decoration: none; color: inherit; box-shadow: 0 2px 0 rgba(59, 46, 38, 0.04); transition: box-shadow 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-service-card:hover { box-shadow: 0 22px 44px rgba(59, 46, 38, 0.12); } .ds-service-card__thumb { aspect-ratio: 1 / 1; border-radius: 18px; background: #e2d4c5; } .ds-service-card__title { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; margin: 0 0 8px; color: #3b2e26; } .ds-service-card__desc { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 14px; color: #6b5a4e; margin: 0; } .ds-service-card__price { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 30px; color: #3b2e26; white-space: nowrap; }"
     },
     {
       "name": "Language Toggle",
       "kind": "custom",
       "refersTo": "language-toggle",
-      "description": "Low-emphasis pill control showing the other language's code; never competes with the primary CTA beside it.",
-      "html": "<button class=\"ds-lang-toggle\" type=\"button\">EN</button>",
-      "css": ".ds-lang-toggle { cursor: pointer; background: transparent; border: 1px solid rgba(59, 46, 38, 0.2); border-radius: 999px; padding: 6px 14px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; color: #3b2e26; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-lang-toggle:hover { opacity: 0.7; } .ds-lang-toggle:active { opacity: 0.55; } .ds-lang-toggle:focus-visible { outline: 2px solid #c98e84; outline-offset: 2px; }"
+      "description": "The only persistent control in the chrome-free header. A pill-shaped segmented control showing both en/ru codes side by side; the active locale sits on an animated accent pill with white text.",
+      "html": "<div class=\"ds-lang-toggle\" role=\"group\"><span class=\"ds-lang-toggle__option ds-lang-toggle__option--active\">en</span><span class=\"ds-lang-toggle__option\">ru</span></div>",
+      "css": ".ds-lang-toggle { display: inline-flex; gap: 2px; background: #e4cfc6; border-radius: 999px; padding: 4px; } .ds-lang-toggle__option { border-radius: 999px; padding: 6px 12px; font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #7a4e45; opacity: 0.55; transition: opacity 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.25s cubic-bezier(0.25, 0.1, 0.25, 1); } .ds-lang-toggle__option--active { background: #9a5548; color: #ffffff; opacity: 1; }"
     },
     {
       "name": "Section Kicker",
       "kind": "custom",
       "refersTo": "section-kicker",
-      "description": "Small uppercase tracked label used sparingly — only where it carries real information (About's location/specialty fact, Contact's navigational label). Not repeated as decorative scaffolding on every section.",
-      "html": "<div class=\"ds-kicker\">Tallinn &middot; SMM &amp; UGC</div>",
-      "css": ".ds-kicker { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #6b5a4e; margin-bottom: 16px; }"
+      "description": "Small uppercase tracked label used sparingly — currently only on Contact's navigational label above the contact-links list. Not repeated as decorative scaffolding on every section.",
+      "html": "<div class=\"ds-kicker\">Get in touch</div>",
+      "css": ".ds-kicker { font-family: 'Nunito Sans', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #c98e84; margin-bottom: 16px; }"
     }
   ],
   "narrative": {
     "northStar": "The Warm Studio",
-    "overview": "The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no gradients, no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality but only in isolated accent moments — one word in the hero H1 and logo, pull-quotes, badges — never a whole heading or wordmark; Nunito Sans stays quiet and does the informational work. Every section title resolves to one shared headline size rather than five ad hoc values, and the small uppercase kicker label appears only where it carries real information (About, Contact), not as decorative scaffolding repeated on every section. Each section also resolves a shared container and spacing scale into its own distinct composition — asymmetric left-weighted blocks, a lopsided image/text ratio, tight-then-loose row spacing, an asymmetric grid with a dominant tile, a full-bleed panel that breaks the container entirely — rather than repeating one grid recipe six times. This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.",
+    "overview": "The site reads as a real person's creative workspace, not a productized funnel: soft cream walls, terracotta accents, natural light. Every surface is warm and matte — no glass, no corporate blue. The pacing is slow and editorial, like flipping through a mentor's own portfolio rather than scrolling a SaaS pricing page. Playfair Display carries the personality but only in isolated accent moments — the accent word in the hero H1, service numerals — never a whole heading or wordmark; Nunito Sans stays quiet and does the informational work. Every section title resolves to one shared headline size rather than five ad hoc values, and the small uppercase kicker label appears only where it carries real information (Contact's navigational label), not as decorative scaffolding repeated on every section. The shipped page is deliberately hero-first and lean: Header, Hero, Services, Shorts, Feed, Contact — no persistent navigation, no header CTA, and no dedicated Mission or About section. The hero portrait and copy voice alone carry \"this is a real person,\" and every scroll depth funnels toward the single Contact panel at the bottom. This system explicitly rejects generic SaaS/agency consultant templates — corporate blue gradients, stock-photo grids, hero-metric stat rows, gradient-text headlines — and loud influencer/hustle-culture aesthetics — neon accents, countdown urgency, aggressive upsell language. The brand is one real person's warm, editorial space.",
     "keyCharacteristics": [
-      "One accent color (#c98e84, dusty terracotta, with a darkened #9a5548 text-safe variant) used sparingly — tags, CTAs, italic pull-quotes, selection color",
-      "Fully rounded pill buttons and generously rounded cards (24–28px), never sharp corners",
-      "Playfair Display italic reserved for isolated accent moments (one word in the H1 and logo, pull-quotes, badges) — never a whole heading or wordmark",
+      "One accent color (#c98e84, dusty terracotta, with a darkened #9a5548 text-safe variant) used sparingly — tags, CTAs, the footer credit link, selection color",
+      "Fully rounded pill buttons and generously rounded cards (18–28px), never sharp corners",
+      "Playfair Display italic reserved for isolated accent moments (the Hero accent word, service numerals) — never a whole heading or wordmark",
       "A single shared headline size across all section titles, not five ad hoc values",
-      "Section kickers used only where they carry real information (About, Contact), not repeated as decorative scaffolding on every section",
-      "Flat, matte surfaces layered by warmth (cream → tan → terracotta → near-black), no shadows for depth except soft ambient lift on hover",
-      "Slow reveals (0.8–1.0s) — nothing snaps or bounces"
+      "No section kickers except Contact's literal navigational label — not repeated as decorative scaffolding on every section",
+      "Flat, matte surfaces layered by warmth (parchment → paper → cream → ink), no shadows for depth except soft ambient lift on hover",
+      "Slow reveals (0.8–1.4s) — nothing snaps or bounces",
+      "A bare, chrome-free header: just a language toggle, no logo, no nav, no persistent CTA"
     ],
     "rules": [
       {
         "name": "The One Accent Rule",
-        "body": "Only #c98e84 / #9a5548 (dusty terracotta and its text-safe darkened variant) carry color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue.",
+        "body": "Only #c98e84 / #9a5548 (dusty terracotta and its text-safe darkened variant) carry color intent across the whole site. Every other value is a neutral tinted from the ink-to-parchment ramp. If a second saturated color is needed, tint it from the existing ramp rather than introducing a new hue. Known exception: GradientText.tsx on the Hero's \"Kupczyk\" word animates a background-clip gradient — a live, isolated departure from this rule, not a pattern to repeat.",
         "section": "colors"
       },
       {
         "name": "The Italic Warmth Rule",
-        "body": "Playfair Display italic is reserved for moments of personality: the accent word in the H1 and header logo, pull-quotes, the floating hero badge, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.",
+        "body": "Playfair Display italic is reserved for moments of personality: the accent word in the Hero H1, service numerals. Never used for body copy, functional UI text, or an entire wordmark — it marks emotional beats only.",
         "section": "typography"
       },
       {
         "name": "The One Headline Rule",
-        "body": "Every section title (h2) resolves to the same --text-headline value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size.",
+        "body": "Every section title (h2) resolves to the same --text-headline value. A section that wants to feel bigger earns it through layout (width, surrounding whitespace, color contrast), not through a private font-size. The Hero h1 is exempt — it uses the larger Display tier by design.",
         "section": "typography"
       },
       {
         "name": "The Diffuse-Only Rule",
-        "body": "Every shadow in the system uses the ink color at low opacity (4–16%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.",
+        "body": "Every shadow in the system uses the ink color at low opacity (4–12%) with a large blur radius. No hard-edged or dark shadows anywhere — the warmth of the palette carries into elevation too.",
         "section": "elevation"
-      },
-      {
-        "name": "The No-Repeat-Recipe Rule",
-        "body": "No two sections should resolve to the same grid shape, alignment, and vertical rhythm. A shared container and spacing scale is fine; an identical structural silhouette section after section is not — vary the column ratio, the alignment anchor, the tightness of internal grouping, or break the container outright (as Contact does with its full-bleed panel).",
-        "section": "layout"
       }
     ],
     "dos": [
-      "Do keep the accent color (#c98e84 / #9a5548) to a single deliberate role per section — a CTA, a tag, or a pull-quote, never more than one saturated moment per screenful.",
+      "Do keep the accent color (#c98e84 / #9a5548) to a single deliberate role per section — a CTA, a tag, or the footer credit link, never more than one saturated moment per screenful.",
       "Do use full pill radius (999px) on every button, no exceptions.",
-      "Do reserve Playfair Display italic for personality beats (accent words, quotes, badges), never for body copy, UI labels, or an entire wordmark.",
-      "Do keep shadows diffuse and ink-tinted (4–16% opacity, large blur) — never a hard, dark drop shadow.",
-      "Do pace reveals slowly (0.8–1.0s, cubic-bezier(0.25, 0.1, 0.25, 1)) — this is an editorial, unhurried brand, not a SaaS product.",
+      "Do reserve Playfair Display italic for personality beats (the Hero accent word, service numerals), never for body copy, UI labels, or an entire wordmark.",
+      "Do keep shadows diffuse and ink-tinted (4–12% opacity, large blur) — never a hard, dark drop shadow.",
+      "Do pace reveals slowly (0.8–1.4s, cubic-bezier(0.25, 0.1, 0.25, 1)) — this is an editorial, unhurried brand, not a SaaS product.",
       "Do use --color-accent-text (#9a5548), never the raw --color-accent, wherever white text sits on the accent fill — the raw accent fails WCAG AA at 2.73:1.",
       "Do resolve every section headline to the single shared --text-headline value — a bigger-feeling section earns it through layout, not a private font-size.",
-      "Do give every section a distinct grid shape, alignment anchor, or spacing rhythm from its neighbors — the No-Repeat-Recipe Rule."
+      "Do treat the header as intentionally minimal — a new feature should not assume a logo, nav links, or a persistent header CTA exist to hook into.",
+      "Do provide a prefers-reduced-motion fallback for any new scroll-driven or transform-heavy interaction, following the stacked/panel pattern in Services."
     ],
     "donts": [
-      "Don't introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects.",
+      "Don't introduce corporate blue gradients, stock-photo grids, hero-metric stat rows, or gradient-text headlines — the generic SaaS/agency consultant template this brand explicitly rejects (the existing GradientText on \"Kupczyk\" is a known, isolated exception, not license for a second instance).",
       "Don't use neon accents, countdown urgency, or aggressive upsell language — the loud influencer/hustle-culture aesthetic this brand explicitly rejects.",
       "Don't use sharp corners or hard shadows anywhere; every corner is rounded, every shadow is soft.",
       "Don't add a second saturated hue. If more color is needed, tint further along the existing ink-to-parchment ramp.",
       "Don't use top/left/width/height in any animation — transform and opacity only, per the site's hardware-acceleration rule.",
-      "Don't add a SectionKicker to a new section by reflex because \"landing pages do this\" — it earns its place only when it carries real information, not as decorative section grammar repeated on every heading.",
-      "Don't reuse the same grid ratio, alignment, and container width for a new section just because it's the pattern already established elsewhere — check for a structure that reads as distinct from its immediate neighbors."
+      "Don't add a SectionKicker to a new section by reflex — it earns its place only when it carries real information, not as decorative section grammar.",
+      "Don't add new anchor links assuming a nav exists to house them — there is currently no in-page navigation, and the existing section ids are unlinked.",
+      "Don't ship a new scroll-hijacking or pinned-scroll interaction without a visible progress indicator and a viewport-based or reduced-motion opt-out."
     ]
   }
 }
