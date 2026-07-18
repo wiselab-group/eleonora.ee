@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
-import { feedImages } from "@/lib/tiles";
+import { feedPosts } from "@/lib/tiles";
 import {
   developIn,
   developWash,
@@ -39,18 +39,21 @@ export function Feed() {
         variants={staggerContainer}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:grid-rows-2 gap-2 sm:gap-[clamp(8px,1.2vw,16px)]"
       >
-        {feedImages.map((tile, index) => (
-          <motion.div
+        {feedPosts.map((post, index) => (
+          <motion.a
             key={index}
+            href={post.href}
+            target="_blank"
+            rel="noopener noreferrer"
             variants={developIn}
-            className={`relative rounded-2xl overflow-hidden ${
+            className={`group relative block rounded-2xl overflow-hidden ${
               index === 0
                 ? "col-span-2 aspect-square md:aspect-auto md:row-span-2"
                 : "aspect-[4/5]"
             }`}
           >
             <Image
-              src={tile}
+              src={post.image}
               alt={`${t.feedAlt} ${index + 1}`}
               fill
               sizes={
@@ -58,7 +61,7 @@ export function Feed() {
                   ? "(max-width: 768px) 100vw, 45vw"
                   : "(max-width: 768px) 33vw, 16vw"
               }
-              className="object-cover"
+              className="object-cover transition-opacity duration-250 ease-(--ease-transition) group-hover:opacity-88"
               placeholder="blur"
             />
             <motion.div
@@ -66,7 +69,7 @@ export function Feed() {
               variants={developWash}
               className="absolute inset-0 bg-(--color-tag-bg)"
             />
-          </motion.div>
+          </motion.a>
         ))}
       </motion.div>
     </section>
