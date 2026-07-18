@@ -45,7 +45,7 @@ export function Contact() {
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="bg-(--color-dark) text-(--color-on-dark) rounded-t-[32px] rounded-b-none md:rounded-none px-5 sm:px-[clamp(20px,5vw,60px)] md:px-0 py-10 sm:py-[clamp(40px,6vw,96px)]"
+        className="bg-(--color-dark) text-(--color-on-dark) px-5 sm:px-[clamp(20px,5vw,60px)] md:px-0 py-10 sm:py-[clamp(40px,6vw,96px)]"
       >
         <div className="max-w-[1320px] mx-auto md:px-[clamp(28px,5vw,80px)] grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end">
           <div>
