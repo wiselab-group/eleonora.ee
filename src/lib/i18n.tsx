@@ -20,9 +20,6 @@ export interface Service {
 }
 
 export interface Translation {
-  nav_services: string;
-  nav_feed: string;
-  nav_contact: string;
   tagline: string;
   heroCta: string;
   heroBadge: string;
@@ -33,11 +30,11 @@ export interface Translation {
   feedKicker: string;
   feedTitle: string;
   feedCta: string;
-  feedAlt: string;
+  feedAlt: string[];
   shortsTitle: string;
   shortsBody: string;
   shortsCta: string;
-  shortsAlt: string;
+  shortsAlt: string[];
   shortsPlay: string;
   contactKicker: string;
   contactTitle: string;
@@ -45,13 +42,11 @@ export interface Translation {
   contactCta: string;
   phone: string;
   services: Service[];
+  serviceAlt: string[];
 }
 
 const dictionaries: Record<Locale, Translation> = {
   ru: {
-    nav_services: "Услуги",
-    nav_feed: "Лента",
-    nav_contact: "Контакты",
     tagline:
       "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
     heroCta: "Написать в Telegram",
@@ -63,12 +58,22 @@ const dictionaries: Record<Locale, Translation> = {
     feedKicker: "Лента",
     feedTitle: "Как это выглядит",
     feedCta: "Instagram",
-    feedAlt: "Кадр из Instagram-ленты Eleonora Kupczyk",
+    feedAlt: [
+      "Утро в отеле: чашка кофе и ноутбук в постели под подписью «Мой список дофамина»",
+      "Двойной рожок мороженого на фоне киоска Pargi Kiosk в Таллинне",
+      "Серо-голубой фасад особняка с балконом и коваными перилами",
+      "Круизный лайнер на закате у смотровых трибун Таллиннского порта",
+      "Виниловый проигрыватель Crosley с пластинкой Harry Styles и свечами рядом",
+    ],
     shortsTitle: "Примеры UGC",
-    shortsBody:
-      "Короткие видео о съёмках, разборах и закулисье. Снято и смонтировано так, как я учу делать своих учеников.",
+    shortsBody: "Короткие видео о съёмках, разборах и закулисье.",
     shortsCta: "Смотреть на YouTube",
-    shortsAlt: "Превью YouTube Shorts от Eleonora Kupczyk",
+    shortsAlt: [
+      "Превью YouTube Shorts от Eleonora Kupczyk №1",
+      "Превью YouTube Shorts от Eleonora Kupczyk №2",
+      "Превью YouTube Shorts от Eleonora Kupczyk №3",
+      "Превью YouTube Shorts от Eleonora Kupczyk №4",
+    ],
     shortsPlay: "Смотреть видео",
     contactKicker: "Контакты",
     contactTitle: "Давайте создадим ваш блог",
@@ -126,11 +131,16 @@ const dictionaries: Record<Locale, Translation> = {
         desc: "Естественные короткие видео до 30 секунд: продукт в действии, монтаж, добавление текста и музыки. Готовый материал — в день съёмки.",
       },
     ],
+    serviceAlt: [
+      "Уход за лицом гуа-шой в халате перед зеркалом",
+      "Коробка с косметическими средствами и уходовой продукцией",
+      "Выбор товаров в бутике вместе с продавцом",
+      "Чтение книги на подоконнике в халате у окна",
+      "Тарелка супа рядом с ноутбуком на деревянном столе",
+      "Утренний кофе и ноутбук в постели в номере отеля",
+    ],
   },
   en: {
-    nav_services: "Services",
-    nav_feed: "Feed",
-    nav_contact: "Contact",
     tagline:
       "A marketer based in Tallinn. I create content, teach and consult — helping you unfold yourself and speak about it on social media.",
     heroCta: "Message on Telegram",
@@ -142,12 +152,22 @@ const dictionaries: Record<Locale, Translation> = {
     feedKicker: "Feed",
     feedTitle: "How it looks",
     feedCta: "Instagram",
-    feedAlt: "A frame from Eleonora Kupczyk's Instagram feed",
+    feedAlt: [
+      "Hotel-room morning: coffee and a laptop in bed under the caption 'My dopamine menu'",
+      "A double scoop of ice cream held up outside the Pargi Kiosk in Tallinn",
+      "A grey-blue mansion facade with a balcony and wrought-iron railing",
+      "A cruise ship at sunset by the Tallinn harbour viewing steps",
+      "A Crosley record player spinning Harry Styles, candles beside it",
+    ],
     shortsTitle: "UGC examples",
-    shortsBody:
-      "Short videos from shoots, reviews and behind the scenes. Shot and edited the way I teach my students to do it.",
+    shortsBody: "Short videos from shoots, reviews and behind the scenes.",
     shortsCta: "Watch on YouTube",
-    shortsAlt: "YouTube Shorts preview from Eleonora Kupczyk",
+    shortsAlt: [
+      "YouTube Shorts preview from Eleonora Kupczyk #1",
+      "YouTube Shorts preview from Eleonora Kupczyk #2",
+      "YouTube Shorts preview from Eleonora Kupczyk #3",
+      "YouTube Shorts preview from Eleonora Kupczyk #4",
+    ],
     shortsPlay: "Watch video",
     contactKicker: "Contact",
     contactTitle: "Let's build your blog",
@@ -204,6 +224,14 @@ const dictionaries: Record<Locale, Translation> = {
         price: "from 100 €",
         desc: "Natural short videos up to 30 seconds: product in action, editing, text and music. Footage delivered the day of the shoot.",
       },
+    ],
+    serviceAlt: [
+      "Gua sha facial massage in a bathrobe in front of a mirror",
+      "An unboxed set of skincare products",
+      "Browsing homeware in a boutique with a shop assistant",
+      "Reading on a windowsill in a bathrobe",
+      "A bowl of soup beside a laptop on a wooden table",
+      "Morning coffee and a laptop in a hotel bed",
     ],
   },
 };

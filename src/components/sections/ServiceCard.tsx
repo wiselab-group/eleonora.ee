@@ -9,6 +9,7 @@ import { serviceTelegramLink } from "@/lib/telegram";
 interface ServiceCardProps {
   service: Service;
   image: StaticImageData;
+  imageAlt: string;
   duration: string;
   choose: string;
   variant: "panel" | "stacked";
@@ -17,6 +18,7 @@ interface ServiceCardProps {
 export function ServiceCard({
   service,
   image,
+  imageAlt,
   duration,
   choose,
   variant,
@@ -57,7 +59,7 @@ export function ServiceCard({
         <div className="aspect-4/3 overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-4">
           <Image
             src={image}
-            alt={service.title}
+            alt={imageAlt}
             fill
             sizes="340px"
             className="object-cover"
@@ -93,7 +95,7 @@ export function ServiceCard({
       <div className="aspect-square overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative">
         <Image
           src={image}
-          alt={service.title}
+          alt={imageAlt}
           fill
           sizes="128px"
           className="object-cover"

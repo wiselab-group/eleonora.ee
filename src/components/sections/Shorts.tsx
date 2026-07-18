@@ -52,7 +52,7 @@ export function Shorts() {
             key={index}
             thumbnail={short.thumbnail}
             href={short.href}
-            alt={`${t.shortsAlt} ${index + 1}`}
+            alt={t.shortsAlt[index]}
             playLabel={t.shortsPlay}
           />
         ))}

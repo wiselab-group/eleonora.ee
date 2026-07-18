@@ -54,7 +54,7 @@ export function Feed() {
           >
             <Image
               src={post.image}
-              alt={`${t.feedAlt} ${index + 1}`}
+              alt={t.feedAlt[index]}
               fill
               sizes={
                 index === 0

@@ -110,6 +110,7 @@ export function Services() {
                 key={service.num}
                 service={service}
                 image={serviceImages[index]}
+                imageAlt={t.serviceAlt[index]}
                 duration={t.duration}
                 choose={t.choose}
                 variant="stacked"
@@ -145,6 +146,7 @@ export function Services() {
                 <ServiceCard
                   service={service}
                   image={serviceImages[index]}
+                  imageAlt={t.serviceAlt[index]}
                   duration={t.duration}
                   choose={t.choose}
                   variant="panel"

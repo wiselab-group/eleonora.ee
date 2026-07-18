@@ -88,7 +88,7 @@ export function Contact() {
         </div>
       </motion.div>
       <div className="flex justify-between items-center text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/45 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
-        <span>© 2026 Eleonora Kupczyk · Tallinn, Estonia</span>
+        <span>© 2026 Eleonora Kupczyk</span>
         <a
           href="https://wiselab.ee/"
           target="_blank"
