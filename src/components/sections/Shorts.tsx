@@ -35,7 +35,7 @@ export function Shorts() {
           href={YOUTUBE_CHANNEL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline text-sm font-bold text-white bg-(--color-accent-text) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap justify-self-start md:justify-self-end"
+          className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap justify-self-start md:justify-self-end"
         >
           {t.shortsCta} →
         </a>
