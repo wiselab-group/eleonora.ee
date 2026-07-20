@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Nunito_Sans } from "next/font/google";
 import { LocaleProvider } from "@/lib/i18n";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -88,6 +89,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <SmoothScroll />
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
