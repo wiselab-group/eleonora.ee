@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
   description:
     "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+  },
   openGraph: {
     title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
     description:
