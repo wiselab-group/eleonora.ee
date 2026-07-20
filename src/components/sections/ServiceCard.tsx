@@ -55,32 +55,32 @@ export function ServiceCard({
         href={serviceTelegramLink(service, lang)}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col h-full max-h-[min(520px,calc(100dvh-var(--services-title-space)))] w-[min(78vw,340px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
+        className="group flex flex-col h-full max-h-[min(620px,calc(100dvh-var(--services-title-space)))] w-[min(82vw,400px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
       >
-        <div className="aspect-4/3 overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-5">
+        <div className="aspect-video overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-5 shrink-0">
           <Image
             src={image}
             alt={imageAlt}
             fill
-            sizes="340px"
+            sizes="400px"
             className="object-cover"
             placeholder="blur"
           />
         </div>
-        <div className="flex items-baseline gap-2.5 mb-2.5">
+        <div className="flex items-baseline gap-2.5 mb-2.5 shrink-0">
           {numBadge}
           <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0">
             {service.title}
           </h3>
         </div>
-        <div className="mb-3.5">{tag}</div>
-        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) line-clamp-3 mb-4">
+        <div className="mb-3.5 shrink-0">{tag}</div>
+        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-4 shrink-0">
           {service.desc}
         </p>
-        <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
+        <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint) shrink-0">
           {duration} · {service.dur}
         </span>
-        <div className="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+        <div className="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3 shrink-0">
           {price}
           {ctaPill}
         </div>
