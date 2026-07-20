@@ -62,7 +62,7 @@ export function ServiceCard({
             src={image}
             alt={imageAlt}
             fill
-            sizes="400px"
+            sizes="360px"
             className="object-cover"
             placeholder="blur"
           />

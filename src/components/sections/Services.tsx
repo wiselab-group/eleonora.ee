@@ -69,10 +69,31 @@ function useViewportHeight(enabled: boolean) {
   return height;
 }
 
+const DESKTOP_QUERY = "(min-width: 1024px)";
+
+function subscribeIsDesktop(callback: () => void) {
+  const mediaQuery = window.matchMedia(DESKTOP_QUERY);
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+function getIsDesktopSnapshot() {
+  return window.matchMedia(DESKTOP_QUERY).matches;
+}
+
+function useIsDesktop() {
+  return useSyncExternalStore(
+    subscribeIsDesktop,
+    getIsDesktopSnapshot,
+    () => false,
+  );
+}
+
 export function Services() {
   const { t } = useLocale();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const isPinned = !prefersReducedMotion;
+  const isDesktop = useIsDesktop();
+  const isPinned = isDesktop && !prefersReducedMotion;
   const trackRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollDistance = useTrackScrollDistance(trackRef, isPinned);
@@ -99,24 +120,28 @@ export function Services() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mx-auto pt-12 sm:pt-[clamp(48px,7vw,100px)] mb-6 sm:mb-[clamp(24px,3vw,36px)]"
+          className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] mb-6 sm:mb-[clamp(24px,3vw,36px)] pt-12 sm:pt-[clamp(48px,7vw,100px)]"
         >
           {title}
         </m.div>
-        <div className="px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mx-auto pb-10 sm:pb-[clamp(40px,6vw,90px)]">
-          <div className="flex flex-col gap-4 sm:gap-[clamp(18px,2.2vw,28px)]">
-            {t.services.map((service, index) => (
+        <div
+          className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-px-5 sm:scroll-px-[clamp(20px,5vw,60px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-10 sm:pb-[clamp(40px,6vw,90px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          role="group"
+          aria-label={t.servicesTitle}
+        >
+          {t.services.map((service, index) => (
+            <div key={service.num} className="shrink-0 snap-start">
               <ServiceCard
-                key={service.num}
                 service={service}
                 image={serviceImages[index]}
                 imageAlt={t.serviceAlt[index]}
                 duration={t.duration}
                 choose={t.choose}
-                variant="stacked"
+                variant="panel"
               />
-            ))}
-          </div>
+            </div>
+          ))}
+          <div aria-hidden="true" className="shrink-0 w-px" />
         </div>
       </section>
     );
