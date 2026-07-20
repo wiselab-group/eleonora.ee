@@ -1,103 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
+import { useMediaQuery, usePrefersReducedMotion } from "@/lib/useMediaQuery";
 import { ServiceCard } from "./ServiceCard";
+import { ServicesProgress } from "./ServicesProgress";
+import { useTrackScrollDistance, useViewportHeight } from "./useServicesTrack";
 import { serviceImages } from "@/lib/tiles";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
-
-function subscribeReducedMotion(callback: () => void) {
-  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
-  mediaQuery.addEventListener("change", callback);
-  return () => mediaQuery.removeEventListener("change", callback);
-}
-
-function getReducedMotionSnapshot() {
-  return window.matchMedia(REDUCED_MOTION_QUERY).matches;
-}
-
-function usePrefersReducedMotion() {
-  return useSyncExternalStore(
-    subscribeReducedMotion,
-    getReducedMotionSnapshot,
-    () => false,
-  );
-}
-
-function useTrackScrollDistance(
-  trackRef: React.RefObject<HTMLDivElement | null>,
-  enabled: boolean,
-) {
-  const [distance, setDistance] = useState(0);
-
-  useEffect(() => {
-    const node = trackRef.current;
-    if (!node || !enabled) return;
-
-    const measure = () => {
-      setDistance(Math.max(node.scrollWidth - window.innerWidth, 0));
-    };
-
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(node);
-    window.addEventListener("resize", measure);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, [trackRef, enabled]);
-
-  return distance;
-}
-
-function useViewportHeight(enabled: boolean) {
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (!enabled) return;
-    const measure = () => setHeight(window.innerHeight);
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [enabled]);
-
-  return height;
-}
-
+const PIN_DISTANCE_FACTOR = 0.7;
 const DESKTOP_QUERY = "(min-width: 1024px)";
-
-function subscribeIsDesktop(callback: () => void) {
-  const mediaQuery = window.matchMedia(DESKTOP_QUERY);
-  mediaQuery.addEventListener("change", callback);
-  return () => mediaQuery.removeEventListener("change", callback);
-}
-
-function getIsDesktopSnapshot() {
-  return window.matchMedia(DESKTOP_QUERY).matches;
-}
-
-function useIsDesktop() {
-  return useSyncExternalStore(
-    subscribeIsDesktop,
-    getIsDesktopSnapshot,
-    () => false,
-  );
-}
 
 export function Services() {
   const { t } = useLocale();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const isDesktop = useIsDesktop();
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const isPinned = isDesktop && !prefersReducedMotion;
   const trackRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const scrollDistance = useTrackScrollDistance(trackRef, isPinned);
   const viewportHeight = useViewportHeight(isPinned);
+
+  const pinDistance = scrollDistance * PIN_DISTANCE_FACTOR;
 
   const { scrollYProgress } = useScroll({
     target: isPinned ? pinRef : undefined,
@@ -151,7 +77,7 @@ export function Services() {
     <section id="services" className="relative">
       <div
         ref={pinRef}
-        style={{ height: `${viewportHeight + scrollDistance}px` }}
+        style={{ height: `${viewportHeight + pinDistance}px` }}
         className="relative"
       >
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden [--services-title-space:180px] sm:[--services-title-space:220px]">
@@ -183,6 +109,10 @@ export function Services() {
               className="shrink-0 w-5 sm:w-[clamp(20px,5vw,60px)]"
             />
           </m.div>
+          <ServicesProgress
+            progress={scrollYProgress}
+            count={t.services.length}
+          />
         </div>
       </div>
     </section>

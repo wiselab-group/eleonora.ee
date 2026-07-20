@@ -69,10 +69,7 @@ export function Hero() {
           {t.tagline}
         </m.p>
 
-        <m.div
-          variants={fadeUp}
-          className="flex flex-wrap gap-5 items-center"
-        >
+        <m.div variants={fadeUp} className="flex flex-wrap gap-5 items-center">
           <Button
             variant="solid-accent"
             href={generalTelegramLink(lang)}
