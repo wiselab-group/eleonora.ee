@@ -23,6 +23,7 @@ const siteUrl = "https://eleonorakupczyk.com";
 
 export const viewport: Viewport = {
   viewportFit: "cover",
+  themeColor: "#3b2e26",
 };
 
 export const metadata: Metadata = {

@@ -40,7 +40,7 @@ export function Services() {
 
   if (!isPinned) {
     return (
-      <section id="services" className="relative">
+      <section id="services" className="relative bg-(--color-bg)">
         <m.div
           initial="hidden"
           whileInView="visible"
