@@ -1,5 +1,6 @@
 import { LazyMotion, domAnimation } from "framer-motion";
 import { Header } from "@/components/layout/Header";
+import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Shorts } from "@/components/sections/Shorts";
@@ -9,6 +10,7 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <LazyMotion features={domAnimation} strict>
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
