@@ -100,7 +100,7 @@ export function Services() {
   const viewportHeight = useViewportHeight(isPinned);
 
   const { scrollYProgress } = useScroll({
-    target: pinRef,
+    target: isPinned ? pinRef : undefined,
     offset: ["start start", "end end"],
   });
 
