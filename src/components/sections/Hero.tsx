@@ -31,7 +31,7 @@ export function Hero() {
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      className="relative h-dvh min-h-[560px] overflow-hidden"
+      className="relative h-svh min-h-[560px] overflow-hidden"
     >
       <div className="absolute inset-0">
         <m.div
