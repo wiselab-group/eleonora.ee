@@ -10,6 +10,7 @@ import {
   staggerContainer,
   viewportOnce,
 } from "@/lib/motion";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 
 export function Feed() {
   const { t } = useLocale();
@@ -27,9 +28,10 @@ export function Feed() {
           href="https://www.instagram.com/eleonora.kupczyk/"
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75"
+          className="inline-flex items-center gap-2 no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75"
         >
-          {t.feedCta} →
+          <InstagramIcon />
+          {t.feedCta}
         </a>
       </div>
       <m.div

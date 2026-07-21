@@ -5,6 +5,7 @@ import { useLocale } from "@/lib/i18n";
 import { shorts } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { ShortCard } from "./ShortCard";
+import { YoutubeIcon } from "@/components/ui/YoutubeIcon";
 
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@eleonora.kupczyk";
 
@@ -29,9 +30,10 @@ export function Shorts() {
               href={YOUTUBE_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap"
+              className="inline-flex items-center gap-2 no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap"
             >
-              {t.shortsCta} →
+              <YoutubeIcon />
+              {t.shortsCta}
             </a>
           </div>
           <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-text-muted) max-w-[46ch] mt-3 mb-0">
