@@ -63,7 +63,7 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body), system-ui, sans-serif;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
