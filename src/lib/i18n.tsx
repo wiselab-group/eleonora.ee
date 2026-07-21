@@ -67,7 +67,7 @@ const dictionaries: Record<Locale, Translation> = {
     ],
     shortsTitle: "Примеры UGC",
     shortsBody: "Короткие видео о съёмках, разборах и закулисье.",
-    shortsCta: "Смотреть на YouTube",
+    shortsCta: "YouTube",
     shortsAlt: [
       "Превью YouTube Shorts от Eleonora Kupczyk №1",
       "Превью YouTube Shorts от Eleonora Kupczyk №2",
@@ -161,7 +161,7 @@ const dictionaries: Record<Locale, Translation> = {
     ],
     shortsTitle: "UGC examples",
     shortsBody: "Short videos from shoots, reviews and behind the scenes.",
-    shortsCta: "Watch on YouTube",
+    shortsCta: "YouTube",
     shortsAlt: [
       "YouTube Shorts preview from Eleonora Kupczyk #1",
       "YouTube Shorts preview from Eleonora Kupczyk #2",
