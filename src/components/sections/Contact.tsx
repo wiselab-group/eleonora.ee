@@ -87,13 +87,13 @@ export function Contact() {
           </div>
         </div>
       </m.div>
-      <div className="flex justify-between items-center text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-on-dark)/45 border-t border-(--color-on-dark)/20 px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
+      <div className="flex justify-between items-center text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text)/45 bg-(--color-bg) px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
         <span>© 2026 Eleonora Kupczyk</span>
         <a
           href="https://wiselab.ee/"
           target="_blank"
           rel="noopener noreferrer"
-          className="no-underline text-(--color-on-dark)/45 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-80 active:opacity-55"
+          className="no-underline text-(--color-text)/45 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-80 active:opacity-55"
         >
           Site by <span className="text-(--color-accent)/80">Wiselab</span>
         </a>
