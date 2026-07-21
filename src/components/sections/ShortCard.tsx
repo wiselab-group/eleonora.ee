@@ -65,7 +65,7 @@ export function ShortCard({
       </span>
       <span
         aria-hidden="true"
-        className="absolute bottom-0 inset-x-0 px-4 pb-4 pt-8 bg-gradient-to-t from-(--color-primary)/90 to-transparent text-(--color-on-dark) text-xs font-bold opacity-0 translate-y-1.5 transition-[opacity,transform] duration-250 ease-(--ease-transition) group-hover:opacity-100 group-hover:translate-y-0"
+        className="absolute bottom-0 inset-x-0 px-4 pb-4 pt-8 bg-gradient-to-t from-(--color-primary)/90 to-transparent text-(--color-on-dark) text-xs font-bold opacity-0 translate-y-1.5 transition-[opacity,translate] duration-250 ease-(--ease-transition) will-change-transform group-hover:opacity-100 group-hover:translate-y-0"
       >
         {playLabel}
       </span>
