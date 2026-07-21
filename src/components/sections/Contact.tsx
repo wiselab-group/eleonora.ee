@@ -96,7 +96,7 @@ export function Contact() {
           className="group inline-flex items-baseline gap-1.5 no-underline normal-case tracking-normal text-(--color-text-faint) transition-opacity duration-250 ease-(--ease-transition) active:opacity-55"
         >
           <span>Built by</span>
-          <span className="font-(family-name:--font-inter) font-extrabold text-[11px] leading-none text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-ink)">
+          <span className="font-(family-name:--font-inter) font-extrabold text-[13px] leading-none text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-ink)">
             wiselab
             <span className="text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-dot)">
               .
