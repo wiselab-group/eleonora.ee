@@ -95,7 +95,8 @@ export function Contact() {
           rel="noopener noreferrer"
           className="no-underline text-(--color-text-faint) transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
         >
-          Site by <span className="text-(--color-tag-text)">Wiselab</span>
+          Built by{" "}
+          <span className="text-(--color-tag-text) font-bold">Wiselab</span>
         </a>
       </div>
     </section>
