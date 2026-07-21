@@ -43,11 +43,12 @@ export function Shorts() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="grid grid-cols-4 gap-3 sm:gap-[clamp(12px,1.4vw,20px)]"
+          className="flex sm:grid sm:grid-cols-4 gap-3 sm:gap-[clamp(12px,1.4vw,20px)] overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none -mx-5 px-5 sm:mx-0 sm:px-0 pb-2 sm:pb-0 scrollbar-none"
         >
           {shorts.map((short, index) => (
             <ShortCard
               key={index}
+              index={index}
               thumbnail={short.thumbnail}
               href={short.href}
               alt={t.shortsAlt[index]}
