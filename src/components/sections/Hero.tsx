@@ -5,6 +5,7 @@ import { m } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 import { GradientText } from "@/components/ui/GradientText";
@@ -86,26 +87,7 @@ export function Hero() {
             aria-label="Instagram @eleonora.kupczyk"
             className="inline-flex items-center gap-2.5 justify-center size-13 sm:size-auto text-(--color-bg) no-underline transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-50"
           >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="shrink-0"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle
-                cx="17.2"
-                cy="6.8"
-                r="0.6"
-                fill="currentColor"
-                stroke="none"
-              />
-            </svg>
+            <InstagramIcon />
             <span className="hidden sm:inline text-sm font-bold">
               eleonora.kupczyk
             </span>

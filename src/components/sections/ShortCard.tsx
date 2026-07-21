@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { m } from "framer-motion";
+import { Play } from "lucide-react";
 import { fadeUp } from "@/lib/motion";
 
 interface ShortCardProps {
@@ -54,14 +55,12 @@ export function ShortCard({
         className="absolute inset-0 flex items-center justify-center opacity-90 transition-[opacity,transform] duration-250 ease-(--ease-transition) group-hover:opacity-100"
       >
         <span className="flex items-center justify-center w-12 h-12 rounded-full bg-(--color-surface-alt)/90">
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
+          <Play
+            width={16}
+            height={16}
+            strokeWidth={0}
             className="ml-0.5 fill-(--color-primary)"
-          >
-            <path d="M8 5v14l11-7z" />
-          </svg>
+          />
         </span>
       </span>
       <span

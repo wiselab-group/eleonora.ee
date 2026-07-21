@@ -6,25 +6,26 @@ p1_count: 2
 timestamp: 2026-07-18T20-02-40Z
 slug: homepage-http-localhost-3000
 ---
+
 Method: dual-agent (A: aca0ddb50811ff5d2 · B: a3a4919963384ca3d) — B's browser-visualization step is a documented fallback (no browser automation tool exposed in this environment); its CLI detector pass completed normally.
 
 # Design Critique — Eleonora Kupczyk Landing Page
 
 ## Design Health Score
 
-| # | Heuristic | Score | Key Issue |
-|---|---|---|---|
-| 1 | Visibility of System Status | 2 | No scroll-progress or section indicator; pinned Services scroll gives no "3 of 6" feedback |
-| 2 | Match System / Real World | 3 | Copy is specific and personal; "Choose →" reads slightly transactional for a coaching brand |
-| 3 | User Control and Freedom | 1 | No nav, no back-to-top; Services scroll-jacks with no skip/exit |
-| 4 | Consistency and Standards | 2 | Internal system is consistent, but #services/#shorts/#feed/#contact anchors exist with nothing linking to them |
-| 5 | Error Prevention | 3 | No forms; Telegram links pre-fill context-aware greeting text |
-| 6 | Recognition Rather Than Recall | 2 | No persistent logo/wordmark once scrolled past Hero |
-| 7 | Flexibility and Efficiency | 1 | No jump-to-section; only control is the RU/EN toggle |
-| 8 | Aesthetic and Minimalist Design | 3 | Restrained and clean, but thin on trust-building content before the pricing ask |
-| 9 | Error Recovery | 2 | N/A mostly (no forms); no fallback state defined for slow/broken YouTube thumbnails |
-| 10 | Help and Documentation | 2 | Not very applicable to a marketing page; service descriptions self-document well |
-| **Total** | | **21/40** | **Acceptable — significant improvements needed** |
+| #         | Heuristic                       | Score     | Key Issue                                                                                                      |
+| --------- | ------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| 1         | Visibility of System Status     | 2         | No scroll-progress or section indicator; pinned Services scroll gives no "3 of 6" feedback                     |
+| 2         | Match System / Real World       | 3         | Copy is specific and personal; "Choose →" reads slightly transactional for a coaching brand                    |
+| 3         | User Control and Freedom        | 1         | No nav, no back-to-top; Services scroll-jacks with no skip/exit                                                |
+| 4         | Consistency and Standards       | 2         | Internal system is consistent, but #services/#shorts/#feed/#contact anchors exist with nothing linking to them |
+| 5         | Error Prevention                | 3         | No forms; Telegram links pre-fill context-aware greeting text                                                  |
+| 6         | Recognition Rather Than Recall  | 2         | No persistent logo/wordmark once scrolled past Hero                                                            |
+| 7         | Flexibility and Efficiency      | 1         | No jump-to-section; only control is the RU/EN toggle                                                           |
+| 8         | Aesthetic and Minimalist Design | 3         | Restrained and clean, but thin on trust-building content before the pricing ask                                |
+| 9         | Error Recovery                  | 2         | N/A mostly (no forms); no fallback state defined for slow/broken YouTube thumbnails                            |
+| 10        | Help and Documentation          | 2         | Not very applicable to a marketing page; service descriptions self-document well                               |
+| **Total** |                                 | **21/40** | **Acceptable — significant improvements needed**                                                               |
 
 Both heuristics 3 and 7 trace to the same root cause: the header was stripped down to just a language toggle.
 
@@ -33,6 +34,7 @@ Both heuristics 3 and 7 trace to the same root cause: the header was stripped do
 **LLM assessment**: Does not read as generic AI slop — no gradient text, no glassmorphism, no hero-metric stat rows, no decorative 01/02/03 scaffolding, no monospace-as-technical. Typography and the One Accent Rule are executed with real discipline. What it reads as instead is unfinished: two committed strategy docs (PRODUCT.md, DESIGN.md) describe a site — Header with nav + Telegram CTA, a Mission section, an About section — that doesn't exist in the shipped code anymore.
 
 **Deterministic scan**: detect.mjs returned exit code 2 with 3 advisory findings:
+
 1. LanguageToggle.tsx:22 — 11px font size flagged as "outside DESIGN.md ramp"
 2. Contact.tsx:90 — same rule, same false-positive pattern
 3. globals.css:72 — #fff in `::selection { color: #fff }`, flagged as undocumented color
