@@ -30,10 +30,11 @@ export function Shorts() {
               href={YOUTUBE_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={t.shortsCta}
               className="inline-flex items-center gap-2 no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap"
             >
               <YoutubeIcon />
-              {t.shortsCta}
+              <span className="hidden sm:inline">{t.shortsCta}</span>
             </a>
           </div>
           <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-text-muted) max-w-[46ch] mt-3 mb-0">
