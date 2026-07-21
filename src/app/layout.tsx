@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Nunito_Sans } from "next/font/google";
+import { Playfair_Display, Nunito_Sans, Inter } from "next/font/google";
 import { LocaleProvider } from "@/lib/i18n";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "./globals.css";
@@ -16,6 +16,13 @@ const nunito = Nunito_Sans({
   variable: "--font-nunito",
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -87,7 +94,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${nunito.variable} h-full antialiased`}
+      className={`${playfair.variable} ${nunito.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script
