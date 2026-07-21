@@ -19,7 +19,7 @@ export function Feed() {
       id="feed"
       className="bg-(--color-bg) px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto"
     >
-      <div className="flex items-end justify-between gap-6 flex-wrap mb-7 sm:mb-[clamp(22px,3vw,38px)]">
+      <div className="flex items-center justify-between gap-6 flex-wrap mb-7 sm:mb-[clamp(22px,3vw,38px)]">
         <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none m-0">
           {t.feedTitle}
         </h2>

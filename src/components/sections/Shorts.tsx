@@ -19,24 +19,24 @@ export function Shorts() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end mb-7 sm:mb-[clamp(22px,3vw,38px)]"
+          className="mb-7 sm:mb-[clamp(22px,3vw,38px)]"
         >
-          <div>
-            <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.05] max-w-[16ch] m-0 mb-3">
+          <div className="flex items-center justify-between gap-6">
+            <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.05] max-w-[16ch] m-0">
               {t.shortsTitle}
             </h2>
-            <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-text-muted) max-w-[46ch] m-0">
-              {t.shortsBody}
-            </p>
+            <a
+              href={YOUTUBE_CHANNEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap"
+            >
+              {t.shortsCta} →
+            </a>
           </div>
-          <a
-            href={YOUTUBE_CHANNEL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="no-underline text-sm font-bold text-white bg-(--color-dark) rounded-full px-5.5 py-2.75 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-75 whitespace-nowrap justify-self-start md:justify-self-end"
-          >
-            {t.shortsCta} →
-          </a>
+          <p className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-text-muted) max-w-[46ch] mt-3 mb-0">
+            {t.shortsBody}
+          </p>
         </m.div>
         <m.div
           initial="hidden"
