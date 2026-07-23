@@ -48,8 +48,15 @@ export const metadata: Metadata = {
       "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
     url: siteUrl,
     siteName: "Eleonora Kupczyk",
-    locale: "ru_RU",
+    locale: "en_US",
+    alternateLocale: ["ru_RU"],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
+    description:
+      "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
   },
 };
 
