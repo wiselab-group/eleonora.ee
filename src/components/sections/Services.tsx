@@ -24,8 +24,13 @@ export function Services({ t, lang }: ServicesProps) {
   const isPinned = isDesktop && !prefersReducedMotion;
   const trackRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const scrollDistance = useTrackScrollDistance(trackRef, isPinned);
   const viewportHeight = useViewportHeight(isPinned);
+
+  const { scrollXProgress: carouselProgress } = useScroll({
+    container: carouselRef,
+  });
 
   const pinDistance = scrollDistance * PIN_DISTANCE_FACTOR;
 
@@ -55,7 +60,8 @@ export function Services({ t, lang }: ServicesProps) {
           {title}
         </m.div>
         <div
-          className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-px-5 sm:scroll-px-[clamp(20px,5vw,60px)] px-5 sm:px-[clamp(20px,5vw,60px)] pb-10 sm:pb-[clamp(40px,6vw,90px)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          ref={carouselRef}
+          className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-px-5 sm:scroll-px-[clamp(20px,5vw,60px)] px-5 sm:px-[clamp(20px,5vw,60px)] py-17.5 -my-17.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           role="group"
           aria-label={t.servicesTitle}
         >
@@ -73,6 +79,13 @@ export function Services({ t, lang }: ServicesProps) {
             </div>
           ))}
           <div aria-hidden="true" className="shrink-0 w-px" />
+        </div>
+        <div className="px-5 sm:px-[clamp(20px,5vw,60px)] pt-6 sm:pt-8 pb-10 sm:pb-[clamp(40px,6vw,90px)]">
+          <ServicesProgress
+            progress={carouselProgress}
+            count={t.services.length}
+            variant="static"
+          />
         </div>
       </section>
     );

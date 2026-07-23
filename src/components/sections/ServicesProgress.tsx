@@ -5,12 +5,22 @@ import { m, useTransform, type MotionValue } from "framer-motion";
 interface ServicesProgressProps {
   progress: MotionValue<number>;
   count: number;
+  variant?: "pinned" | "static";
 }
 
-export function ServicesProgress({ progress, count }: ServicesProgressProps) {
+export function ServicesProgress({
+  progress,
+  count,
+  variant = "pinned",
+}: ServicesProgressProps) {
+  const positionClass =
+    variant === "pinned"
+      ? "absolute bottom-8 sm:bottom-10 left-5 sm:left-[clamp(20px,5vw,60px)]"
+      : "";
+
   return (
     <div
-      className="absolute bottom-8 sm:bottom-10 left-5 sm:left-[clamp(20px,5vw,60px)] flex items-center gap-2"
+      className={`${positionClass} flex items-center gap-3`}
       role="progressbar"
       aria-label="Services scroll progress"
       aria-valuemin={1}
@@ -39,22 +49,19 @@ function ServicesProgressDot({
 }) {
   const step = 1 / count;
   const start = index * step;
-  const end = start + step;
-  const opacity = useTransform(
+  const end = index === count - 1 ? 1 : start + step;
+
+  const isActive = useTransform(
     progress,
-    [Math.max(start - step, 0), start, end],
-    [0.3, 1, 0.3],
+    (value) => value >= start && value <= end,
   );
-  const scaleX = useTransform(
-    progress,
-    [Math.max(start - step, 0), start, end],
-    [1, 1.6, 1],
-  );
+  const opacity = useTransform(isActive, (active) => (active ? 1 : 0.3));
+  const scaleX = useTransform(isActive, (active) => (active ? 1.6 : 1));
 
   return (
     <m.span
       style={{ opacity, scaleX }}
-      className="h-[3px] w-5 sm:w-6 rounded-full bg-(--color-accent-text) will-change-transform origin-left"
+      className="h-[3px] w-5 sm:w-6 rounded-full bg-(--color-accent-text) will-change-transform origin-center transition-all"
     />
   );
 }

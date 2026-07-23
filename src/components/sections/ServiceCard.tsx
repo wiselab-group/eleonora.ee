@@ -69,12 +69,12 @@ export function ServiceCard({
         </div>
         <div className="flex items-baseline gap-2.5 mb-2.5 shrink-0">
           {numBadge}
-          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0">
+          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 line-clamp-2 min-h-[2.1em]">
             {service.title}
           </h3>
         </div>
         <div className="mb-3.5 shrink-0">{tag}</div>
-        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-4 shrink-0">
+        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-4 shrink-0 line-clamp-3 min-h-[4.875em]">
           {service.desc}
         </p>
         <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint) shrink-0">
