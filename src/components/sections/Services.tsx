@@ -29,7 +29,7 @@ export function Services({ t, lang }: ServicesProps) {
   const viewportHeight = useViewportHeight(isPinned);
 
   const { scrollXProgress: carouselProgress } = useScroll({
-    container: carouselRef,
+    container: isPinned ? undefined : carouselRef,
   });
 
   const pinDistance = scrollDistance * PIN_DISTANCE_FACTOR;
