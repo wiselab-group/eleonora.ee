@@ -108,7 +108,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            eleonorakupczyk.com
+            eleonora.ee
           </div>
         </div>
       </div>

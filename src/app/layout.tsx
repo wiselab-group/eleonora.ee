@@ -26,7 +26,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://eleonorakupczyk.com";
+const siteUrl = "https://eleonora.ee";
 
 export const viewport: Viewport = {
   viewportFit: "cover",
