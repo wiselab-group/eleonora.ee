@@ -31,20 +31,20 @@ export function LanguageToggle({ lang }: LanguageToggleProps) {
       href={localizedPath(pathname, nextLang, lang)}
       onClick={() => setLocaleCookie(nextLang)}
       aria-label={`Switch language to ${nextLang}`}
-      className="group relative isolate inline-flex items-center gap-0.5 font-body no-underline select-none rounded-full bg-(--color-tag-bg) p-1 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-88 active:opacity-70"
+      className="group relative isolate inline-flex items-center gap-0.5 font-body no-underline select-none rounded-full bg-(--color-tag-bg) p-1 transition-[opacity,background-color] duration-400 ease-(--ease-transition) hover:opacity-92 active:opacity-80 active:duration-150"
     >
       <span
         aria-hidden="true"
         style={{ transform: `translateX(${activeIndex * 100}%)` }}
-        className="absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-(--color-accent-text) transition-transform duration-300 ease-(--ease-transition) motion-reduce:transition-none"
+        className="absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-(--color-accent-text) transition-transform duration-500 ease-(--ease-transition) motion-reduce:transition-none"
       />
       {LOCALES.map((locale) => (
         <span
           key={locale}
-          className={`relative isolate flex items-center justify-center rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] transition-colors duration-250 ease-(--ease-transition) ${
+          className={`relative isolate flex items-center justify-center rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] transition-[color,opacity] duration-500 ease-(--ease-transition) ${
             locale === lang
               ? "text-white"
-              : "text-(--color-tag-text) opacity-55 group-hover:opacity-80"
+              : "text-(--color-tag-text) opacity-55 group-hover:opacity-85"
           }`}
         >
           {locale}
