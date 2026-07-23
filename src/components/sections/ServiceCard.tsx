@@ -2,12 +2,13 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { m } from "framer-motion";
-import { useLocale, type Service } from "@/lib/i18n";
+import type { Locale, Service } from "@/lib/i18n";
 import { fadeUp } from "@/lib/motion";
 import { serviceTelegramLink } from "@/lib/telegram";
 
 interface ServiceCardProps {
   service: Service;
+  lang: Locale;
   image: StaticImageData;
   imageAlt: string;
   duration: string;
@@ -17,14 +18,13 @@ interface ServiceCardProps {
 
 export function ServiceCard({
   service,
+  lang,
   image,
   imageAlt,
   duration,
   choose,
   variant,
 }: ServiceCardProps) {
-  const { lang } = useLocale();
-
   const numBadge = (
     <span className="font-(family-name:--font-display) italic text-base text-(--color-accent-text)">
       {service.num}

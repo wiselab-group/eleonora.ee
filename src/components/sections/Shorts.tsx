@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { useLocale } from "@/lib/i18n";
+import type { Translation } from "@/lib/i18n";
 import { shorts } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { ShortCard } from "./ShortCard";
@@ -9,9 +9,11 @@ import { YoutubeIcon } from "@/components/ui/YoutubeIcon";
 
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@eleonora.kupczyk";
 
-export function Shorts() {
-  const { t } = useLocale();
+interface ShortsProps {
+  t: Translation;
+}
 
+export function Shorts({ t }: ShortsProps) {
   return (
     <section id="shorts" className="bg-(--color-surface)">
       <div className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,90px)] max-w-[1320px] mx-auto">

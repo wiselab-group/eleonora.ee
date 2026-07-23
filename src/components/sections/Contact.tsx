@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { useLocale } from "@/lib/i18n";
+import type { Locale, Translation } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { SectionKicker } from "@/components/ui/SectionKicker";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
@@ -35,9 +35,12 @@ const links = [
   },
 ];
 
-export function Contact() {
-  const { t, lang } = useLocale();
+interface ContactProps {
+  t: Translation;
+  lang: Locale;
+}
 
+export function Contact({ t, lang }: ContactProps) {
   return (
     <section
       id="contact"

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { m } from "framer-motion";
-import { useLocale } from "@/lib/i18n";
+import type { Translation } from "@/lib/i18n";
 import { feedPosts } from "@/lib/tiles";
 import {
   developIn,
@@ -12,9 +12,11 @@ import {
 } from "@/lib/motion";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
 
-export function Feed() {
-  const { t } = useLocale();
+interface FeedProps {
+  t: Translation;
+}
 
+export function Feed({ t }: FeedProps) {
   return (
     <section
       id="feed"

@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { notFound } from "next/navigation";
 import { Playfair_Display, Nunito_Sans, Inter } from "next/font/google";
-import { LocaleProvider } from "@/lib/i18n";
+import { LOCALES, type Locale } from "@/lib/i18n";
+import { siteUrl } from "@/lib/site";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import "./globals.css";
+import "../globals.css";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -26,8 +28,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://eleonora.ee";
-
 export const viewport: Viewport = {
   viewportFit: "cover",
   themeColor: "#ede3d5",
@@ -35,28 +35,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
-  description:
-    "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-  },
-  openGraph: {
-    title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
-    description:
-      "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
-    url: siteUrl,
-    siteName: "Eleonora Kupczyk",
-    locale: "en_US",
-    alternateLocale: ["ru_RU"],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Eleonora Kupczyk — SMM · UGC · Tallinn",
-    description:
-      "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
   },
 };
 
@@ -93,14 +74,27 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { locale } = await params;
+  if (!LOCALES.includes(locale as Locale)) {
+    notFound();
+  }
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${playfair.variable} ${nunito.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -109,7 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SmoothScroll />
-        <LocaleProvider>{children}</LocaleProvider>
+        {children}
       </body>
     </html>
   );

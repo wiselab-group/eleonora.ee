@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
-import { useLocale } from "@/lib/i18n";
+import type { Locale, Translation } from "@/lib/i18n";
 import { useMediaQuery, usePrefersReducedMotion } from "@/lib/useMediaQuery";
 import { ServiceCard } from "./ServiceCard";
 import { ServicesProgress } from "./ServicesProgress";
@@ -13,8 +13,12 @@ import { fadeUp, viewportOnce } from "@/lib/motion";
 const PIN_DISTANCE_FACTOR = 0.7;
 const DESKTOP_QUERY = "(min-width: 1024px)";
 
-export function Services() {
-  const { t } = useLocale();
+interface ServicesProps {
+  t: Translation;
+  lang: Locale;
+}
+
+export function Services({ t, lang }: ServicesProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const isPinned = isDesktop && !prefersReducedMotion;
@@ -59,6 +63,7 @@ export function Services() {
             <div key={service.num} className="shrink-0 snap-start">
               <ServiceCard
                 service={service}
+                lang={lang}
                 image={serviceImages[index]}
                 imageAlt={t.serviceAlt[index]}
                 duration={t.duration}
@@ -96,6 +101,7 @@ export function Services() {
               >
                 <ServiceCard
                   service={service}
+                  lang={lang}
                   image={serviceImages[index]}
                   imageAlt={t.serviceAlt[index]}
                   duration={t.duration}

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { m } from "framer-motion";
-import { useLocale } from "@/lib/i18n";
+import type { Locale, Translation } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { InstagramIcon } from "@/components/ui/InstagramIcon";
@@ -23,9 +23,12 @@ const imageReveal = {
   },
 };
 
-export function Hero() {
-  const { t, lang } = useLocale();
+interface HeroProps {
+  t: Translation;
+  lang: Locale;
+}
 
+export function Hero({ t, lang }: HeroProps) {
   return (
     <m.section
       initial="hidden"

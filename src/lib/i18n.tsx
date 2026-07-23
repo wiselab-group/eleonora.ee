@@ -1,14 +1,6 @@
-"use client";
-
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
-
 export type Locale = "ru" | "en";
+
+export const LOCALES = ["en", "ru"] as const satisfies readonly Locale[];
 
 export interface Service {
   num: string;
@@ -21,6 +13,7 @@ export interface Service {
 
 export interface Translation {
   tagline: string;
+  ogDescription: string;
   heroCta: string;
   heroBadge: string;
   servicesKicker: string;
@@ -49,6 +42,8 @@ const dictionaries: Record<Locale, Translation> = {
   ru: {
     tagline:
       "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
+    ogDescription:
+      "SMM- и UGC-маркетолог из Таллинна — контент, обучение, консультации.",
     heroCta: "Написать в Telegram",
     heroBadge: "контент, который хочется смотреть",
     servicesKicker: "Услуги",
@@ -143,6 +138,8 @@ const dictionaries: Record<Locale, Translation> = {
   en: {
     tagline:
       "A marketer based in Tallinn. I create content, teach and consult — helping you unfold yourself and speak about it on social media.",
+    ogDescription:
+      "SMM & UGC marketer based in Tallinn — content, coaching, consulting.",
     heroCta: "Message on Telegram",
     heroBadge: "content you want to watch",
     servicesKicker: "Services",
@@ -236,39 +233,6 @@ const dictionaries: Record<Locale, Translation> = {
   },
 };
 
-interface LocaleContextValue {
-  lang: Locale;
-  t: Translation;
-  toggleLang: () => void;
-}
-
-const LocaleContext = createContext<LocaleContextValue | null>(null);
-
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Locale>("en");
-
-  const toggleLang = useCallback(() => {
-    setLang((current) => (current === "ru" ? "en" : "ru"));
-  }, []);
-
-  const value = useMemo<LocaleContextValue>(
-    () => ({
-      lang,
-      t: dictionaries[lang],
-      toggleLang,
-    }),
-    [lang, toggleLang],
-  );
-
-  return (
-    <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
-  );
-}
-
-export function useLocale(): LocaleContextValue {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) {
-    throw new Error("useLocale must be used within a LocaleProvider");
-  }
-  return ctx;
+export function getDictionary(locale: Locale): Translation {
+  return dictionaries[locale];
 }
