@@ -29,6 +29,7 @@ export default async function Image({ params }: ImageProps) {
     ]);
 
   const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`;
+  const [ogDescriptionLead, ogDescriptionRest] = t.ogDescription.split(/\s*—\s*/);
 
   return new ImageResponse(
     (
@@ -66,7 +67,7 @@ export default async function Image({ params }: ImageProps) {
             height: "630px",
             display: "flex",
             backgroundImage:
-              "linear-gradient(0deg, rgba(59,46,38,0.96) 0%, rgba(59,46,38,0.6) 42%, rgba(59,46,38,0.18) 68%, rgba(59,46,38,0.05) 100%)",
+              "linear-gradient(0deg, rgba(59,46,38,0.9) 0%, rgba(59,46,38,0.72) 32%, rgba(59,46,38,0.55) 50%, rgba(59,46,38,0.3) 68%, rgba(59,46,38,0.08) 100%)",
           }}
         />
 
@@ -75,7 +76,7 @@ export default async function Image({ params }: ImageProps) {
             position: "relative",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
+            justifyContent: "center",
             width: "100%",
             height: "100%",
             padding: "72px 88px",
@@ -134,6 +135,7 @@ export default async function Image({ params }: ImageProps) {
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               fontSize: "26px",
               lineHeight: 1.5,
               color: "#ede3d5",
@@ -143,7 +145,8 @@ export default async function Image({ params }: ImageProps) {
               fontWeight: 400,
             }}
           >
-            {t.ogDescription}
+            <span>{ogDescriptionRest ? `${ogDescriptionLead} —` : ogDescriptionLead}</span>
+            {ogDescriptionRest ? <span>{ogDescriptionRest}</span> : null}
           </div>
         </div>
       </div>
