@@ -19,110 +19,135 @@ export default async function Image({ params }: ImageProps) {
   }
   const t = getDictionary(locale as Locale);
 
-  const [playfair, playfairItalic, nunito, nunitoSemibold] = await Promise.all([
-    readFile(join(process.cwd(), "src/app/fonts/playfair-600.woff")),
-    readFile(join(process.cwd(), "src/app/fonts/playfair-600-italic.woff")),
-    readFile(join(process.cwd(), "src/app/fonts/nunito-400.woff")),
-    readFile(join(process.cwd(), "src/app/fonts/nunito-600.woff")),
-  ]);
+  const [playfair, playfairItalic, nunito, nunitoSemibold, photo] =
+    await Promise.all([
+      readFile(join(process.cwd(), "src/app/fonts/playfair-600.woff")),
+      readFile(join(process.cwd(), "src/app/fonts/playfair-600-italic.woff")),
+      readFile(join(process.cwd(), "src/app/fonts/nunito-400.ttf")),
+      readFile(join(process.cwd(), "src/app/fonts/nunito-600.ttf")),
+      readFile(join(process.cwd(), "src/app/og-assets/eleonora.jpg")),
+    ]);
+
+  const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`;
 
   return new ImageResponse(
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        padding: "80px 88px",
-        backgroundColor: "#ede3d5",
-        fontFamily: "Nunito Sans",
-      }}
-    >
+    (
       <div
         style={{
+          width: "100%",
+          height: "100%",
           display: "flex",
-          alignItems: "center",
-          gap: "14px",
+          position: "relative",
+          backgroundColor: "#3b2e26",
+          fontFamily: "Nunito Sans",
         }}
       >
-        <div
+        <img
+          src={photoSrc}
+          alt=""
+          width={1200}
+          height={630}
           style={{
-            width: "8px",
-            height: "8px",
-            borderRadius: "999px",
-            backgroundColor: "#c98e84",
-            display: "flex",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "1200px",
+            height: "630px",
+            objectFit: "cover",
+            objectPosition: "68% 22%",
           }}
         />
         <div
           style={{
-            fontSize: "22px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "#5a4a40",
-            fontFamily: "Nunito Sans",
-            fontWeight: 600,
-          }}
-        >
-          {t.heroBadge}
-        </div>
-      </div>
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "28px",
-        }}
-      >
-        <div
-          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "1200px",
+            height: "630px",
             display: "flex",
-            fontFamily: "Playfair Display",
-            fontWeight: 600,
-            fontStyle: "italic",
-            fontSize: "96px",
-            lineHeight: 1.05,
-            color: "#3b2e26",
+            backgroundImage:
+              "linear-gradient(0deg, rgba(59,46,38,0.96) 0%, rgba(59,46,38,0.6) 42%, rgba(59,46,38,0.18) 68%, rgba(59,46,38,0.05) 100%)",
           }}
-        >
-          Eleonora Kupczyk
-        </div>
-        <div
-          style={{
-            display: "flex",
-            fontSize: "30px",
-            lineHeight: 1.5,
-            color: "#5a4a40",
-            maxWidth: "880px",
-            fontFamily: "Nunito Sans",
-            fontWeight: 400,
-          }}
-        >
-          {t.ogDescription}
-        </div>
-      </div>
+        />
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-        }}
-      >
         <div
           style={{
-            fontSize: "22px",
-            color: "#3b2e26",
-            fontFamily: "Nunito Sans",
-            fontWeight: 600,
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            width: "100%",
+            height: "100%",
+            padding: "72px 88px",
+            gap: "26px",
           }}
         >
-          eleonora.ee
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "14px",
+            }}
+          >
+            <div
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "999px",
+                backgroundColor: "#c98e84",
+                display: "flex",
+              }}
+            />
+            <div
+              style={{
+                fontSize: "20px",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#ede3d5",
+                opacity: 0.85,
+                fontFamily: "Nunito Sans",
+                fontWeight: 600,
+              }}
+            >
+              {t.heroBadge}
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontFamily: "Playfair Display",
+              fontWeight: 600,
+              fontSize: "108px",
+              lineHeight: 0.94,
+              letterSpacing: "-0.02em",
+              color: "#ede3d5",
+            }}
+          >
+            <span>Eleonora</span>
+            <span style={{ display: "flex", fontStyle: "italic", color: "#c98e84" }}>
+              Kupczyk
+            </span>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              fontSize: "26px",
+              lineHeight: 1.5,
+              color: "#ede3d5",
+              opacity: 0.85,
+              maxWidth: "620px",
+              fontFamily: "Nunito Sans",
+              fontWeight: 400,
+            }}
+          >
+            {t.ogDescription}
+          </div>
         </div>
       </div>
-    </div>,
+    ),
     {
       ...size,
       fonts: [
