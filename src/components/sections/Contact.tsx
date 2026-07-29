@@ -10,15 +10,21 @@ import { generalTelegramLink } from "@/lib/telegram";
 
 const links = [
   {
+    label: "Telegram",
+    href: "https://t.me/eleonora_kupczyk",
+    value: "@eleonora_kupczyk",
+    external: true,
+  },
+  {
     label: "Instagram",
     href: "https://www.instagram.com/eleonora.kupczyk/",
     value: "@eleonora.kupczyk",
     external: true,
   },
   {
-    label: "Telegram",
-    href: "https://t.me/eleonora_kupczyk",
-    value: "@eleonora_kupczyk",
+    label: "TikTok",
+    href: "https://www.tiktok.com/@eleonora.kupczyk",
+    value: "@eleonora.kupczyk",
     external: true,
   },
   {
