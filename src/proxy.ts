@@ -21,13 +21,23 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Root path: rewrite (not redirect) so crawlers and link-preview bots get a
+  // 200 with real og:* tags directly at "/" instead of a redirect they may not follow.
+  // Always the default locale, independent of Accept-Language/cookie, so "/" is
+  // deterministic — locale switching only happens explicitly via /en or /ru.
+  if (pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${DEFAULT_LOCALE}`;
+    return NextResponse.rewrite(url);
+  }
+
   const cookieLocale = request.cookies.get(COOKIE_NAME)?.value;
   const locale: Locale = LOCALES.includes(cookieLocale as Locale)
     ? (cookieLocale as Locale)
     : detectFromAcceptLanguage(request.headers.get("accept-language"));
 
   const url = request.nextUrl.clone();
-  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
+  url.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(url);
 }
 
