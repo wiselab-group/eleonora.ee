@@ -57,7 +57,7 @@ export interface Translation {
 const dictionaries: Record<Locale, Translation> = {
   ru: {
     tagline:
-      "Маркетолог из Таллинна. Создаю контент, обучаю и консультирую — помогаю раскрыть себя и заявить о себе в социальных сетях.",
+      "Маркетолог и автор блога о жизни в Таллинне. Создаю контент, обучаю, консультирую и сотрудничаю с брендами — помогаю раскрыть себя и заявить о себе в социальных сетях.",
     ogDescription:
       "SMM- и UGC-маркетолог из Таллинна — контент, обучение, консультации.",
     heroCta: "Написать в Telegram",
@@ -208,7 +208,7 @@ const dictionaries: Record<Locale, Translation> = {
   },
   en: {
     tagline:
-      "A marketer based in Tallinn. I create content, teach and consult — helping you unfold yourself and speak about it on social media.",
+      "Marketer and blogger writing about life in Tallinn. I create content, teach, consult, and collaborate with brands — helping you unfold yourself and speak about it on social media.",
     ogDescription:
       "SMM & UGC marketer based in Tallinn — content, coaching, consulting.",
     heroCta: "Message on Telegram",
