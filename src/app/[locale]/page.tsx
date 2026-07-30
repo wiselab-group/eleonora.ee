@@ -9,8 +9,6 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
 
-const TITLE = "Eleonora Kupczyk — SMM · UGC · Tallinn";
-
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
@@ -30,7 +28,7 @@ export async function generateMetadata({
   const path = `/${locale}`;
 
   return {
-    title: TITLE,
+    title: t.metaTitle,
     description: t.tagline,
     alternates: {
       canonical: path,
@@ -41,7 +39,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: TITLE,
+      title: t.metaTitle,
       description: t.tagline,
       url: `${siteUrl}${path}`,
       siteName: "Eleonora Kupczyk",
@@ -51,7 +49,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: TITLE,
+      title: t.metaTitle,
       description: t.tagline,
     },
   };
