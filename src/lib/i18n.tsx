@@ -160,7 +160,10 @@ const dictionaries: Record<Locale, Translation> = {
       { label: "Интеграция в сторис (2–3 слайда)", price: "10–25 €" },
       { label: "Пост в ленте", price: "50–90 €" },
       { label: "Reels с интеграцией продукта", price: "70–130 €" },
-      { label: "Комплексный пакет (сторис + пост + reels)", price: "150–220 €" },
+      {
+        label: "Комплексный пакет (сторис + пост + reels)",
+        price: "150–220 €",
+      },
       { label: "Долгосрочное амбассадорство", price: "от 180 €" },
     ],
     collabBarter:

@@ -33,7 +33,11 @@ export function WorkTile({ href, alt, playLabel, kind, image }: WorkTileProps) {
         src={image}
         alt={alt}
         fill
-        sizes={isVideo ? "(max-width: 640px) 38vw, 164px" : "(max-width: 640px) 46vw, 196px"}
+        sizes={
+          isVideo
+            ? "(max-width: 640px) 38vw, 164px"
+            : "(max-width: 640px) 46vw, 196px"
+        }
         className={`object-cover transition-opacity duration-250 ease-(--ease-transition) ${
           isVideo ? "group-hover:opacity-80" : "group-hover:opacity-88"
         }`}

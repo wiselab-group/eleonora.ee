@@ -95,18 +95,23 @@ export function Services({ t, lang }: ServicesProps) {
             ref={tabListRef}
             role="tablist"
             aria-label={t.servicesTitle}
-            className="relative isolate flex flex-col min-[480px]:flex-row min-[480px]:w-fit max-w-full gap-1 min-[480px]:overflow-x-auto scrollbar-none rounded-[24px] min-[480px]:rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
+            className="relative isolate flex flex-col min-[520px]:flex-row min-[520px]:w-fit max-w-full gap-1 min-[520px]:overflow-x-auto scrollbar-none rounded-[24px] min-[520px]:rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
           >
             {pill && (
               <m.span
                 aria-hidden="true"
                 initial={false}
-                animate={{ x: pill.x, y: pill.y, width: pill.width, height: pill.height }}
+                animate={{
+                  x: pill.x,
+                  y: pill.y,
+                  width: pill.width,
+                  height: pill.height,
+                }}
                 transition={{
                   duration: prefersReducedMotion || skipPillAnimation ? 0 : 0.5,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
-                className="absolute top-0 left-0 -z-10 rounded-3xl min-[480px]:rounded-full bg-(--color-accent-text) motion-reduce:transition-none"
+                className="absolute top-0 left-0 -z-10 rounded-3xl min-[520px]:rounded-full bg-(--color-accent-text) motion-reduce:transition-none"
               />
             )}
             {tabs.map((tab) => (
@@ -120,7 +125,7 @@ export function Services({ t, lang }: ServicesProps) {
                 role="tab"
                 aria-selected={active === tab.id}
                 onClick={() => setActive(tab.id)}
-                className={`relative shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] cursor-pointer transition-[color,opacity] duration-250 ease-(--ease-transition) ${
+                className={`relative shrink-0 text-left rounded-full px-6 py-4 text-sm font-bold tracking-[0.02em] cursor-pointer transition-[color,opacity] duration-250 ease-(--ease-transition) ${
                   active === tab.id
                     ? "text-white"
                     : "text-(--color-tag-text) opacity-55 hover:opacity-85"
@@ -157,7 +162,9 @@ export function Services({ t, lang }: ServicesProps) {
                                 : undefined
                             }
                             imageAlt={
-                              group.id === "shoot" ? t.serviceAlt[index] : undefined
+                              group.id === "shoot"
+                                ? t.serviceAlt[index]
+                                : undefined
                             }
                             duration={t.duration}
                             choose={t.choose}
