@@ -32,8 +32,10 @@ export function Services({ t, lang }: ServicesProps) {
   } | null>(null);
   const [skipPillAnimation, setSkipPillAnimation] = useState(true);
   const isFirstMeasure = useRef(true);
+  const activeRef = useRef(active);
 
   useLayoutEffect(() => {
+    activeRef.current = active;
     const node = tabRefs.current.get(active);
     if (node) {
       setPill({
@@ -56,20 +58,22 @@ export function Services({ t, lang }: ServicesProps) {
         skippedInitialCall = true;
         return;
       }
-      const node = tabRefs.current.get(active);
-      if (node) {
-        setSkipPillAnimation(true);
-        setPill({
-          x: node.offsetLeft,
-          y: node.offsetTop,
-          width: node.offsetWidth,
-          height: node.offsetHeight,
-        });
-      }
+      requestAnimationFrame(() => {
+        const node = tabRefs.current.get(activeRef.current);
+        if (node) {
+          setSkipPillAnimation(true);
+          setPill({
+            x: node.offsetLeft,
+            y: node.offsetTop,
+            width: node.offsetWidth,
+            height: node.offsetHeight,
+          });
+        }
+      });
     });
     observer.observe(list);
     return () => observer.disconnect();
-  }, [active]);
+  }, []);
 
   return (
     <section id="services" className="relative bg-(--color-bg)">
