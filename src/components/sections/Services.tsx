@@ -24,14 +24,24 @@ export function Services({ t, lang }: ServicesProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef(new Map<string, HTMLButtonElement>());
-  const [pill, setPill] = useState<{ x: number; width: number } | null>(null);
+  const [pill, setPill] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null>(null);
   const [skipPillAnimation, setSkipPillAnimation] = useState(true);
   const isFirstMeasure = useRef(true);
 
   useLayoutEffect(() => {
     const node = tabRefs.current.get(active);
     if (node) {
-      setPill({ x: node.offsetLeft, width: node.offsetWidth });
+      setPill({
+        x: node.offsetLeft,
+        y: node.offsetTop,
+        width: node.offsetWidth,
+        height: node.offsetHeight,
+      });
     }
     setSkipPillAnimation(isFirstMeasure.current);
     isFirstMeasure.current = false;
@@ -49,7 +59,12 @@ export function Services({ t, lang }: ServicesProps) {
       const node = tabRefs.current.get(active);
       if (node) {
         setSkipPillAnimation(true);
-        setPill({ x: node.offsetLeft, width: node.offsetWidth });
+        setPill({
+          x: node.offsetLeft,
+          y: node.offsetTop,
+          width: node.offsetWidth,
+          height: node.offsetHeight,
+        });
       }
     });
     observer.observe(list);
@@ -76,18 +91,18 @@ export function Services({ t, lang }: ServicesProps) {
             ref={tabListRef}
             role="tablist"
             aria-label={t.servicesTitle}
-            className="relative isolate flex w-fit max-w-full gap-1 overflow-x-auto scrollbar-none rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
+            className="relative isolate flex flex-col min-[480px]:flex-row min-[480px]:w-fit max-w-full gap-1 min-[480px]:overflow-x-auto scrollbar-none rounded-[24px] min-[480px]:rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
           >
             {pill && (
               <m.span
                 aria-hidden="true"
                 initial={false}
-                animate={{ x: pill.x, width: pill.width }}
+                animate={{ x: pill.x, y: pill.y, width: pill.width, height: pill.height }}
                 transition={{
                   duration: prefersReducedMotion || skipPillAnimation ? 0 : 0.5,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
-                className="absolute inset-y-1 left-0 -z-10 rounded-full bg-(--color-accent-text) motion-reduce:transition-none"
+                className="absolute top-0 left-0 -z-10 rounded-3xl min-[480px]:rounded-full bg-(--color-accent-text) motion-reduce:transition-none"
               />
             )}
             {tabs.map((tab) => (
@@ -101,7 +116,7 @@ export function Services({ t, lang }: ServicesProps) {
                 role="tab"
                 aria-selected={active === tab.id}
                 onClick={() => setActive(tab.id)}
-                className={`relative shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] transition-[color,opacity] duration-250 ease-(--ease-transition) ${
+                className={`relative shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] cursor-pointer transition-[color,opacity] duration-250 ease-(--ease-transition) ${
                   active === tab.id
                     ? "text-white"
                     : "text-(--color-tag-text) opacity-55 hover:opacity-85"
