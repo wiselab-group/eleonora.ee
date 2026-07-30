@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import type { Locale, Translation } from "@/lib/i18n";
 import { ServiceCard } from "./ServiceCard";
@@ -8,6 +8,7 @@ import { CollabPanel } from "./CollabPanel";
 import { WorkGallerySection } from "./WorkGallerySection";
 import { serviceImages, workGallery } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
+import { usePrefersReducedMotion } from "@/lib/useMediaQuery";
 
 interface ServicesProps {
   t: Translation;
@@ -20,6 +21,40 @@ export function Services({ t, lang }: ServicesProps) {
     { id: "collab" as const, label: t.collabKicker },
   ];
   const [active, setActive] = useState<string>(tabs[0].id);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const tabListRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef(new Map<string, HTMLButtonElement>());
+  const [pill, setPill] = useState<{ x: number; width: number } | null>(null);
+  const [skipPillAnimation, setSkipPillAnimation] = useState(true);
+  const isFirstMeasure = useRef(true);
+
+  useLayoutEffect(() => {
+    const node = tabRefs.current.get(active);
+    if (node) {
+      setPill({ x: node.offsetLeft, width: node.offsetWidth });
+    }
+    setSkipPillAnimation(isFirstMeasure.current);
+    isFirstMeasure.current = false;
+  }, [active]);
+
+  useLayoutEffect(() => {
+    const list = tabListRef.current;
+    if (!list) return;
+    let skippedInitialCall = false;
+    const observer = new ResizeObserver(() => {
+      if (!skippedInitialCall) {
+        skippedInitialCall = true;
+        return;
+      }
+      const node = tabRefs.current.get(active);
+      if (node) {
+        setSkipPillAnimation(true);
+        setPill({ x: node.offsetLeft, width: node.offsetWidth });
+      }
+    });
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, [active]);
 
   return (
     <section id="services" className="relative bg-(--color-bg)">
@@ -38,21 +73,38 @@ export function Services({ t, lang }: ServicesProps) {
       <div className="pb-14 sm:pb-[clamp(56px,7vw,100px)]">
         <div className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)]">
           <div
+            ref={tabListRef}
             role="tablist"
             aria-label={t.servicesTitle}
-            className="flex gap-2 overflow-x-auto scrollbar-none mb-6 sm:mb-8"
+            className="relative isolate flex w-fit max-w-full gap-1 overflow-x-auto scrollbar-none rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
           >
+            {pill && (
+              <m.span
+                aria-hidden="true"
+                initial={false}
+                animate={{ x: pill.x, width: pill.width }}
+                transition={{
+                  duration: prefersReducedMotion || skipPillAnimation ? 0 : 0.5,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="absolute inset-y-1 left-0 -z-10 rounded-full bg-(--color-accent-text) motion-reduce:transition-none"
+              />
+            )}
             {tabs.map((tab) => (
               <button
                 key={tab.id}
+                ref={(node) => {
+                  if (node) tabRefs.current.set(tab.id, node);
+                  else tabRefs.current.delete(tab.id);
+                }}
                 type="button"
                 role="tab"
                 aria-selected={active === tab.id}
                 onClick={() => setActive(tab.id)}
-                className={`shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] transition-colors duration-250 ease-(--ease-transition) ${
+                className={`relative shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] transition-[color,opacity] duration-250 ease-(--ease-transition) ${
                   active === tab.id
-                    ? "bg-(--color-accent-text) text-white"
-                    : "bg-(--color-surface) text-(--color-text-faint) hover:text-(--color-text)"
+                    ? "text-white"
+                    : "text-(--color-tag-text) opacity-55 hover:opacity-85"
                 }`}
               >
                 {tab.label}
