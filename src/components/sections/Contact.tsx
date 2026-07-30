@@ -57,9 +57,9 @@ export function Contact({ t, lang }: ContactProps) {
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="px-5 sm:px-[clamp(20px,5vw,60px)] md:px-0 py-10 sm:py-[clamp(40px,6vw,96px)]"
+        className="px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,96px)]"
       >
-        <div className="max-w-[1320px] mx-auto md:px-[clamp(28px,5vw,80px)] grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end">
+        <div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end">
           <div>
             <SectionKicker tone="on-dark">{t.contactKicker}</SectionKicker>
             <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.02] mb-6 sm:mb-[clamp(22px,3vw,32px)]">
