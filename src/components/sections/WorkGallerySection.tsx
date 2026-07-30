@@ -34,6 +34,7 @@ export function WorkGallerySection({ items, gallery }: WorkGallerySectionProps) 
             playLabel={gallery.playLabel}
           />
         ))}
+        <div aria-hidden="true" className="shrink-0 w-px" />
       </m.div>
     </div>
   );
