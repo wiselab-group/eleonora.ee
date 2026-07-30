@@ -29,8 +29,7 @@ export default async function Image({ params }: ImageProps) {
     ]);
 
   const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`;
-  const [ogDescriptionLead, ogDescriptionRest] =
-    t.ogDescription.split(/\s*—\s*/);
+  const [taglineLead, taglineRest] = t.tagline.split(/\s*—\s*/);
 
   return new ImageResponse(
     <div
@@ -138,19 +137,17 @@ export default async function Image({ params }: ImageProps) {
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: "26px",
+            fontSize: "22px",
             lineHeight: 1.5,
             color: "#ede3d5",
             opacity: 0.85,
-            maxWidth: "620px",
+            maxWidth: "680px",
             fontFamily: "Nunito Sans",
             fontWeight: 400,
           }}
         >
-          <span>
-            {ogDescriptionRest ? `${ogDescriptionLead} —` : ogDescriptionLead}
-          </span>
-          {ogDescriptionRest ? <span>{ogDescriptionRest}</span> : null}
+          <span>{taglineRest ? `${taglineLead} —` : taglineLead}</span>
+          {taglineRest ? <span>{taglineRest}</span> : null}
         </div>
       </div>
     </div>,

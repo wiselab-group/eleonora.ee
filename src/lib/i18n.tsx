@@ -31,7 +31,6 @@ export interface WorkGallery {
 
 export interface Translation {
   tagline: string;
-  ogDescription: string;
   heroCta: string;
   heroBadge: string;
   servicesKicker: string;
@@ -58,8 +57,6 @@ const dictionaries: Record<Locale, Translation> = {
   ru: {
     tagline:
       "Маркетолог и автор блога о жизни в Таллинне. Создаю контент, обучаю, консультирую и сотрудничаю с брендами — помогаю раскрыть себя и заявить о себе в социальных сетях.",
-    ogDescription:
-      "SMM- и UGC-маркетолог из Таллинна — контент, обучение, консультации.",
     heroCta: "Написать в Telegram",
     heroBadge: "контент, который хочется смотреть",
     servicesKicker: "Услуги",
@@ -212,8 +209,6 @@ const dictionaries: Record<Locale, Translation> = {
   en: {
     tagline:
       "Marketer and blogger writing about life in Tallinn. I create content, teach, consult, and collaborate with brands — helping you unfold yourself and speak about it on social media.",
-    ogDescription:
-      "SMM & UGC marketer based in Tallinn — content, coaching, consulting.",
     heroCta: "Message on Telegram",
     heroBadge: "content you want to watch",
     servicesKicker: "Services",
