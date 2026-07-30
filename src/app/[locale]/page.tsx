@@ -7,8 +7,6 @@ import { Header } from "@/components/layout/Header";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
-import { Shorts } from "@/components/sections/Shorts";
-import { Feed } from "@/components/sections/Feed";
 import { Contact } from "@/components/sections/Contact";
 
 const TITLE = "Eleonora Kupczyk — SMM · UGC · Tallinn";
@@ -74,8 +72,6 @@ export default async function Home({ params }: PageProps) {
       <main>
         <Hero t={t} lang={lang} />
         <Services t={t} lang={lang} />
-        <Shorts t={t} />
-        <Feed t={t} />
         <Contact t={t} lang={lang} />
       </main>
     </LazyMotion>

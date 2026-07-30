@@ -12,6 +12,11 @@ export const generalGreeting: Record<Locale, string> = {
   en: "Hi! I'd like to talk about building my blog.",
 };
 
+const collabGreeting: Record<Locale, string> = {
+  ru: "Здравствуйте! Хочу обсудить сотрудничество с брендом.",
+  en: "Hi! I'd like to discuss a brand collaboration.",
+};
+
 export function telegramLink(text?: string): string {
   const base = `https://t.me/${TELEGRAM_HANDLE}`;
   if (!text) return base;
@@ -24,4 +29,8 @@ export function serviceTelegramLink(service: Service, lang: Locale): string {
 
 export function generalTelegramLink(lang: Locale): string {
   return telegramLink(generalGreeting[lang]);
+}
+
+export function collabTelegramLink(lang: Locale): string {
+  return telegramLink(collabGreeting[lang]);
 }

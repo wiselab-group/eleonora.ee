@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import t0_0 from "../../public/images/tiles/t0_0.png";
 import t0_1 from "../../public/images/tiles/t0_1.png";
 import t0_2 from "../../public/images/tiles/t0_2.png";
@@ -37,22 +38,38 @@ export const serviceImages = [
   tiles.t0_5,
 ];
 
-export const feedPosts = [
-  { image: tiles.t1, href: "https://www.instagram.com/p/C_JDCvDtC2A/" },
-  { image: tiles.t2, href: "https://www.instagram.com/p/Cwfi-drNcR1/" },
-  { image: tiles.t3, href: "https://www.instagram.com/p/C8T7E5KNQJW/" },
-  { image: tiles.t4, href: "https://www.instagram.com/p/C-IXsJYNQnk/" },
-  { image: tiles.t5, href: "https://www.instagram.com/p/DFAUU7Yt17o/" },
-];
+export interface WorkItem {
+  kind: "photo" | "video";
+  image: StaticImageData | string;
+  href: string;
+}
 
-const youtubeShort = (id: string) => ({
-  thumbnail: `https://i.ytimg.com/vi/${id}/oar2.jpg`,
+const youtubeShort = (id: string): WorkItem => ({
+  kind: "video",
+  image: `https://i.ytimg.com/vi/${id}/oar2.jpg`,
   href: `https://youtube.com/shorts/${id}`,
 });
 
-export const shorts = [
-  youtubeShort("AY2uPhvOnNE"),
-  youtubeShort("C7OTW5h9Avk"),
-  youtubeShort("GXtn6NLEiYM"),
-  youtubeShort("RD6y9a7GZTk"),
-];
+const instagramPost = (image: StaticImageData, path: string): WorkItem => ({
+  kind: "photo",
+  image,
+  href: `https://www.instagram.com/p/${path}/`,
+});
+
+export const workGallery: Record<"shoot" | "consult" | "collab", WorkItem[]> = {
+  shoot: [
+    youtubeShort("AY2uPhvOnNE"),
+    youtubeShort("C7OTW5h9Avk"),
+    youtubeShort("GXtn6NLEiYM"),
+    youtubeShort("RD6y9a7GZTk"),
+  ],
+  consult: [
+    instagramPost(tiles.t1, "C_JDCvDtC2A"),
+    instagramPost(tiles.t2, "Cwfi-drNcR1"),
+  ],
+  collab: [
+    instagramPost(tiles.t3, "C8T7E5KNQJW"),
+    instagramPost(tiles.t4, "C-IXsJYNQnk"),
+    instagramPost(tiles.t5, "DFAUU7Yt17o"),
+  ],
+};

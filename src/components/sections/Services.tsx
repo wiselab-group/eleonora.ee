@@ -1,17 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { m, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { m, AnimatePresence } from "framer-motion";
 import type { Locale, Translation } from "@/lib/i18n";
-import { useMediaQuery, usePrefersReducedMotion } from "@/lib/useMediaQuery";
 import { ServiceCard } from "./ServiceCard";
-import { ServicesProgress } from "./ServicesProgress";
-import { useTrackScrollDistance, useViewportHeight } from "./useServicesTrack";
-import { serviceImages } from "@/lib/tiles";
-import { fadeUp, viewportOnce } from "@/lib/motion";
-
-const PIN_DISTANCE_FACTOR = 0.7;
-const DESKTOP_QUERY = "(min-width: 1024px)";
+import { CollabPanel } from "./CollabPanel";
+import { WorkGallerySection } from "./WorkGallerySection";
+import { serviceImages, workGallery } from "@/lib/tiles";
+import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 interface ServicesProps {
   t: Translation;
@@ -19,119 +15,114 @@ interface ServicesProps {
 }
 
 export function Services({ t, lang }: ServicesProps) {
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const isDesktop = useMediaQuery(DESKTOP_QUERY);
-  const isPinned = isDesktop && !prefersReducedMotion;
-  const trackRef = useRef<HTMLDivElement>(null);
-  const pinRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const scrollDistance = useTrackScrollDistance(trackRef, isPinned);
-  const viewportHeight = useViewportHeight(isPinned);
-
-  const { scrollXProgress: carouselProgress } = useScroll({
-    container: isPinned ? undefined : carouselRef,
-  });
-
-  const pinDistance = scrollDistance * PIN_DISTANCE_FACTOR;
-
-  const { scrollYProgress } = useScroll({
-    target: isPinned ? pinRef : undefined,
-    offset: ["start start", "end end"],
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
-
-  const title = (
-    <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none max-w-[16ch] m-0">
-      {t.servicesTitle}
-    </h2>
-  );
-
-  if (!isPinned) {
-    return (
-      <section id="services" className="relative bg-(--color-bg)">
-        <m.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={fadeUp}
-          className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] mb-6 sm:mb-[clamp(24px,3vw,36px)] pt-12 sm:pt-[clamp(48px,7vw,100px)]"
-        >
-          {title}
-        </m.div>
-        <div
-          ref={carouselRef}
-          className="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-px-5 sm:scroll-px-[clamp(20px,5vw,60px)] px-5 sm:px-[clamp(20px,5vw,60px)] py-17.5 -my-17.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          role="group"
-          aria-label={t.servicesTitle}
-        >
-          {t.services.map((service, index) => (
-            <div key={service.num} className="shrink-0 snap-start">
-              <ServiceCard
-                service={service}
-                lang={lang}
-                image={serviceImages[index]}
-                imageAlt={t.serviceAlt[index]}
-                duration={t.duration}
-                choose={t.choose}
-                variant="panel"
-              />
-            </div>
-          ))}
-          <div aria-hidden="true" className="shrink-0 w-px" />
-        </div>
-        <div className="px-5 sm:px-[clamp(20px,5vw,60px)] pt-6 sm:pt-8 pb-10 sm:pb-[clamp(40px,6vw,90px)]">
-          <ServicesProgress
-            progress={carouselProgress}
-            count={t.services.length}
-            variant="static"
-          />
-        </div>
-      </section>
-    );
-  }
+  const tabs = [
+    ...t.serviceGroups.map((group) => ({ id: group.id, label: group.kicker })),
+    { id: "collab" as const, label: t.collabKicker },
+  ];
+  const [active, setActive] = useState<string>(tabs[0].id);
 
   return (
-    <section id="services" className="relative">
-      <div
-        ref={pinRef}
-        style={{ height: `${viewportHeight + pinDistance}px` }}
-        className="relative"
+    <section id="services" className="relative bg-(--color-bg)">
+      <m.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+        variants={fadeUp}
+        className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] mb-8 sm:mb-[clamp(32px,4vw,48px)] pt-12 sm:pt-[clamp(48px,7vw,100px)]"
       >
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden [--services-title-space:180px] sm:[--services-title-space:220px]">
-          <div className="text-left px-5 sm:px-[clamp(20px,5vw,60px)] max-w-[1320px] mb-6 sm:mb-[clamp(24px,3vw,36px)] shrink-0">
-            {title}
-          </div>
-          <m.div
-            ref={trackRef}
-            style={{ x }}
-            className="flex will-change-transform pl-5 sm:pl-[clamp(20px,5vw,60px)]"
-          >
-            {t.services.map((service, index) => (
-              <div
-                key={service.num}
-                className="shrink-0 pr-4 sm:pr-[clamp(16px,1.8vw,28px)]"
+        <h2 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-none max-w-[16ch] m-0">
+          {t.servicesTitle}
+        </h2>
+      </m.div>
+
+      <div className="px-5 sm:px-[clamp(20px,5vw,60px)] pb-14 sm:pb-[clamp(56px,7vw,100px)]">
+        <div
+          role="tablist"
+          aria-label={t.servicesTitle}
+          className="flex gap-2 overflow-x-auto scrollbar-none mb-6 sm:mb-8"
+        >
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={active === tab.id}
+              onClick={() => setActive(tab.id)}
+              className={`shrink-0 text-left rounded-full px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-bold tracking-[0.02em] transition-colors duration-250 ease-(--ease-transition) ${
+                active === tab.id
+                  ? "bg-(--color-accent-text) text-white"
+                  : "bg-(--color-surface) text-(--color-text-faint) hover:text-(--color-text)"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="min-w-0">
+          <AnimatePresence mode="wait">
+            {t.serviceGroups.map(
+              (group) =>
+                active === group.id && (
+                  <m.div
+                    key={group.id}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={staggerContainer}
+                    role="tabpanel"
+                  >
+                    <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-5 sm:scroll-px-0 -mx-5 sm:mx-0 px-5 sm:px-0 py-4 -my-4 scrollbar-none">
+                      {group.services.map((service, index) => (
+                        <div key={service.num} className="snap-start">
+                          <ServiceCard
+                            service={service}
+                            lang={lang}
+                            image={
+                              group.id === "shoot"
+                                ? serviceImages[index]
+                                : undefined
+                            }
+                            imageAlt={
+                              group.id === "shoot" ? t.serviceAlt[index] : undefined
+                            }
+                            duration={t.duration}
+                            choose={t.choose}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <WorkGallerySection
+                      items={workGallery[group.id]}
+                      gallery={t.workGalleries[group.id]}
+                    />
+                  </m.div>
+                ),
+            )}
+            {active === "collab" && (
+              <m.div
+                key="collab"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={fadeUp}
+                role="tabpanel"
               >
-                <ServiceCard
-                  service={service}
+                <CollabPanel
                   lang={lang}
-                  image={serviceImages[index]}
-                  imageAlt={t.serviceAlt[index]}
-                  duration={t.duration}
-                  choose={t.choose}
-                  variant="panel"
+                  title={t.collabTitle}
+                  desc={t.collabDesc}
+                  formats={t.collabFormats}
+                  barter={t.collabBarter}
+                  cta={t.collabCta}
                 />
-              </div>
-            ))}
-            <div
-              aria-hidden="true"
-              className="shrink-0 w-5 sm:w-[clamp(20px,5vw,60px)]"
-            />
-          </m.div>
-          <ServicesProgress
-            progress={scrollYProgress}
-            count={t.services.length}
-          />
+                <WorkGallerySection
+                  items={workGallery.collab}
+                  gallery={t.workGalleries.collab}
+                />
+              </m.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>

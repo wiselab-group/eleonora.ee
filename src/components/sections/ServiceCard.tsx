@@ -2,6 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { m } from "framer-motion";
+import { Play } from "lucide-react";
 import type { Locale, Service } from "@/lib/i18n";
 import { fadeUp } from "@/lib/motion";
 import { serviceTelegramLink } from "@/lib/telegram";
@@ -9,11 +10,10 @@ import { serviceTelegramLink } from "@/lib/telegram";
 interface ServiceCardProps {
   service: Service;
   lang: Locale;
-  image: StaticImageData;
-  imageAlt: string;
+  image?: StaticImageData;
+  imageAlt?: string;
   duration: string;
   choose: string;
-  variant: "panel" | "stacked";
 }
 
 export function ServiceCard({
@@ -23,107 +23,74 @@ export function ServiceCard({
   imageAlt,
   duration,
   choose,
-  variant,
 }: ServiceCardProps) {
-  const numBadge = (
-    <span className="font-(family-name:--font-display) italic text-base text-(--color-accent-text)">
-      {service.num}
-    </span>
-  );
-
-  const tag = (
-    <span className="text-(length:--text-label) font-bold tracking-[0.06em] uppercase text-(--color-tag-text) bg-(--color-tag-bg) rounded-full px-2.75 py-0.75">
-      {service.tag}
-    </span>
-  );
-
-  const price = (
-    <div className="font-(family-name:--font-display) font-medium text-[clamp(22px,2.6vw,36px)] leading-none tracking-[-0.01em] whitespace-nowrap">
-      {service.price}
-    </div>
-  );
-
-  const ctaPill = (
-    <div className="inline-flex items-center justify-center gap-1.5 shrink-0 text-sm font-bold text-white bg-(--color-accent-text) rounded-full px-5 py-3">
-      {choose} →
-    </div>
-  );
-
-  if (variant === "panel") {
-    return (
-      <a
-        href={serviceTelegramLink(service, lang)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex flex-col h-full max-h-[min(620px,calc(100dvh-var(--services-title-space)))] w-[min(82vw,400px)] bg-(--color-surface) rounded-3xl p-5 sm:p-6 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
-      >
-        <div className="aspect-video overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative mb-5 shrink-0">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            sizes="360px"
-            className="object-cover"
-            placeholder="blur"
-          />
-        </div>
-        <div className="flex items-baseline gap-2.5 mb-2.5 shrink-0">
-          {numBadge}
-          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 line-clamp-2 min-h-[2.1em]">
-            {service.title}
-          </h3>
-        </div>
-        <div className="mb-3.5 shrink-0">{tag}</div>
-        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-4 shrink-0 line-clamp-3 min-h-[4.875em]">
-          {service.desc}
-        </p>
-        <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint) shrink-0">
-          {duration} · {service.dur}
-        </span>
-        <div className="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3 shrink-0">
-          {price}
-          {ctaPill}
-        </div>
-      </a>
-    );
-  }
-
   return (
     <m.a
       variants={fadeUp}
       href={serviceTelegramLink(service, lang)}
       target="_blank"
       rel="noopener noreferrer"
-      className="group grid grid-cols-[88px_1fr] sm:grid-cols-[128px_1fr_auto] gap-4.5 sm:gap-[clamp(18px,2.6vw,40px)] items-center bg-(--color-surface) rounded-3xl p-4 sm:p-[clamp(16px,1.6vw,22px)] no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
+      className="group flex flex-col h-full w-[min(78vw,272px)] shrink-0 bg-(--color-surface) rounded-3xl p-4 sm:p-5 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
     >
-      <div className="aspect-square overflow-hidden rounded-[18px] bg-(--color-tag-bg) relative">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          sizes="128px"
-          className="object-cover"
-          placeholder="blur"
-        />
+      <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-(--color-tag-bg) relative mb-4 shrink-0">
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt ?? ""}
+            fill
+            sizes="272px"
+            className="object-cover"
+            placeholder="blur"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-(family-name:--font-display) italic text-[clamp(24px,3.4vw,32px)] text-(--color-accent-text)/40">
+              {service.num}
+            </span>
+          </div>
+        )}
+        {service.mediaKind === "video" && (
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-(--color-surface-alt)/90">
+              <Play
+                width={13}
+                height={13}
+                strokeWidth={0}
+                className="ml-0.5 fill-(--color-primary)"
+              />
+            </span>
+          </span>
+        )}
       </div>
-      <div className="min-w-0 col-span-2 sm:col-span-1">
-        <div className="flex items-baseline gap-3 flex-wrap mb-2">
-          {numBadge}
-          <h3 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0">
-            {service.title}
-          </h3>
-          {tag}
-        </div>
-        <p className="text-[clamp(13px,1.1vw,14px)] leading-relaxed text-(--color-text-faint) mb-2 max-w-[58ch]">
-          {service.desc}
-        </p>
-        <span className="text-(length:--text-label) font-bold tracking-[0.1em] uppercase text-(--color-text-faint)">
-          {duration} · {service.dur}
+      <div className="flex items-baseline gap-2 mb-1.5 shrink-0">
+        <span className="font-(family-name:--font-display) italic text-sm text-(--color-accent-text)">
+          {service.num}
+        </span>
+        <h3 className="font-(family-name:--font-display) font-medium text-[clamp(17px,1.8vw,22px)] leading-[1.1] m-0">
+          {service.title}
+        </h3>
+      </div>
+      <div className="mb-2.5 shrink-0">
+        <span className="text-(length:--text-label) font-bold tracking-[0.06em] uppercase text-(--color-tag-text) bg-(--color-tag-bg) rounded-full px-2.5 py-0.5">
+          {service.tag}
         </span>
       </div>
-      <div className="text-right whitespace-nowrap pr-1 sm:pr-[clamp(6px,1vw,18px)] col-span-2 sm:col-span-1">
-        {price}
-        <div className="mt-3.5 flex justify-end">{ctaPill}</div>
+      <p className="text-[13px] leading-relaxed text-(--color-text-faint) mb-3 shrink-0 grow line-clamp-2">
+        {service.desc}
+      </p>
+      <span className="text-[11px] font-bold tracking-[0.08em] uppercase text-(--color-text-faint) shrink-0">
+        {duration} · {service.dur}
+      </span>
+      <div className="mt-3 pt-3 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <div className="font-(family-name:--font-display) font-medium text-[clamp(19px,2vw,26px)] leading-none tracking-[-0.01em] whitespace-nowrap">
+          {service.price}
+        </div>
+        <div className="inline-flex items-center justify-center gap-1.5 shrink-0 text-xs font-bold text-white bg-(--color-accent-text) rounded-full px-4 py-2.5">
+          {choose} →
+        </div>
       </div>
     </m.a>
   );
