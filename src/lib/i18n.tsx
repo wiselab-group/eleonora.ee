@@ -208,7 +208,7 @@ const dictionaries: Record<Locale, Translation> = {
   },
   en: {
     tagline:
-      "Marketer and blogger writing about life in Tallinn. I create content, teach, consult, and collaborate with brands — helping you unfold yourself and speak about it on social media.",
+      "Marketer and blogger based in Tallinn. I create content, teach, consult, and collaborate with brands — helping you find your voice and put yourself out there on social media.",
     heroCta: "Message on Telegram",
     heroBadge: "content you want to watch",
     servicesKicker: "Services",

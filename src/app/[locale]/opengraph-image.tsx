@@ -29,7 +29,6 @@ export default async function Image({ params }: ImageProps) {
     ]);
 
   const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`;
-  const [taglineLead, taglineRest] = t.tagline.split(/\s*—\s*/);
 
   return new ImageResponse(
     <div
@@ -136,18 +135,16 @@ export default async function Image({ params }: ImageProps) {
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
             fontSize: "22px",
             lineHeight: 1.5,
             color: "#ede3d5",
             opacity: 0.85,
-            maxWidth: "680px",
+            maxWidth: "500px",
             fontFamily: "Nunito Sans",
             fontWeight: 400,
           }}
         >
-          <span>{taglineRest ? `${taglineLead} —` : taglineLead}</span>
-          {taglineRest ? <span>{taglineRest}</span> : null}
+          {t.tagline}
         </div>
       </div>
     </div>,

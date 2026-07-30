@@ -68,7 +68,7 @@ export function Hero({ t, lang }: HeroProps) {
 
         <m.p
           variants={fadeUp}
-          className="text-[clamp(14px,1.2vw,17px)] leading-relaxed text-(--color-bg)/85 max-w-[40ch] m-0"
+          className="text-[clamp(15px,1.4vw,19px)] leading-relaxed text-(--color-bg)/85 max-w-[48ch] m-0"
         >
           {t.tagline}
         </m.p>
