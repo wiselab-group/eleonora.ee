@@ -13,8 +13,8 @@ interface WorkGallerySectionProps {
 
 export function WorkGallerySection({ items, gallery }: WorkGallerySectionProps) {
   return (
-    <div className="mt-8 pt-6 border-t border-(--color-border)">
-      <h4 className="text-xs font-bold tracking-[0.06em] text-(--color-text-faint) mb-4">
+    <div className="mt-10 pt-8 border-t border-(--color-border)">
+      <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-5">
         {gallery.label}
       </h4>
       <m.div
