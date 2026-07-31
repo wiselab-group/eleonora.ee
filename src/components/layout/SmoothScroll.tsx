@@ -13,6 +13,10 @@ export function SmoothScroll() {
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => 1 - Math.pow(1 - t, 3),
+      // documentElement's box is pinned to the viewport, so its ResizeObserver
+      // never fires when content height shrinks (e.g. switching to a shorter
+      // Services tab) — body's box does reflect content height and shrinks.
+      content: document.body,
     });
 
     let frameId: number;
