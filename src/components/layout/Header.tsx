@@ -15,7 +15,7 @@ export function Header({ lang }: HeaderProps) {
       initial="hidden"
       animate="visible"
       variants={developIn}
-      className="flex items-center justify-end px-4 sm:px-[clamp(20px,5vw,60px)] py-4.5 absolute top-0 right-0 z-40"
+      className="flex items-center justify-end px-4 sm:px-[clamp(20px,5vw,60px)] py-8 absolute top-0 right-0 z-40"
     >
       <LanguageToggle lang={lang} />
     </m.header>
