@@ -96,22 +96,24 @@ export function Contact({ t, lang }: ContactProps) {
           </div>
         </div>
       </m.div>
-      <div className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint) bg-(--color-bg) px-5 sm:px-[clamp(20px,5vw,60px)] py-4">
-        <span>© 2026 Eleonora Kupczyk</span>
-        <a
-          href="https://wiselab.ee/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-baseline gap-1 no-underline normal-case tracking-normal text-(--color-text-faint) transition-opacity duration-250 ease-(--ease-transition) active:opacity-55"
-        >
-          <span className="text-[13px]">Built by</span>
-          <span className="font-(family-name:--font-inter) font-extrabold text-[13px] leading-none text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-ink)">
-            wiselab
-            <span className="text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-dot)">
-              .
+      <div className="bg-(--color-bg) py-4">
+        <div className="max-w-[1320px] mx-auto flex flex-wrap justify-between items-center gap-x-4 gap-y-2 px-5 sm:px-[clamp(20px,5vw,60px)] text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint)">
+          <span>© 2026 Eleonora Kupczyk</span>
+          <a
+            href="https://wiselab.ee/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-baseline gap-1 no-underline normal-case tracking-normal text-(--color-text-faint) transition-opacity duration-250 ease-(--ease-transition) active:opacity-55"
+          >
+            <span className="text-[13px]">Built by</span>
+            <span className="font-(family-name:--font-inter) font-extrabold text-[13px] leading-none text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-ink)">
+              wiselab
+              <span className="text-(--color-text-faint) transition-colors duration-250 ease-(--ease-transition) group-hover:text-(--color-wiselab-dot)">
+                .
+              </span>
             </span>
-          </span>
-        </a>
+          </a>
+        </div>
       </div>
     </section>
   );
