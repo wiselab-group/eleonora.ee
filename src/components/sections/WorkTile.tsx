@@ -3,7 +3,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { m } from "framer-motion";
 import { Play } from "lucide-react";
-import { developWash, fadeUp } from "@/lib/motion";
+import { developWash } from "@/lib/motion";
 
 interface WorkTileProps {
   href: string;
@@ -11,17 +11,25 @@ interface WorkTileProps {
   playLabel?: string;
   kind: "photo" | "video";
   image: StaticImageData | string;
+  tabIndex?: number;
 }
 
-export function WorkTile({ href, alt, playLabel, kind, image }: WorkTileProps) {
+export function WorkTile({
+  href,
+  alt,
+  playLabel,
+  kind,
+  image,
+  tabIndex,
+}: WorkTileProps) {
   const isVideo = kind === "video";
 
   return (
     <m.a
-      variants={fadeUp}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      tabIndex={tabIndex}
       aria-label={isVideo ? playLabel : alt}
       className={`group relative shrink-0 overflow-hidden rounded-2xl bg-(--color-tag-bg) ${
         isVideo

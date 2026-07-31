@@ -173,12 +173,10 @@ export function Services({ t, lang }: ServicesProps) {
                       ))}
                       <div aria-hidden="true" className="shrink-0 w-5" />
                     </div>
-                    <div className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)]">
-                      <WorkGallerySection
-                        items={workGallery[group.id]}
-                        gallery={t.workGalleries[group.id]}
-                      />
-                    </div>
+                    <WorkGallerySection
+                      items={workGallery[group.id]}
+                      gallery={t.workGalleries[group.id]}
+                    />
                   </m.div>
                 ),
             )}
@@ -200,11 +198,11 @@ export function Services({ t, lang }: ServicesProps) {
                     barter={t.collabBarter}
                     cta={t.collabCta}
                   />
-                  <WorkGallerySection
-                    items={workGallery.collab}
-                    gallery={t.workGalleries.collab}
-                  />
                 </div>
+                <WorkGallerySection
+                  items={workGallery.collab}
+                  gallery={t.workGalleries.collab}
+                />
               </m.div>
             )}
           </AnimatePresence>
