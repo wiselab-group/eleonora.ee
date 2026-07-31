@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import type { WorkGallery } from "@/lib/i18n";
 import type { WorkItem } from "@/lib/tiles";
 import { fadeUp, viewportOnce } from "@/lib/motion";
+import { useMarqueeTrack } from "@/lib/useMarquee";
 import { WorkTile } from "./WorkTile";
 
 interface WorkGallerySectionProps {
@@ -12,22 +13,18 @@ interface WorkGallerySectionProps {
 }
 
 const MARQUEE_SECONDS_PER_ITEM = 4.5;
-// Widest a single tile gets (photo tile, mobile) plus its gap, used to size
-// the base run in real pixels rather than item count — a handful of unique
-// items must still tile past the widest realistic viewport before the loop
-// point, or the doubled track is narrower than the screen and the mask
-// reveals bare background past both ends.
+// Widest a single tile gets (photo tile, mobile) plus its gap.
 const MAX_TILE_PX = 196 + 12;
-const WIDEST_VIEWPORT_PX = 2600;
-const MIN_BASE_REPEATS = Math.ceil(WIDEST_VIEWPORT_PX / MAX_TILE_PX);
 
 export function WorkGallerySection({
   items,
   gallery,
 }: WorkGallerySectionProps) {
-  const repeats = Math.max(1, Math.ceil(MIN_BASE_REPEATS / items.length));
-  const base = Array.from({ length: repeats }, () => items).flat();
-  const duration = `${base.length * MARQUEE_SECONDS_PER_ITEM}s`;
+  const { base, duration } = useMarqueeTrack(
+    items,
+    MARQUEE_SECONDS_PER_ITEM,
+    MAX_TILE_PX,
+  );
 
   return (
     <div className="mt-16 pt-10 border-t border-(--color-border)">

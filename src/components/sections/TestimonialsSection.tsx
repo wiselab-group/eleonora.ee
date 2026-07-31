@@ -3,27 +3,24 @@
 import { m } from "framer-motion";
 import type { Testimonials } from "@/lib/i18n";
 import { fadeUp, viewportOnce } from "@/lib/motion";
+import { useMarqueeTrack } from "@/lib/useMarquee";
 
 interface TestimonialsSectionProps {
   testimonials: Testimonials;
 }
 
 const MARQUEE_SECONDS_PER_ITEM = 6;
-// Same reasoning as WorkGallerySection: size the base run in real pixels so a
-// handful of unique cards still tile past the widest realistic viewport
-// before the loop point, or the doubled track is narrower than the screen
-// and the mask reveals bare background past both ends.
 const CARD_PX = 380 + 16;
-const WIDEST_VIEWPORT_PX = 2600;
-const MIN_BASE_REPEATS = Math.ceil(WIDEST_VIEWPORT_PX / CARD_PX);
 
 export function TestimonialsSection({
   testimonials,
 }: TestimonialsSectionProps) {
   const items = testimonials.items;
-  const repeats = Math.max(1, Math.ceil(MIN_BASE_REPEATS / items.length));
-  const base = Array.from({ length: repeats }, () => items).flat();
-  const duration = `${base.length * MARQUEE_SECONDS_PER_ITEM}s`;
+  const { base, duration } = useMarqueeTrack(
+    items,
+    MARQUEE_SECONDS_PER_ITEM,
+    CARD_PX,
+  );
 
   return (
     <div className="mt-16 pt-10 border-t border-(--color-border)">
