@@ -31,7 +31,7 @@ export function LanguageToggle({ lang }: LanguageToggleProps) {
       href={localizedPath(pathname, nextLang, lang)}
       onClick={() => setLocaleCookie(nextLang)}
       aria-label={`Switch language to ${nextLang}`}
-      className="group relative isolate inline-flex items-center gap-0.5 font-body no-underline select-none rounded-full bg-(--color-tag-bg) p-1 transition-[opacity,background-color] duration-400 ease-(--ease-transition) hover:opacity-92 active:opacity-80 active:duration-150"
+      className="group relative isolate inline-flex items-center gap-0.5 font-body no-underline select-none rounded-full bg-(--color-tag-bg) p-1 transition-[opacity,background-color] duration-400 ease-(--ease-transition) hover:opacity-100 lg:hover:opacity-92 active:opacity-80 active:duration-150"
     >
       <span
         aria-hidden="true"
@@ -42,9 +42,7 @@ export function LanguageToggle({ lang }: LanguageToggleProps) {
         <span
           key={locale}
           className={`relative isolate flex items-center justify-center rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.04em] transition-[color,opacity] duration-500 ease-(--ease-transition) ${
-            locale === lang
-              ? "text-white"
-              : "text-(--color-tag-text) opacity-55 group-hover:opacity-85"
+            locale === lang ? "text-white" : "text-(--color-tag-text)"
           }`}
         >
           {locale}

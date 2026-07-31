@@ -29,6 +29,17 @@ export interface WorkGallery {
   alt: string[];
 }
 
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+export interface Testimonials {
+  label: string;
+  items: Testimonial[];
+}
+
 export interface Translation {
   metaTitle: string;
   tagline: string;
@@ -51,7 +62,8 @@ export interface Translation {
   collabBarter: string;
   collabCta: string;
   serviceAlt: string[];
-  workGalleries: Record<"shoot" | "consult" | "collab", WorkGallery>;
+  workGalleries: Record<"shoot" | "collab", WorkGallery>;
+  testimonials: Testimonials;
 }
 
 const dictionaries: Record<Locale, Translation> = {
@@ -189,14 +201,6 @@ const dictionaries: Record<Locale, Translation> = {
           "Превью YouTube Shorts от Eleonora Kupczyk №4",
         ],
       },
-      consult: {
-        label: "Примеры работ",
-        playLabel: "Смотреть видео",
-        alt: [
-          "Утро в отеле: чашка кофе и ноутбук в постели под подписью «Мой список дофамина»",
-          "Двойной рожок мороженого на фоне киоска Pargi Kiosk в Таллинне",
-        ],
-      },
       collab: {
         label: "Примеры работ",
         playLabel: "Смотреть видео",
@@ -206,6 +210,29 @@ const dictionaries: Record<Locale, Translation> = {
           "Виниловый проигрыватель Crosley с пластинкой Harry Styles и свечами рядом",
         ],
       },
+    },
+    testimonials: {
+      label: "Отзывы",
+      items: [
+        {
+          quote:
+            "После разбора аккаунта я наконец поняла, о чём вести блог и как это показать через ленту. Появился чёткий план на месяц вперёд.",
+          name: "Анна К.",
+          role: "разбор аккаунта",
+        },
+        {
+          quote:
+            "Экспресс-созвон стоил своих денег — за час получила больше конкретики, чем за месяц чтения советов в интернете.",
+          name: "Мария Т.",
+          role: "экспресс-разбор блога",
+        },
+        {
+          quote:
+            "Наставничество дало не только стратегию, но и уверенность. Элеонора объясняет по-человечески, без воды.",
+          name: "Ольга П.",
+          role: "личное наставничество",
+        },
+      ],
     },
   },
   en: {
@@ -339,14 +366,6 @@ const dictionaries: Record<Locale, Translation> = {
           "YouTube Shorts preview from Eleonora Kupczyk #4",
         ],
       },
-      consult: {
-        label: "Recent work",
-        playLabel: "Watch video",
-        alt: [
-          "Hotel-room morning: coffee and a laptop in bed under the caption 'My dopamine menu'",
-          "A double scoop of ice cream held up outside the Pargi Kiosk in Tallinn",
-        ],
-      },
       collab: {
         label: "Recent work",
         playLabel: "Watch video",
@@ -356,6 +375,29 @@ const dictionaries: Record<Locale, Translation> = {
           "A Crosley record player spinning Harry Styles, candles beside it",
         ],
       },
+    },
+    testimonials: {
+      label: "Testimonials",
+      items: [
+        {
+          quote:
+            "After the account review I finally knew what my blog was about and how to show it through my feed. I walked away with a clear plan for the month ahead.",
+          name: "Anna K.",
+          role: "account review",
+        },
+        {
+          quote:
+            "The express call was worth every euro — I got more clarity in an hour than in a month of reading advice online.",
+          name: "Maria T.",
+          role: "express blog review",
+        },
+        {
+          quote:
+            "Mentorship gave me a strategy and real confidence. Eleonora explains things like a human, no fluff.",
+          name: "Olga P.",
+          role: "personal mentorship",
+        },
+      ],
     },
   },
 };

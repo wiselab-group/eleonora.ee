@@ -6,6 +6,7 @@ import type { Locale, Translation } from "@/lib/i18n";
 import { ServiceCard } from "./ServiceCard";
 import { CollabPanel } from "./CollabPanel";
 import { WorkGallerySection } from "./WorkGallerySection";
+import { TestimonialsSection } from "./TestimonialsSection";
 import { serviceImages, workGallery } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/lib/useMediaQuery";
@@ -128,7 +129,7 @@ export function Services({ t, lang }: ServicesProps) {
                 className={`relative shrink-0 text-left rounded-full px-6 py-4 text-sm font-bold tracking-[0.02em] cursor-pointer transition-[color,opacity] duration-250 ease-(--ease-transition) ${
                   active === tab.id
                     ? "text-white"
-                    : "text-(--color-tag-text) opacity-55 hover:opacity-85"
+                    : "text-(--color-tag-text) opacity-100 hover:opacity-100 lg:opacity-75"
                 }`}
               >
                 {tab.label}
@@ -173,10 +174,14 @@ export function Services({ t, lang }: ServicesProps) {
                       ))}
                       <div aria-hidden="true" className="shrink-0 w-5" />
                     </div>
-                    <WorkGallerySection
-                      items={workGallery[group.id]}
-                      gallery={t.workGalleries[group.id]}
-                    />
+                    {group.id === "shoot" ? (
+                      <WorkGallerySection
+                        items={workGallery.shoot}
+                        gallery={t.workGalleries.shoot}
+                      />
+                    ) : (
+                      <TestimonialsSection testimonials={t.testimonials} />
+                    )}
                   </m.div>
                 ),
             )}

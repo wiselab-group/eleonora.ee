@@ -56,16 +56,12 @@ const instagramPost = (image: StaticImageData, path: string): WorkItem => ({
   href: `https://www.instagram.com/p/${path}/`,
 });
 
-export const workGallery: Record<"shoot" | "consult" | "collab", WorkItem[]> = {
+export const workGallery: Record<"shoot" | "collab", WorkItem[]> = {
   shoot: [
     youtubeShort("AY2uPhvOnNE"),
     youtubeShort("C7OTW5h9Avk"),
     youtubeShort("GXtn6NLEiYM"),
     youtubeShort("RD6y9a7GZTk"),
-  ],
-  consult: [
-    instagramPost(tiles.t1, "C_JDCvDtC2A"),
-    instagramPost(tiles.t2, "Cwfi-drNcR1"),
   ],
   collab: [
     instagramPost(tiles.t3, "C8T7E5KNQJW"),
