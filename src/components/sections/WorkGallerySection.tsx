@@ -31,9 +31,11 @@ export function WorkGallerySection({
 
   return (
     <div className="mt-10 pt-8 border-t border-(--color-border)">
-      <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-5 px-5 sm:px-[clamp(20px,5vw,60px)]">
-        {gallery.label}
-      </h4>
+      <div className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)]">
+        <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-5">
+          {gallery.label}
+        </h4>
+      </div>
       <m.div
         initial="hidden"
         whileInView="visible"
