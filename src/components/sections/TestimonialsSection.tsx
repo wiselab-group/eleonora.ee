@@ -14,7 +14,7 @@ export function TestimonialsSection({
   return (
     <div className="mt-10 pt-8 border-t border-(--color-border)">
       <div className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)]">
-        <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.05] m-0 mb-8 sm:mb-10">
+        <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-10">
           {testimonials.label}
         </h4>
         <m.div
