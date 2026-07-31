@@ -95,7 +95,7 @@ export function Services({ t, lang }: ServicesProps) {
             ref={tabListRef}
             role="tablist"
             aria-label={t.servicesTitle}
-            className="relative isolate flex flex-col min-[520px]:flex-row min-[520px]:w-fit max-w-full gap-1 min-[520px]:overflow-x-auto scrollbar-none rounded-[24px] min-[520px]:rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
+            className="relative isolate flex flex-col min-[520px]:flex-row min-[520px]:w-fit max-w-full gap-1 min-[520px]:overflow-x-auto scrollbar-none rounded-[28px] min-[520px]:rounded-full bg-(--color-tag-bg) p-1 mb-6 sm:mb-8"
           >
             {pill && (
               <m.span
