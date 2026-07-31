@@ -14,7 +14,7 @@ export function TestimonialsSection({
   return (
     <div className="mt-10 pt-8 border-t border-(--color-border)">
       <div className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)]">
-        <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-title) leading-[1.05] m-0 mb-5">
+        <h4 className="font-(family-name:--font-display) font-medium text-(length:--text-headline) leading-[1.05] m-0 mb-8 sm:mb-10">
           {testimonials.label}
         </h4>
         <m.div
@@ -28,14 +28,20 @@ export function TestimonialsSection({
             <m.figure
               key={item.name}
               variants={fadeUp}
-              className="flex flex-col h-full m-0 bg-(--color-surface) rounded-3xl p-6 shadow-[0_2px_0_rgba(59,46,38,0.04)]"
+              className="flex flex-col h-full m-0 bg-(--color-surface) rounded-3xl p-6 sm:p-7 shadow-[0_2px_0_rgba(59,46,38,0.04)]"
             >
-              <blockquote className="m-0 mb-4 grow">
-                <p className="text-[clamp(14px,1.3vw,16px)] leading-relaxed text-(--color-text) m-0">
-                  “{item.quote}”
+              <span
+                aria-hidden="true"
+                className="font-(family-name:--font-display) italic text-(--color-accent-text) text-[clamp(40px,4.4vw,52px)] leading-none mb-1 select-none"
+              >
+                “
+              </span>
+              <blockquote className="m-0 mb-6 grow">
+                <p className="font-(family-name:--font-display) italic font-medium text-[clamp(17px,1.7vw,21px)] leading-[1.35] text-(--color-text) m-0">
+                  {item.quote}
                 </p>
               </blockquote>
-              <figcaption className="flex flex-col">
+              <figcaption className="flex flex-col pt-4 border-t border-(--color-border)">
                 <span className="font-(family-name:--font-display) font-medium text-[clamp(15px,1.4vw,17px)] leading-tight">
                   {item.name}
                 </span>
