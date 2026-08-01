@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LazyMotion, domAnimation } from "framer-motion";
 import { LOCALES, getDictionary, type Locale } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
@@ -64,7 +63,7 @@ export default async function Home({ params }: PageProps) {
   const t = getDictionary(lang);
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <>
       <ScrollProgress />
       <Header lang={lang} />
       <main>
@@ -72,6 +71,6 @@ export default async function Home({ params }: PageProps) {
         <Services t={t} lang={lang} />
         <Contact t={t} lang={lang} />
       </main>
-    </LazyMotion>
+    </>
   );
 }

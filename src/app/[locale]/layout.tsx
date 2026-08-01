@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Playfair_Display, Nunito_Sans, Inter } from "next/font/google";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { LOCALES, type Locale } from "@/lib/i18n";
 import { siteUrl } from "@/lib/site";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { Preloader } from "@/components/layout/Preloader";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -102,8 +104,11 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SmoothScroll />
-        {children}
+        <LazyMotion features={domAnimation} strict>
+          <Preloader />
+          <SmoothScroll />
+          {children}
+        </LazyMotion>
       </body>
     </html>
   );
