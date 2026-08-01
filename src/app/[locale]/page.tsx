@@ -28,7 +28,7 @@ export async function generateMetadata({
   const path = `/${locale}`;
 
   return {
-    title: t.metaTitle,
+    title: `Eleonora Kupczyk – ${t.metaTitle}`,
     description: t.tagline,
     alternates: {
       canonical: path,

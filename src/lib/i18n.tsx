@@ -68,7 +68,7 @@ export interface Translation {
 
 const dictionaries: Record<Locale, Translation> = {
   ru: {
-    metaTitle: "Eleonora Kupczyk – UGC-съёмка и консультации по блогу, Таллинн",
+    metaTitle: "UGC-съёмка и консультации по блогу, Таллинн",
     tagline:
       "Маркетолог и автор блога о жизни в Таллинне. Создаю контент, обучаю, консультирую и сотрудничаю с брендами — помогаю раскрыть себя и заявить о себе в социальных сетях.",
     heroCta: "Написать в Telegram",
@@ -236,7 +236,7 @@ const dictionaries: Record<Locale, Translation> = {
     },
   },
   en: {
-    metaTitle: "Eleonora Kupczyk – UGC Shoots & Blog Consulting, Tallinn",
+    metaTitle: "UGC Shoots & Blog Consulting, Tallinn",
     tagline:
       "Marketer and blogger based in Tallinn. I create content, teach, consult, and collaborate with brands — helping you find your voice and put yourself out there on social media.",
     heroCta: "Message on Telegram",
