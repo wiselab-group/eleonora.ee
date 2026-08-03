@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import type { Testimonials } from "@/lib/i18n";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { useMarqueeTrack } from "@/lib/useMarquee";
+import { useMarqueePause } from "@/lib/useMarqueePause";
 
 interface TestimonialsSectionProps {
   testimonials: Testimonials;
@@ -21,6 +22,7 @@ export function TestimonialsSection({
     MARQUEE_SECONDS_PER_ITEM,
     CARD_PX,
   );
+  const { trackRef, interactionHandlers } = useMarqueePause();
 
   return (
     <div className="mt-16 pt-10 border-t border-(--color-border)">
@@ -34,11 +36,13 @@ export function TestimonialsSection({
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="overflow-hidden"
+        className="overflow-x-auto overflow-y-hidden overscroll-x-contain scrollbar-none"
       >
         <div
+          ref={trackRef}
           className="marquee-track flex w-max gap-4 pb-1"
           style={{ "--marquee-duration": duration } as React.CSSProperties}
+          {...interactionHandlers}
         >
           {[base, base].map((group, groupIndex) => (
             <div

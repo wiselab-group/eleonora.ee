@@ -5,6 +5,7 @@ import type { WorkGallery } from "@/lib/i18n";
 import type { WorkItem } from "@/lib/tiles";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { useMarqueeTrack } from "@/lib/useMarquee";
+import { useMarqueePause } from "@/lib/useMarqueePause";
 import { WorkTile } from "./WorkTile";
 
 interface WorkGallerySectionProps {
@@ -25,6 +26,7 @@ export function WorkGallerySection({
     MARQUEE_SECONDS_PER_ITEM,
     MAX_TILE_PX,
   );
+  const { trackRef, interactionHandlers } = useMarqueePause();
 
   return (
     <div className="mt-16 pt-10 border-t border-(--color-border)">
@@ -38,11 +40,13 @@ export function WorkGallerySection({
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="overflow-hidden"
+        className="overflow-x-auto overflow-y-hidden overscroll-x-contain scrollbar-none"
       >
         <div
+          ref={trackRef}
           className="marquee-track flex w-max gap-3 pb-1"
           style={{ "--marquee-duration": duration } as React.CSSProperties}
+          {...interactionHandlers}
         >
           {[base, base].map((group, groupIndex) => (
             <div

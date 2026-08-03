@@ -140,6 +140,7 @@ body {
 
 .marquee-track {
   animation: marquee-scroll var(--marquee-duration, 36s) linear infinite;
+  touch-action: pan-y;
 }
 
 .marquee-track:hover,
