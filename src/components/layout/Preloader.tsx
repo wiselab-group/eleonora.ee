@@ -21,8 +21,7 @@ export function Preloader() {
   }, []);
 
   useEffect(() => {
-    const staticPreloader = document.getElementById("static-preloader");
-    staticPreloader?.remove();
+    document.body.setAttribute("data-preloader-hydrated", "");
   }, []);
 
   return (

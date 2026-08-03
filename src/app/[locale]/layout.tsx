@@ -108,6 +108,7 @@ export default async function RootLayout({
 #static-preloader path{stroke:#c98e84;stroke-dasharray:0.33 0.67;animation:static-preloader-spin 1.6s linear infinite}
 @keyframes static-preloader-spin{to{stroke-dashoffset:-1}}
 @media (prefers-reduced-motion: reduce){#static-preloader path{animation:none;stroke-dashoffset:-0.23}}
+body[data-preloader-hydrated] #static-preloader{display:none}
 `,
           }}
         />
