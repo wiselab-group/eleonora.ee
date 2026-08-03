@@ -1,9 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence, m } from "framer-motion";
-import { SpiralLoader } from "@/components/ui/SpiralLoader";
 import { usePrefersReducedMotion } from "@/lib/useMediaQuery";
+
+const SpiralLoader = dynamic(
+  () => import("@/components/ui/SpiralLoader").then((mod) => mod.SpiralLoader),
+  { ssr: false },
+);
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
