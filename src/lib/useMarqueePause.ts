@@ -28,6 +28,7 @@ export function useMarqueePause() {
     trackRef,
     interactionHandlers: {
       onPointerDown: pause,
+      onTouchStart: pause,
       onTouchMove: pause,
     },
   };
