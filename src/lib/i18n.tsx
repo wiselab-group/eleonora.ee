@@ -184,8 +184,8 @@ const dictionaries: Record<Locale, Translation> = {
     serviceAlt: [
       "Ноутбук на кровати с отснятыми чёрно-белыми кадрами на экране",
       "Портрет эксперта в живой, непостановочной обстановке",
-      "Раскладка ленты из живых фотографий для бизнеса",
-      "Съёмка UGC-видео с продуктом в кадре",
+      "Съёмка в кровати отеля с ноутбуком и кружкой кофе для бизнес-контента",
+      "Продукт крупным планом в руке рядом со свечой и косметичкой — UGC-съёмка",
       "Раскадровка нескольких UGC-сценариев одного продукта",
     ],
     consultServiceAlt: [
@@ -351,8 +351,8 @@ const dictionaries: Record<Locale, Translation> = {
     serviceAlt: [
       "A laptop on a bed showing a contact sheet of finished black-and-white shots",
       "A portrait of an expert in a natural, unstaged setting",
-      "A finished feed layout of natural photos for a business",
-      "Filming a UGC video with a product in frame",
+      "Shooting business content in a hotel bed with a laptop and a raised coffee mug",
+      "A product held close in hand beside a candle and a cosmetic bag — a UGC shoot",
       "A storyboard of several UGC scripts for one product",
     ],
     consultServiceAlt: [

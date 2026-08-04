@@ -17,6 +17,8 @@ import serviceExpertPhotoshoot from "../../public/images/services/service-expert
 import serviceBlogReview from "../../public/images/services/service-blog-review.webp";
 import serviceAccountReview from "../../public/images/services/service-account-review.webp";
 import serviceMentorship from "../../public/images/services/service-mentorship.webp";
+import serviceBusinessContent from "../../public/images/services/service-business-content.webp";
+import serviceUgcVideo from "../../public/images/services/service-ugc-video.webp";
 
 export const tiles = {
   t0_0,
@@ -37,8 +39,8 @@ export const tiles = {
 export const serviceImages = [
   serviceExpressShoot,
   serviceExpertPhotoshoot,
-  tiles.t0_4,
-  tiles.t0_1,
+  serviceBusinessContent,
+  serviceUgcVideo,
   tiles.t1_0,
   tiles.t0_5,
 ];
