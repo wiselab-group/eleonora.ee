@@ -186,7 +186,7 @@ const dictionaries: Record<Locale, Translation> = {
       "Портрет эксперта в живой, непостановочной обстановке",
       "Съёмка в кровати отеля с ноутбуком и кружкой кофе для бизнес-контента",
       "Продукт крупным планом в руке рядом со свечой и косметичкой — UGC-съёмка",
-      "Раскадровка нескольких UGC-сценариев одного продукта",
+      "Портативная колонка с подсветкой на деревянном столе — продуктовая съёмка для UGC-пакета",
     ],
     consultServiceAlt: [
       "Чёрно-белый портрет крупным планом на фоне улицы Таллинна",
@@ -353,7 +353,7 @@ const dictionaries: Record<Locale, Translation> = {
       "A portrait of an expert in a natural, unstaged setting",
       "Shooting business content in a hotel bed with a laptop and a raised coffee mug",
       "A product held close in hand beside a candle and a cosmetic bag — a UGC shoot",
-      "A storyboard of several UGC scripts for one product",
+      "A portable speaker with a glowing ring on a wooden table — a product shoot for a UGC bundle",
     ],
     consultServiceAlt: [
       "A close black-and-white portrait against a Tallinn street",
