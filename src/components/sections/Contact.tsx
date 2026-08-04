@@ -1,10 +1,13 @@
 "use client";
 
+import { Mail, Phone } from "lucide-react";
 import { m } from "framer-motion";
 import type { Locale, Translation } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { SectionKicker } from "@/components/ui/SectionKicker";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
+import { InstagramIcon } from "@/components/ui/InstagramIcon";
+import { TikTokIcon } from "@/components/ui/TikTokIcon";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 
@@ -14,30 +17,35 @@ const links = [
     href: "https://t.me/eleonora_kupczyk",
     value: "@eleonora_kupczyk",
     external: true,
+    icon: TelegramIcon,
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/eleonora.kupczyk/",
     value: "@eleonora.kupczyk",
     external: true,
+    icon: InstagramIcon,
   },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@eleonora.kupczyk",
     value: "@eleonora.kupczyk",
     external: true,
+    icon: TikTokIcon,
   },
   {
     label: "tel",
     href: "tel:+37256950304",
     value: "+372 569 50 304",
     external: false,
+    icon: Phone,
   },
   {
     label: "E-mail",
     href: "mailto:eleonora.kupczyk@gmail.com",
     value: "eleonora.kupczyk@gmail.com",
     external: false,
+    icon: Mail,
   },
 ];
 
@@ -79,20 +87,34 @@ export function Contact({ t, lang }: ContactProps) {
             </Button>
           </div>
           <div className="flex flex-col gap-3.5 text-sm">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="flex justify-between gap-3 no-underline text-(--color-on-dark) border-t border-(--color-on-dark)/20 pt-3.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
-              >
-                <span className="text-(--color-on-dark)/55">
-                  {link.label === "tel" ? t.phone : link.label}
-                </span>
-                {link.value}
-              </a>
-            ))}
+            {links.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="group flex justify-between gap-3 no-underline text-(--color-on-dark) border-t border-(--color-on-dark)/20 pt-3.5 transition-opacity duration-250 ease-(--ease-transition) hover:opacity-70 active:opacity-55"
+                >
+                  <span className="flex items-center text-(--color-on-dark)/55">
+                    <span className="flex w-0 items-center overflow-hidden transition-[width] duration-250 ease-(--ease-transition) motion-reduce:transition-none group-hover:w-6.5">
+                      <Icon
+                        aria-hidden="true"
+                        width={18}
+                        height={18}
+                        strokeWidth={1.8}
+                        className="shrink-0 -translate-x-full opacity-0 transition-[transform,opacity] duration-250 ease-(--ease-transition) motion-reduce:transition-none group-hover:translate-x-0 group-hover:opacity-100"
+                      />
+                    </span>
+                    <span className="transition-transform duration-250 ease-(--ease-transition) motion-reduce:transition-none group-hover:translate-x-1">
+                      {link.label === "tel" ? t.phone : link.label}
+                    </span>
+                  </span>
+                  {link.value}
+                </a>
+              );
+            })}
           </div>
         </div>
       </m.div>
