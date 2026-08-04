@@ -12,6 +12,11 @@ import t2 from "../../public/images/tiles/t2.jpg";
 import t3 from "../../public/images/tiles/t3.jpg";
 import t4 from "../../public/images/tiles/t4.jpg";
 import t5 from "../../public/images/tiles/t5.jpg";
+import serviceExpressShoot from "../../public/images/services/service-express-shoot.webp";
+import serviceExpertPhotoshoot from "../../public/images/services/service-expert-photoshoot.webp";
+import serviceBlogReview from "../../public/images/services/service-blog-review.webp";
+import serviceAccountReview from "../../public/images/services/service-account-review.webp";
+import serviceMentorship from "../../public/images/services/service-mentorship.webp";
 
 export const tiles = {
   t0_0,
@@ -30,12 +35,18 @@ export const tiles = {
 };
 
 export const serviceImages = [
-  tiles.t0_2,
-  tiles.t1_2,
+  serviceExpressShoot,
+  serviceExpertPhotoshoot,
   tiles.t0_4,
   tiles.t0_1,
   tiles.t1_0,
   tiles.t0_5,
+];
+
+export const consultServiceImages = [
+  serviceBlogReview,
+  serviceAccountReview,
+  serviceMentorship,
 ];
 
 export interface WorkItem {

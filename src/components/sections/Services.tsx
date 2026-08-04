@@ -8,7 +8,7 @@ import { CollabPanel } from "./CollabPanel";
 import { WorkGallerySection } from "./WorkGallerySection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { ServicesTabList } from "./ServicesTabList";
-import { serviceImages, workGallery } from "@/lib/tiles";
+import { serviceImages, consultServiceImages, workGallery } from "@/lib/tiles";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 interface ServicesProps {
@@ -69,12 +69,12 @@ export function Services({ t, lang }: ServicesProps) {
                             image={
                               group.id === "shoot"
                                 ? serviceImages[index]
-                                : undefined
+                                : consultServiceImages[index]
                             }
                             imageAlt={
                               group.id === "shoot"
                                 ? t.serviceAlt[index]
-                                : undefined
+                                : t.consultServiceAlt[index]
                             }
                             duration={t.duration}
                             choose={t.choose}

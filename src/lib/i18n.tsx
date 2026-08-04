@@ -62,6 +62,7 @@ export interface Translation {
   collabBarter: string;
   collabCta: string;
   serviceAlt: string[];
+  consultServiceAlt: string[];
   workGalleries: Record<"shoot" | "collab", WorkGallery>;
   testimonials: Testimonials;
 }
@@ -181,14 +182,16 @@ const dictionaries: Record<Locale, Translation> = {
       "Для небольших локальных брендов возможен формат бартера — продукт в обмен на публикацию.",
     collabCta: "Написать о сотрудничестве",
     serviceAlt: [
-      "Съёмка в городе с телефоном в руках на фоне улицы Таллинна",
+      "Ноутбук на кровати с отснятыми чёрно-белыми кадрами на экране",
       "Портрет эксперта в живой, непостановочной обстановке",
       "Раскладка ленты из живых фотографий для бизнеса",
       "Съёмка UGC-видео с продуктом в кадре",
       "Раскадровка нескольких UGC-сценариев одного продукта",
-      "Созвон с ноутбуком: разбор блога",
-      "Телефон с открытым профилем Instagram на столе",
-      "Обсуждение стратегии за столом с ноутбуком",
+    ],
+    consultServiceAlt: [
+      "Чёрно-белый портрет крупным планом на фоне улицы Таллинна",
+      "Портрет в профиль у пешеходного перехода на фоне города",
+      "Портрет с раскинутыми руками спиной к камере на городской улице",
     ],
     workGalleries: {
       shoot: {
@@ -346,14 +349,16 @@ const dictionaries: Record<Locale, Translation> = {
       "For small local brands, a barter format is possible — product in exchange for a post.",
     collabCta: "Message about a collaboration",
     serviceAlt: [
-      "Shooting around town with a phone against a Tallinn street",
+      "A laptop on a bed showing a contact sheet of finished black-and-white shots",
       "A portrait of an expert in a natural, unstaged setting",
       "A finished feed layout of natural photos for a business",
       "Filming a UGC video with a product in frame",
       "A storyboard of several UGC scripts for one product",
-      "A call with a laptop: reviewing a blog",
-      "A phone with an Instagram profile open on a table",
-      "Discussing strategy across a table with a laptop",
+    ],
+    consultServiceAlt: [
+      "A close black-and-white portrait against a Tallinn street",
+      "A profile portrait at a pedestrian crossing against the city skyline",
+      "A portrait with arms outstretched, back to camera, on a city street",
     ],
     workGalleries: {
       shoot: {

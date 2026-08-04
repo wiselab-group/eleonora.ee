@@ -78,7 +78,7 @@ export function ServiceCard({
           {service.tag}
         </span>
       </div>
-      <p className="text-[13px] leading-relaxed text-(--color-text-faint) mb-3 shrink-0 grow line-clamp-2">
+      <p className="text-[13px] leading-relaxed text-(--color-text-faint) mb-3 shrink-0 grow">
         {service.desc}
       </p>
       <span className="text-[11px] font-bold tracking-[0.08em] uppercase text-(--color-text-faint) shrink-0">
