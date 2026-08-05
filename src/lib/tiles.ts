@@ -18,7 +18,7 @@ import serviceBlogReview from "../../public/images/services/service-blog-review.
 import serviceAccountReview from "../../public/images/services/service-account-review.webp";
 import serviceMentorship from "../../public/images/services/service-mentorship.webp";
 import serviceBusinessContent from "../../public/images/services/service-business-content.webp";
-import serviceUgcVideo from "../../public/images/services/service-ugc-video.webp";
+import serviceUgcVideo from "../../public/images/services/service-ugc-video-poster.webp";
 import serviceUgcBundle from "../../public/images/services/service-ugc-bundle.webp";
 
 export const tiles = {

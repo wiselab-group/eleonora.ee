@@ -6,12 +6,14 @@ import { Play } from "lucide-react";
 import type { Locale, Service } from "@/lib/i18n";
 import { fadeUp } from "@/lib/motion";
 import { serviceTelegramLink } from "@/lib/telegram";
+import { ServiceVideoPreview } from "./ServiceVideoPreview";
 
 interface ServiceCardProps {
   service: Service;
   lang: Locale;
   image?: StaticImageData;
   imageAlt?: string;
+  videoPreviewSrc?: string;
   duration: string;
   choose: string;
 }
@@ -21,6 +23,7 @@ export function ServiceCard({
   lang,
   image,
   imageAlt,
+  videoPreviewSrc,
   duration,
   choose,
 }: ServiceCardProps) {
@@ -33,7 +36,13 @@ export function ServiceCard({
       className="group flex flex-col h-full w-[min(78vw,272px)] shrink-0 bg-(--color-surface) rounded-3xl p-1 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) [@media(hover:hover)]:hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
     >
       <div className="aspect-[4/3] overflow-hidden rounded-t-[20px] bg-(--color-tag-bg) relative shrink-0">
-        {image ? (
+        {videoPreviewSrc && image ? (
+          <ServiceVideoPreview
+            src={videoPreviewSrc}
+            poster={image}
+            posterAlt={imageAlt ?? ""}
+          />
+        ) : image ? (
           <Image
             src={image}
             alt={imageAlt ?? ""}
@@ -49,7 +58,7 @@ export function ServiceCard({
             </span>
           </div>
         )}
-        {service.mediaKind === "video" && (
+        {service.mediaKind === "video" && !videoPreviewSrc && (
           <span
             aria-hidden="true"
             className="absolute inset-0 flex items-center justify-center"
