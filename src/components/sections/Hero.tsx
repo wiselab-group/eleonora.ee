@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import { m } from "framer-motion";
 import type { Locale, Translation } from "@/lib/i18n";
@@ -10,6 +11,30 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 import { GradientText } from "@/components/ui/GradientText";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
+
+// iOS home-screen web apps don't reliably match `display-mode: standalone`
+// in a CSS media query — `navigator.standalone` is the dedicated Safari
+// API for it. Only there does `svh` leave a gap above the home indicator
+// that the app's own background peeks through, so this detection is scoped
+// to that one case rather than applied as a general safe-area fallback.
+// `navigator.standalone` can't change after load, so the subscribe callback
+// is a no-op — this just reads the external value without a render-time effect.
+function subscribeNever() {
+  return () => {};
+}
+
+function getIsIOSStandaloneSnapshot() {
+  const nav = window.navigator as Navigator & { standalone?: boolean };
+  return nav.standalone === true;
+}
+
+function useIsIOSStandalone() {
+  return useSyncExternalStore(
+    subscribeNever,
+    getIsIOSStandaloneSnapshot,
+    () => false,
+  );
+}
 
 const imageReveal = {
   hidden: { opacity: 0, scale: 1.06 },
@@ -29,12 +54,18 @@ interface HeroProps {
 }
 
 export function Hero({ t, lang }: HeroProps) {
+  const isIOSStandalone = useIsIOSStandalone();
+
   return (
     <m.section
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      className="relative h-svh min-h-140 [@media(display-mode:standalone)]:h-[calc(100svh+env(safe-area-inset-bottom))] overflow-hidden"
+      className={`relative min-h-140 overflow-hidden ${
+        isIOSStandalone
+          ? "h-[calc(100svh+env(safe-area-inset-bottom))]"
+          : "h-svh"
+      }`}
     >
       <div className="absolute inset-0">
         <m.div
