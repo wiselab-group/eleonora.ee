@@ -12,6 +12,10 @@ import t2 from "../../public/images/tiles/t2.jpg";
 import t3 from "../../public/images/tiles/t3.jpg";
 import t4 from "../../public/images/tiles/t4.jpg";
 import t5 from "../../public/images/tiles/t5.jpg";
+import collab1 from "../../public/images/tiles/collab-1.jpg";
+import collab2 from "../../public/images/tiles/collab-2.jpg";
+import collab3 from "../../public/images/tiles/collab-3.jpg";
+import collab4 from "../../public/images/tiles/collab-4.jpg";
 import serviceExpressShoot from "../../public/images/services/service-express-shoot.webp";
 import serviceExpertPhotoshoot from "../../public/images/services/service-expert-photoshoot.webp";
 import serviceBlogReview from "../../public/images/services/service-blog-review.webp";
@@ -63,8 +67,12 @@ const youtubeShort = (id: string): WorkItem => ({
   href: `https://youtube.com/shorts/${id}`,
 });
 
-const instagramPost = (image: StaticImageData, path: string): WorkItem => ({
-  kind: "photo",
+const instagramPost = (
+  image: StaticImageData,
+  path: string,
+  kind: WorkItem["kind"] = "photo",
+): WorkItem => ({
+  kind,
   image,
   href: `https://www.instagram.com/p/${path}/`,
 });
@@ -77,8 +85,9 @@ export const workGallery: Record<"shoot" | "collab", WorkItem[]> = {
     youtubeShort("RD6y9a7GZTk"),
   ],
   collab: [
-    instagramPost(tiles.t3, "C8T7E5KNQJW"),
-    instagramPost(tiles.t4, "C-IXsJYNQnk"),
-    instagramPost(tiles.t5, "DFAUU7Yt17o"),
+    instagramPost(collab1, "DZ_1AGIsLTl"),
+    instagramPost(collab2, "DYNOTzVszVm"),
+    instagramPost(collab3, "DVQ6chpjPbu"),
+    instagramPost(collab4, "DSiaA_jjACV"),
   ],
 };
