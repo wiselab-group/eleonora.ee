@@ -1,6 +1,5 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import { m } from "framer-motion";
 import type { Locale, Translation } from "@/lib/i18n";
@@ -11,55 +10,6 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 import { generalTelegramLink } from "@/lib/telegram";
 import { GradientText } from "@/components/ui/GradientText";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
-
-// `svh`/`dvh` + `env(safe-area-inset-bottom)` don't reliably add up to the
-// real screen height in iOS home-screen PWAs — the exact shortfall varies
-// by device/WebKit build, so a fixed calc() under- or over-shoots. Reading
-// `window.innerHeight` directly is the only value that always matches what's
-// actually visible, so the hero is sized from that instead of a CSS unit.
-//
-// `innerHeight` itself changes continuously on mobile as the browser chrome
-// (address bar, pull-to-refresh) shows/hides during ordinary scrolling —
-// following it live would reflow the hero, and the photo inside it, on every
-// one of those frames. The hero only needs to match the real device height
-// once; it's re-measured on `orientationchange` and on `resize` gaps wide
-// enough to be an actual window resize rather than chrome-driven wobble.
-const CHROME_WOBBLE_THRESHOLD_PX = 80;
-
-let reportedHeight = typeof window === "undefined" ? 0 : window.innerHeight;
-
-function subscribeToViewportResize(onChange: () => void) {
-  const handleResize = () => {
-    const height = window.innerHeight;
-    if (Math.abs(height - reportedHeight) < CHROME_WOBBLE_THRESHOLD_PX) return;
-    reportedHeight = height;
-    onChange();
-  };
-
-  const handleOrientationChange = () => {
-    reportedHeight = window.innerHeight;
-    onChange();
-  };
-
-  window.addEventListener("resize", handleResize);
-  window.addEventListener("orientationchange", handleOrientationChange);
-  return () => {
-    window.removeEventListener("resize", handleResize);
-    window.removeEventListener("orientationchange", handleOrientationChange);
-  };
-}
-
-function getViewportHeightSnapshot() {
-  return reportedHeight;
-}
-
-function useViewportHeight() {
-  return useSyncExternalStore(
-    subscribeToViewportResize,
-    getViewportHeightSnapshot,
-    () => 0,
-  );
-}
 
 const imageReveal = {
   hidden: { opacity: 0, scale: 1.06 },
@@ -79,15 +29,12 @@ interface HeroProps {
 }
 
 export function Hero({ t, lang }: HeroProps) {
-  const viewportHeight = useViewportHeight();
-
   return (
     <m.section
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      style={viewportHeight ? { height: viewportHeight } : undefined}
-      className="relative h-svh min-h-140 overflow-hidden"
+      className="relative h-dvh min-h-140 overflow-hidden"
     >
       <div className="absolute inset-0">
         <m.div
