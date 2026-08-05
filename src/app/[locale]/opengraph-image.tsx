@@ -78,47 +78,16 @@ export default async function Image({ params }: ImageProps) {
           width: "100%",
           height: "100%",
           padding: "72px 88px",
-          gap: "26px",
+          gap: "48px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "14px",
-          }}
-        >
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "999px",
-              backgroundColor: "#c98e84",
-              display: "flex",
-            }}
-          />
-          <div
-            style={{
-              fontSize: "20px",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#ede3d5",
-              opacity: 0.85,
-              fontFamily: "Nunito Sans",
-              fontWeight: 600,
-            }}
-          >
-            {t.heroBadge}
-          </div>
-        </div>
-
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             fontFamily: "Playfair Display",
             fontWeight: 600,
-            fontSize: "108px",
+            fontSize: "132px",
             lineHeight: 0.94,
             letterSpacing: "-0.02em",
             color: "#ede3d5",
@@ -135,16 +104,16 @@ export default async function Image({ params }: ImageProps) {
         <div
           style={{
             display: "flex",
-            fontSize: "22px",
-            lineHeight: 1.5,
+            fontSize: "20px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
             color: "#ede3d5",
             opacity: 0.85,
-            maxWidth: "500px",
             fontFamily: "Nunito Sans",
-            fontWeight: 400,
+            fontWeight: 600,
           }}
         >
-          {t.tagline}
+          {t.heroBadge}
         </div>
       </div>
     </div>,

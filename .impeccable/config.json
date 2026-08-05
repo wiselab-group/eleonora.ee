@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "132px",
+        "createdAt": "2026-08-05T11:23:58.175Z",
+        "reason": "User confirmed 132px is intentional (OG preview title size increase)"
+      }
+    ]
+  }
+}
