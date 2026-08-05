@@ -95,7 +95,9 @@ export function Services({ t, lang }: ServicesProps) {
                             videoPreviewSrc={
                               group.id === "shoot" && service.num === "04"
                                 ? "/videos/services/service-ugc-video.mp4"
-                                : undefined
+                                : group.id === "shoot" && service.num === "05"
+                                  ? "/videos/services/service-ugc-bundle.mp4"
+                                  : undefined
                             }
                             duration={t.duration}
                             choose={t.choose}

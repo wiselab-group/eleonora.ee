@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import { m } from "framer-motion";
 import { Play } from "lucide-react";
@@ -27,12 +28,16 @@ export function ServiceCard({
   duration,
   choose,
 }: ServiceCardProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <m.a
       variants={fadeUp}
       href={serviceTelegramLink(service, lang)}
       target="_blank"
       rel="noopener noreferrer"
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
       className="group flex flex-col h-full w-[min(78vw,272px)] shrink-0 bg-(--color-surface) rounded-3xl p-1 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) [@media(hover:hover)]:hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
     >
       <div className="aspect-[4/3] overflow-hidden rounded-t-[20px] bg-(--color-tag-bg) relative shrink-0">
@@ -41,6 +46,7 @@ export function ServiceCard({
             src={videoPreviewSrc}
             poster={image}
             posterAlt={imageAlt ?? ""}
+            hovered={hovered}
           />
         ) : image ? (
           <Image
@@ -58,19 +64,17 @@ export function ServiceCard({
             </span>
           </div>
         )}
-        {service.mediaKind === "video" && !videoPreviewSrc && (
+        {service.mediaKind === "video" && (
           <span
             aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-center"
+            className={`absolute inset-0 flex items-center justify-center pointer-events-none ${videoPreviewSrc ? "transition-opacity duration-250 ease-(--ease-transition) [@media(hover:hover)]:group-hover:opacity-0" : ""}`}
           >
-            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-(--color-surface-alt)/90">
-              <Play
-                width={13}
-                height={13}
-                strokeWidth={0}
-                className="ml-0.5 fill-(--color-primary)"
-              />
-            </span>
+            <Play
+              width={56}
+              height={56}
+              strokeWidth={2}
+              className="stroke-(--color-surface-alt) drop-shadow-[0_2px_6px_rgba(59,46,38,0.45)]"
+            />
           </span>
         )}
       </div>

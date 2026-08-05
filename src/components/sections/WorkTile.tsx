@@ -62,14 +62,12 @@ export function WorkTile({
             aria-hidden="true"
             className="absolute inset-0 flex items-center justify-center opacity-90 transition-[opacity,transform] duration-250 ease-(--ease-transition) group-hover:opacity-100"
           >
-            <span className="flex items-center justify-center w-10 h-10 rounded-full bg-(--color-surface-alt)/90">
-              <Play
-                width={14}
-                height={14}
-                strokeWidth={0}
-                className="ml-0.5 fill-(--color-primary)"
-              />
-            </span>
+            <Play
+              width={40}
+              height={40}
+              strokeWidth={2}
+              className="stroke-(--color-surface-alt) drop-shadow-[0_2px_6px_rgba(59,46,38,0.45)]"
+            />
           </span>
         </>
       ) : (
