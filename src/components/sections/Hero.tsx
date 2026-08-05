@@ -17,17 +17,56 @@ import eleonoraPhoto from "../../../public/images/eleonora.webp";
 // by device/WebKit build, so a fixed calc() under- or over-shoots. Reading
 // `window.innerHeight` directly is the only value that always matches what's
 // actually visible, so the hero is sized from that instead of a CSS unit.
+//
+// While a finger is on the screen, mobile browsers can momentarily report a
+// shorter `innerHeight` mid pull-to-refresh gesture (rubber-band overscroll)
+// before snapping back — applying that transient value shrinks the hero
+// photo for a frame. Shrinks are held back until the touch ends; growth
+// (address bar collapsing, real resize/orientation change) still applies
+// immediately so the PWA sizing this exists for keeps working.
+let lastReportedHeight = typeof window === "undefined" ? 0 : window.innerHeight;
+
 function subscribeToViewportResize(onChange: () => void) {
-  window.addEventListener("resize", onChange);
+  let touchActive = false;
+  let pendingChange = false;
+
+  const handleTouchStart = () => {
+    touchActive = true;
+  };
+
+  const handleTouchEnd = () => {
+    touchActive = false;
+    if (pendingChange) {
+      pendingChange = false;
+      onChange();
+    }
+  };
+
+  const handleResize = () => {
+    if (touchActive && window.innerHeight < lastReportedHeight) {
+      pendingChange = true;
+      return;
+    }
+    onChange();
+  };
+
+  window.addEventListener("resize", handleResize);
   window.addEventListener("orientationchange", onChange);
+  window.addEventListener("touchstart", handleTouchStart, { passive: true });
+  window.addEventListener("touchend", handleTouchEnd, { passive: true });
+  window.addEventListener("touchcancel", handleTouchEnd, { passive: true });
   return () => {
-    window.removeEventListener("resize", onChange);
+    window.removeEventListener("resize", handleResize);
     window.removeEventListener("orientationchange", onChange);
+    window.removeEventListener("touchstart", handleTouchStart);
+    window.removeEventListener("touchend", handleTouchEnd);
+    window.removeEventListener("touchcancel", handleTouchEnd);
   };
 }
 
 function getViewportHeightSnapshot() {
-  return window.innerHeight;
+  lastReportedHeight = window.innerHeight;
+  return lastReportedHeight;
 }
 
 function useViewportHeight() {
