@@ -18,55 +18,39 @@ import eleonoraPhoto from "../../../public/images/eleonora.webp";
 // `window.innerHeight` directly is the only value that always matches what's
 // actually visible, so the hero is sized from that instead of a CSS unit.
 //
-// While a finger is on the screen, mobile browsers can momentarily report a
-// shorter `innerHeight` mid pull-to-refresh gesture (rubber-band overscroll)
-// before snapping back — applying that transient value shrinks the hero
-// photo for a frame. Shrinks are held back until the touch ends; growth
-// (address bar collapsing, real resize/orientation change) still applies
-// immediately so the PWA sizing this exists for keeps working.
-let lastReportedHeight = typeof window === "undefined" ? 0 : window.innerHeight;
+// `innerHeight` itself changes continuously on mobile as the browser chrome
+// (address bar, pull-to-refresh) shows/hides during ordinary scrolling —
+// following it live would reflow the hero, and the photo inside it, on every
+// one of those frames. The hero only needs to match the real device height
+// once; it's re-measured on `orientationchange` and on `resize` gaps wide
+// enough to be an actual window resize rather than chrome-driven wobble.
+const CHROME_WOBBLE_THRESHOLD_PX = 80;
+
+let reportedHeight = typeof window === "undefined" ? 0 : window.innerHeight;
 
 function subscribeToViewportResize(onChange: () => void) {
-  let touchActive = false;
-  let pendingChange = false;
-
-  const handleTouchStart = () => {
-    touchActive = true;
-  };
-
-  const handleTouchEnd = () => {
-    touchActive = false;
-    if (pendingChange) {
-      pendingChange = false;
-      onChange();
-    }
-  };
-
   const handleResize = () => {
-    if (touchActive && window.innerHeight < lastReportedHeight) {
-      pendingChange = true;
-      return;
-    }
+    const height = window.innerHeight;
+    if (Math.abs(height - reportedHeight) < CHROME_WOBBLE_THRESHOLD_PX) return;
+    reportedHeight = height;
+    onChange();
+  };
+
+  const handleOrientationChange = () => {
+    reportedHeight = window.innerHeight;
     onChange();
   };
 
   window.addEventListener("resize", handleResize);
-  window.addEventListener("orientationchange", onChange);
-  window.addEventListener("touchstart", handleTouchStart, { passive: true });
-  window.addEventListener("touchend", handleTouchEnd, { passive: true });
-  window.addEventListener("touchcancel", handleTouchEnd, { passive: true });
+  window.addEventListener("orientationchange", handleOrientationChange);
   return () => {
     window.removeEventListener("resize", handleResize);
-    window.removeEventListener("orientationchange", onChange);
-    window.removeEventListener("touchstart", handleTouchStart);
-    window.removeEventListener("touchend", handleTouchEnd);
-    window.removeEventListener("touchcancel", handleTouchEnd);
+    window.removeEventListener("orientationchange", handleOrientationChange);
   };
 }
 
 function getViewportHeightSnapshot() {
-  lastReportedHeight = window.innerHeight;
-  return lastReportedHeight;
+  return reportedHeight;
 }
 
 function useViewportHeight() {
