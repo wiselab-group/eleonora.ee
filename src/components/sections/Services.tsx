@@ -76,7 +76,7 @@ export function Services({ t, lang }: ServicesProps) {
                     variants={staggerContainer}
                     role="tabpanel"
                   >
-                    <div className="flex gap-4 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-pl-(--gutter-x) scroll-pr-(--gutter-x-right) sm:scroll-px-[calc(max(0px,(100vw-1320px)/2)+clamp(20px,5vw,60px))] pl-(--gutter-x) pr-(--gutter-x-right) sm:pr-0 sm:pl-[calc(max(0px,(100vw-1320px)/2)+clamp(20px,5vw,60px))] py-17.5 -my-17.5 scrollbar-none">
+                    <div className="flex gap-4 overflow-x-auto overscroll-x-contain snap-x snap-mandatory scroll-pl-(--gutter-x) scroll-pr-(--gutter-x-right) sm:scroll-pl-[calc(max(0px,(100vw-1320px)/2)+var(--gutter-x))] sm:scroll-pr-[calc(max(0px,(100vw-1320px)/2)+var(--gutter-x-right))] pl-(--gutter-x) pr-(--gutter-x-right) sm:pl-[calc(max(0px,(100vw-1320px)/2)+var(--gutter-x))] sm:pr-[calc(max(0px,(100vw-1320px)/2)+var(--gutter-x-right))] py-17.5 -my-17.5 scrollbar-none">
                       {group.services.map((service, index) => (
                         <div key={service.num} className="snap-start">
                           <ServiceCard
