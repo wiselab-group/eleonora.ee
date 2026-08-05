@@ -30,16 +30,16 @@ export function ServiceCard({
       href={serviceTelegramLink(service, lang)}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col h-full w-[min(78vw,272px)] shrink-0 bg-(--color-surface) rounded-3xl p-1 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
+      className="group flex flex-col h-full w-[min(78vw,272px)] shrink-0 bg-(--color-surface) rounded-3xl p-1 no-underline text-inherit shadow-[0_2px_0_rgba(59,46,38,0.04)] transition-shadow duration-250 ease-(--ease-transition) [@media(hover:hover)]:hover:shadow-[0_22px_44px_rgba(59,46,38,0.12)]"
     >
-      <div className="aspect-[4/3] overflow-hidden rounded-[20px] bg-(--color-tag-bg) relative shrink-0">
+      <div className="aspect-[4/3] overflow-hidden rounded-t-[20px] bg-(--color-tag-bg) relative shrink-0">
         {image ? (
           <Image
             src={image}
             alt={imageAlt ?? ""}
             fill
             sizes="272px"
-            className="object-cover"
+            className="object-cover will-change-transform transition-transform duration-[900ms] ease-(--ease-transition) motion-safe:[@media(hover:hover)]:group-hover:scale-[1.08] motion-reduce:transition-none"
             placeholder="blur"
           />
         ) : (
