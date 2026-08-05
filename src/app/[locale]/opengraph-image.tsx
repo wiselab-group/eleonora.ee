@@ -65,7 +65,7 @@ export default async function Image({ params }: ImageProps) {
           height: "630px",
           display: "flex",
           backgroundImage:
-            "linear-gradient(0deg, rgba(59,46,38,0.9) 0%, rgba(59,46,38,0.72) 32%, rgba(59,46,38,0.55) 50%, rgba(59,46,38,0.3) 68%, rgba(59,46,38,0.08) 100%)",
+            "linear-gradient(0deg, rgba(59,46,38,0.88) 0%, rgba(59,46,38,0.6) 22%, rgba(59,46,38,0.22) 42%, rgba(59,46,38,0) 58%)",
         }}
       />
 
