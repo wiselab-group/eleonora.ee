@@ -54,7 +54,7 @@ export function Hero({ t, lang }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/92 via-(--color-primary)/25 to-(--color-primary)/10" />
       </div>
 
-      <div className="relative h-full flex flex-col justify-end gap-6 sm:gap-[clamp(24px,3.2vw,40px)] pl-[max(20px,env(safe-area-inset-left))] pr-[max(20px,env(safe-area-inset-right))] sm:pl-[max(clamp(20px,5vw,60px),env(safe-area-inset-left))] sm:pr-[max(clamp(20px,5vw,60px),env(safe-area-inset-right))] pb-10 sm:pb-[clamp(96px,14vh,140px)] max-w-330 mx-auto">
+      <div className="relative h-full flex flex-col justify-end gap-6 sm:gap-[clamp(24px,3.2vw,40px)] pl-(--gutter-x) pr-(--gutter-x-right) pb-10 sm:pb-[clamp(96px,14vh,140px)] max-w-330 mx-auto">
         <m.h1
           variants={fadeUp}
           className="font-(family-name:--font-display) font-medium text-(--color-bg) text-[clamp(72px,13vw,208px)] leading-[0.84] tracking-[-0.02em] m-0"

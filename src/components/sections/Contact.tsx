@@ -65,7 +65,7 @@ export function Contact({ t, lang }: ContactProps) {
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
-        className="max-w-[1320px] mx-auto px-5 sm:px-[clamp(20px,5vw,60px)] py-10 sm:py-[clamp(40px,6vw,96px)]"
+        className="max-w-[1320px] mx-auto pl-(--gutter-x) pr-(--gutter-x-right) py-10 sm:py-[clamp(40px,6vw,96px)]"
       >
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-7 md:gap-[clamp(28px,5vw,72px)] items-end">
           <div>
@@ -119,7 +119,7 @@ export function Contact({ t, lang }: ContactProps) {
         </div>
       </m.div>
       <div className="bg-(--color-bg) py-4">
-        <div className="max-w-[1320px] mx-auto flex flex-wrap justify-between items-center gap-x-4 gap-y-2 px-5 sm:px-[clamp(20px,5vw,60px)] text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint)">
+        <div className="max-w-[1320px] mx-auto flex flex-wrap justify-between items-center gap-x-4 gap-y-2 pl-(--gutter-x) pr-(--gutter-x-right) text-[11px] font-semibold tracking-[0.1em] uppercase text-(--color-text-faint)">
           <span>© 2026 Eleonora Kupczyk</span>
           <a
             href="https://wiselab.ee/"

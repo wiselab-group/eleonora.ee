@@ -41,6 +41,18 @@
   --text-title: clamp(20px, 2.3vw, 30px);
   --text-body: clamp(15px, 1.35vw, 18px);
   --text-label: 12px;
+
+  /* Horizontal section gutter, widened by the device safe-area so content
+     clears the landscape notch/Dynamic Island on the side it falls on. */
+  --gutter-x: max(20px, env(safe-area-inset-left));
+  --gutter-x-right: max(20px, env(safe-area-inset-right));
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter-x: max(clamp(20px, 5vw, 60px), env(safe-area-inset-left));
+    --gutter-x-right: max(clamp(20px, 5vw, 60px), env(safe-area-inset-right));
+  }
 }
 
 @theme inline {
