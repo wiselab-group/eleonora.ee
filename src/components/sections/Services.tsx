@@ -81,7 +81,6 @@ export function Services({ t, lang }: ServicesProps) {
                           />
                         </div>
                       ))}
-                      <div aria-hidden="true" className="shrink-0 w-5" />
                     </div>
                     {group.id === "shoot" ? (
                       <WorkGallerySection
