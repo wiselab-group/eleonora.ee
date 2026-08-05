@@ -12,27 +12,29 @@ import { generalTelegramLink } from "@/lib/telegram";
 import { GradientText } from "@/components/ui/GradientText";
 import eleonoraPhoto from "../../../public/images/eleonora.webp";
 
-// iOS home-screen web apps don't reliably match `display-mode: standalone`
-// in a CSS media query — `navigator.standalone` is the dedicated Safari
-// API for it. Only there does `svh` leave a gap above the home indicator
-// that the app's own background peeks through, so this detection is scoped
-// to that one case rather than applied as a general safe-area fallback.
-// `navigator.standalone` can't change after load, so the subscribe callback
-// is a no-op — this just reads the external value without a render-time effect.
-function subscribeNever() {
-  return () => {};
+// `svh`/`dvh` + `env(safe-area-inset-bottom)` don't reliably add up to the
+// real screen height in iOS home-screen PWAs — the exact shortfall varies
+// by device/WebKit build, so a fixed calc() under- or over-shoots. Reading
+// `window.innerHeight` directly is the only value that always matches what's
+// actually visible, so the hero is sized from that instead of a CSS unit.
+function subscribeToViewportResize(onChange: () => void) {
+  window.addEventListener("resize", onChange);
+  window.addEventListener("orientationchange", onChange);
+  return () => {
+    window.removeEventListener("resize", onChange);
+    window.removeEventListener("orientationchange", onChange);
+  };
 }
 
-function getIsIOSStandaloneSnapshot() {
-  const nav = window.navigator as Navigator & { standalone?: boolean };
-  return nav.standalone === true;
+function getViewportHeightSnapshot() {
+  return window.innerHeight;
 }
 
-function useIsIOSStandalone() {
+function useViewportHeight() {
   return useSyncExternalStore(
-    subscribeNever,
-    getIsIOSStandaloneSnapshot,
-    () => false,
+    subscribeToViewportResize,
+    getViewportHeightSnapshot,
+    () => 0,
   );
 }
 
@@ -54,18 +56,15 @@ interface HeroProps {
 }
 
 export function Hero({ t, lang }: HeroProps) {
-  const isIOSStandalone = useIsIOSStandalone();
+  const viewportHeight = useViewportHeight();
 
   return (
     <m.section
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      className={`relative min-h-140 overflow-hidden ${
-        isIOSStandalone
-          ? "h-[calc(100svh+env(safe-area-inset-bottom))]"
-          : "h-svh"
-      }`}
+      style={viewportHeight ? { height: viewportHeight } : undefined}
+      className="relative h-svh min-h-140 overflow-hidden"
     >
       <div className="absolute inset-0">
         <m.div
