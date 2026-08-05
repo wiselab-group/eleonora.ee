@@ -39,8 +39,8 @@ export const tiles = {
 
 export const serviceImages = [
   serviceExpressShoot,
-  serviceExpertPhotoshoot,
   serviceBusinessContent,
+  serviceExpertPhotoshoot,
   serviceUgcVideo,
   serviceUgcBundle,
 ];
