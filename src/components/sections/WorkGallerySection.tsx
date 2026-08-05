@@ -26,7 +26,7 @@ export function WorkGallerySection({
     MARQUEE_SECONDS_PER_ITEM,
     MAX_TILE_PX,
   );
-  const { trackRef, interactionHandlers } = useMarqueePause();
+  const { trackRef, scrollRef, interactionHandlers } = useMarqueePause();
 
   return (
     <div className="mt-16 pt-10 border-t border-(--color-border)">
@@ -36,17 +36,18 @@ export function WorkGallerySection({
         </h4>
       </div>
       <m.div
+        ref={scrollRef}
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         variants={fadeUp}
         className="overflow-x-auto overflow-y-hidden overscroll-x-contain scrollbar-none"
+        {...interactionHandlers}
       >
         <div
           ref={trackRef}
           className="marquee-track flex w-max gap-3 pb-1"
           style={{ "--marquee-duration": duration } as React.CSSProperties}
-          {...interactionHandlers}
         >
           {[base, base].map((group, groupIndex) => (
             <div
