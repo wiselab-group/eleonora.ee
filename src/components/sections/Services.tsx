@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import {
+  Camera,
+  MessageCircle,
+  Handshake,
+  type LucideIcon,
+} from "lucide-react";
 import type { Locale, Translation } from "@/lib/i18n";
 import { ServiceCard } from "./ServiceCard";
 import { CollabPanel } from "./CollabPanel";
@@ -16,10 +22,20 @@ interface ServicesProps {
   lang: Locale;
 }
 
+const tabIcons: Record<string, LucideIcon> = {
+  shoot: Camera,
+  consult: MessageCircle,
+  collab: Handshake,
+};
+
 export function Services({ t, lang }: ServicesProps) {
   const tabs = [
-    ...t.serviceGroups.map((group) => ({ id: group.id, label: group.kicker })),
-    { id: "collab" as const, label: t.collabKicker },
+    ...t.serviceGroups.map((group) => ({
+      id: group.id,
+      label: group.kicker,
+      icon: tabIcons[group.id],
+    })),
+    { id: "collab" as const, label: t.collabKicker, icon: tabIcons.collab },
   ];
   const [active, setActive] = useState<string>(tabs[0].id);
 
