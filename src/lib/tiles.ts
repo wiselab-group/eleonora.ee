@@ -16,6 +16,16 @@ import collab1 from "../../public/images/tiles/collab-1.jpg";
 import collab2 from "../../public/images/tiles/collab-2.jpg";
 import collab3 from "../../public/images/tiles/collab-3.jpg";
 import collab4 from "../../public/images/tiles/collab-4.jpg";
+import collab5 from "../../public/images/tiles/collab-5.jpg";
+import collab6 from "../../public/images/tiles/collab-6.jpg";
+import collab7 from "../../public/images/tiles/collab-7.jpg";
+import collab8 from "../../public/images/tiles/collab-8.jpg";
+import collab9 from "../../public/images/tiles/collab-9.jpg";
+import collab10 from "../../public/images/tiles/collab-10.jpg";
+import collab11 from "../../public/images/tiles/collab-11.jpg";
+import collab12 from "../../public/images/tiles/collab-12.jpg";
+import collab13 from "../../public/images/tiles/collab-13.jpg";
+import collab14 from "../../public/images/tiles/collab-14.jpg";
 import serviceExpressShoot from "../../public/images/services/service-express-shoot.webp";
 import serviceExpertPhotoshoot from "../../public/images/services/service-expert-photoshoot.webp";
 import serviceBlogReview from "../../public/images/services/service-blog-review.webp";
@@ -89,5 +99,15 @@ export const workGallery: Record<"shoot" | "collab", WorkItem[]> = {
     instagramPost(collab2, "DYNOTzVszVm"),
     instagramPost(collab3, "DVQ6chpjPbu"),
     instagramPost(collab4, "DSiaA_jjACV"),
+    instagramPost(collab5, "DWJfU73DLgo"),
+    instagramPost(collab6, "C81rjoWNYlf"),
+    instagramPost(collab7, "C60usqFNW2O"),
+    instagramPost(collab8, "C53Eaauti29"),
+    instagramPost(collab9, "C4QsIfKNX5X"),
+    instagramPost(collab10, "C2rf853N--H"),
+    instagramPost(collab11, "CuREcVyxwRY"),
+    instagramPost(collab12, "CrYAkH2smR7"),
+    instagramPost(collab13, "CrNPb59NLTV"),
+    instagramPost(collab14, "C9z3-4-MwYn"),
   ],
 };
