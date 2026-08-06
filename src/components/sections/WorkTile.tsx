@@ -12,6 +12,7 @@ interface WorkTileProps {
   kind: "photo" | "video";
   image: StaticImageData | string;
   tabIndex?: number;
+  priority?: boolean;
 }
 
 export function WorkTile({
@@ -21,6 +22,7 @@ export function WorkTile({
   kind,
   image,
   tabIndex,
+  priority,
 }: WorkTileProps) {
   const isVideo = kind === "video";
 
@@ -40,6 +42,7 @@ export function WorkTile({
         sizes="(max-width: 640px) 46vw, 196px"
         className="object-cover transition-opacity duration-250 ease-(--ease-transition) group-hover:opacity-88"
         placeholder={typeof image === "string" ? undefined : "blur"}
+        priority={priority}
       />
 
       <m.div

@@ -64,6 +64,7 @@ export function WorkGallerySection({
                   alt={gallery.alt[index % items.length]}
                   playLabel={gallery.playLabel}
                   tabIndex={groupIndex === 1 ? -1 : undefined}
+                  priority={groupIndex === 0 && index === 0}
                 />
               ))}
             </div>
