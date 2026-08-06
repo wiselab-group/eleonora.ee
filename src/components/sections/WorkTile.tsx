@@ -31,51 +31,35 @@ export function WorkTile({
       rel="noopener noreferrer"
       tabIndex={tabIndex}
       aria-label={isVideo ? playLabel : alt}
-      className={`group relative shrink-0 overflow-hidden rounded-2xl bg-(--color-tag-bg) ${
-        isVideo
-          ? "w-[38vw] sm:w-[164px] aspect-9/16"
-          : "w-[46vw] sm:w-[196px] aspect-[4/5]"
-      }`}
+      className="group relative shrink-0 overflow-hidden rounded-2xl bg-(--color-tag-bg) w-[46vw] sm:w-49 aspect-4/5"
     >
       <Image
         src={image}
         alt={alt}
         fill
-        sizes={
-          isVideo
-            ? "(max-width: 640px) 38vw, 164px"
-            : "(max-width: 640px) 46vw, 196px"
-        }
-        className={`object-cover transition-opacity duration-250 ease-(--ease-transition) ${
-          isVideo ? "group-hover:opacity-80" : "group-hover:opacity-88"
-        }`}
+        sizes="(max-width: 640px) 46vw, 196px"
+        className="object-cover transition-opacity duration-250 ease-(--ease-transition) group-hover:opacity-88"
         placeholder={typeof image === "string" ? undefined : "blur"}
       />
 
-      {isVideo ? (
-        <>
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-(--color-primary)/55 via-transparent to-transparent"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-center opacity-90 transition-[opacity,transform] duration-250 ease-(--ease-transition) group-hover:opacity-100"
-          >
+      <m.div
+        aria-hidden="true"
+        variants={developWash}
+        className="absolute inset-0 bg-(--color-tag-bg)"
+      />
+
+      {isVideo && (
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 flex items-center justify-center opacity-90 transition-[opacity,transform] duration-250 ease-(--ease-transition) group-hover:opacity-100"
+        >
+          <span className="relative w-14 h-14 rounded-full bg-(--color-primary)/65">
             <Play
-              width={40}
-              height={40}
-              strokeWidth={2}
-              className="stroke-(--color-surface-alt) drop-shadow-[0_2px_6px_rgba(59,46,38,0.45)]"
+              className="absolute top-1/2 left-1/2 w-[52%] h-[52%] -translate-x-[45%] -translate-y-1/2 fill-(--color-surface-alt)"
+              strokeWidth={0}
             />
           </span>
-        </>
-      ) : (
-        <m.div
-          aria-hidden="true"
-          variants={developWash}
-          className="absolute inset-0 bg-(--color-tag-bg)"
-        />
+        </span>
       )}
     </m.a>
   );
