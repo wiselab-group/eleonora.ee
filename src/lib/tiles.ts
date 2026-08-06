@@ -26,6 +26,7 @@ import collab11 from "../../public/images/tiles/collab-11.jpg";
 import collab12 from "../../public/images/tiles/collab-12.jpg";
 import collab13 from "../../public/images/tiles/collab-13.jpg";
 import collab14 from "../../public/images/tiles/collab-14.jpg";
+import ugc1 from "../../public/images/tiles/ugc-1.jpg";
 import serviceExpressShoot from "../../public/images/services/service-express-shoot.webp";
 import serviceExpertPhotoshoot from "../../public/images/services/service-expert-photoshoot.webp";
 import serviceBlogReview from "../../public/images/services/service-blog-review.webp";
@@ -93,6 +94,7 @@ export const workGallery: Record<"shoot" | "collab", WorkItem[]> = {
     youtubeShort("C7OTW5h9Avk"),
     youtubeShort("GXtn6NLEiYM"),
     youtubeShort("RD6y9a7GZTk"),
+    instagramPost(ugc1, "C87Nuk9NsLq"),
   ],
   collab: [
     instagramPost(collab1, "DZ_1AGIsLTl"),

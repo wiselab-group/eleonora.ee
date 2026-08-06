@@ -202,6 +202,7 @@ const dictionaries: Record<Locale, Translation> = {
           "Превью YouTube Shorts от Eleonora Kupczyk №2",
           "Превью YouTube Shorts от Eleonora Kupczyk №3",
           "Превью YouTube Shorts от Eleonora Kupczyk №4",
+          "Девушка в белом халате читает журнал в постели с белым бельём",
         ],
       },
       collab: {
@@ -380,6 +381,7 @@ const dictionaries: Record<Locale, Translation> = {
           "YouTube Shorts preview from Eleonora Kupczyk #2",
           "YouTube Shorts preview from Eleonora Kupczyk #3",
           "YouTube Shorts preview from Eleonora Kupczyk #4",
+          "A woman in a white robe reading a magazine in bed with white linens",
         ],
       },
       collab: {
